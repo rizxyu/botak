@@ -31,7 +31,7 @@ global.APIKeys = { // APIKey Here
 // Sticker WM
 global.packname = 'i hope you\'re fine'
 global.author = '@RainBotOfficial'
-
+global.wait = `[ ❕ ] AWAIT`
 global.multiplier = 39 // The higher, The harder levelup
 
 let fs = require('fs')
