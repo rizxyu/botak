@@ -39,6 +39,9 @@ module.exports = {
             if (!isNumber(user.fortress)) user.fortress = 0
             if (!isNumber(user.troopcamp)) user.troopcamp = 0
             if (!isNumber(user.shield)) user.shield = false
+            if (!isNumber(user.pertanian)) user.pertanian = 0
+            if (!isNumber(user.tambang)) user.tambang = 0
+            
             //
             if (!isNumber(user.diamond)) user.diamond = 0
             if (!isNumber(user.iron)) user.iron = 0
@@ -306,6 +309,7 @@ module.exports = {
           if (!('delete' in chat)) chat.delete = false
           if (!('antiLink' in chat)) chat.antiLink = false
           if (!'antiToxic' in chat) chat.antiToxic = false
+          if (!'antiJawa' in chat) chat.antiJawa = false
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
@@ -317,6 +321,7 @@ module.exports = {
           delete: false,
           antiLink: false,
           antiToxic: false,
+          antiJawa: false,
         }
       } catch (e) {
         console.error(e)
@@ -571,7 +576,7 @@ module.exports = {
             } catch (e) {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
-                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+                   (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
               this.sendButtonImg(jid, text, pp, `notify`, `👋`,`bye`, null, false, {
                 contextInfo: {
                   mentionedJid: [user]
