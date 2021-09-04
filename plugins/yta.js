@@ -26,7 +26,7 @@ handler.tags = ['downloader','premium']
 handler.command = /^yt(a|mp3)$/i
 handler.owner = false
 handler.mods = false
-handler.premium = true
+handler.premium = false
 handler.group = false
 handler.private = false
 
@@ -35,7 +35,7 @@ handler.botAdmin = false
 
 handler.fail = null
 handler.exp = 0
-handler.limit = false
+handler.limit = true
 
 module.exports = handler
 
