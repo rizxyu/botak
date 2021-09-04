@@ -1,2 +1,2 @@
 web: node . --server
-start: node index
+start: npm start
