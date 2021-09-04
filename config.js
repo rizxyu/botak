@@ -3,6 +3,7 @@ global.linkGC = ['https://chat.whatsapp.com/Lb4Emjih98rBiCZiZoS2eM', 'https://ch
 global.owner = ['6282328303332','6285729191215'] // Owner
 global.mods = ['6283190403329'] // moderator
 global.prems = ['6282328303332','6285876347141','6283190403329','62895801224266','6281273157920']  //premium
+global.wait = 'Await'
 global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
@@ -31,7 +32,6 @@ global.APIKeys = { // APIKey Here
 // Sticker WM
 global.packname = 'i hope you\'re fine'
 global.author = '@RainBotOfficial'
-global.wait = `[ ❕ ] AWAIT`
 global.multiplier = 39 // The higher, The harder levelup
 
 let fs = require('fs')
