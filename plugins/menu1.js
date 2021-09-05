@@ -195,7 +195,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
 *⚙️Bot Uptime:* ${uptime} *(${muptime})*
 
-*🏆Cek Rank Kamu di ${usedPrefix: _p}Rank*
+*🏆Cek Rank Kamu di /Rank*
 
 👥Github:
 github.com/Rizxyu
