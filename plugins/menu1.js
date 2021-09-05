@@ -205,7 +205,7 @@ https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
 
 _*⛏️Bot Update setiap hari*_
 `.trim(),
-          "description": "© stikerin",
+          "description": "© stikerin X rain Xyz",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
@@ -393,7 +393,7 @@ _*⛏️Bot Update setiap hari*_
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2Button(m.chat, text.trim(), 'made with ❤️ by Rizxyu', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
+    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by Rizxyu', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
