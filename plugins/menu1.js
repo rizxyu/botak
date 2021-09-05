@@ -136,9 +136,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
   try {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
-    let { exp, limit, level, role, registered } = global.db.data.users[m.sender]
+    let { exp, limit, level, role, registered } = global.DATABASE.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
-    let name = registered ? global.db.data.users[m.sender].name : conn.getName(m.sender)
+    let name = registered ? global.DATABASE.data.users[m.sender].name : conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
@@ -173,8 +173,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     }
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
-    let totalreg = Object.keys(global.db.data.users).length
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    let totalreg = Object.keys(global.DATABASE.data.users).length
+    let rtotalreg = Object.values(global.DATABASE.data.users).filter(user => user.registered == true).length
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
         help: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
