@@ -6,8 +6,8 @@ let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 
-let handler = async (m, { conn, usedPrefix }) => {
-    let gith = 'https://github.com/Rizxyu'
+let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
+      let gith = 'https://github.com/Rizxyu'
 let fbe = 'https://www.facebook.com/profile.php?id=100064516381260'
 ///        
 const defaultMenu = {
@@ -38,8 +38,7 @@ const defaultMenu = {
 ${'```%npmdesc```'}
 `,
 }
-let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
-  let tags
+ let tags
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
