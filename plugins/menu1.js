@@ -1,15 +1,9 @@
-
 let levelling = require('../lib/levelling')
 let { MessageType } = require('@adiwajshing/baileys')
 let fs = require('fs')
 let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
-
-let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
-      let gith = 'https://github.com/Rizxyu'
-let fbe = 'https://www.facebook.com/profile.php?id=100064516381260'
-///        
 const defaultMenu = {
   before: `
 ┌─〔 %me 〕
@@ -38,7 +32,8 @@ const defaultMenu = {
 ${'```%npmdesc```'}
 `,
 }
- let tags
+let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
+  let tags
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
@@ -193,24 +188,24 @@ ${'```%npmdesc```'}
     if (teks == '404') {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
-          "title": `_👤Your Info:_
-Limit💳: %limit
-💹Level *%level (%exp / %maxexp)* [%xp4levelup]
-🎋Role: %role
+          "title": `${ucapan()}, ${name}👋🏻
+🎟️Tiket/Limit : ${limit}
+🎏Level: ${level}
+🎊Exp: ${exp}/${max}
 
-🏆untuk melihat rank kamu ${usedPrefix}rank
+*⚙️Bot Uptime:* ${uptime} *(${muptime})*
 
-⚙️Bot Runtime: %uptime
-🏮Creator : *RIZKY*
+*🏆Cek Rank Kamu di ${usedPrefix}Rank*
 
-My sosmed:
-🔸Facebook: ${fbe}
-🔸Github: ${gith}
-
-🎏Group Bot Whatsapp:
+👥Github:
+github.com/Rizxyu
+_👥Grup Bot :'
 https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
+
+
+_*⛏️Bot Update setiap hari*_
 `.trim(),
-          "description": "© stikerin x Rain Xyz",
+          "description": "© stikerin",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
