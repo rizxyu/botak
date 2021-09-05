@@ -1,5 +1,7 @@
 let limit = 30
 let { MessageType } = require('@adiwajshing/baileys')
+let { buttonsMessage, image, MimeType } = MessageType
+
 let yts = require('yt-search')
 const { servers, yta, ytv } = require('../lib/y2mate')
 let handler = async (m, { conn, command, text, isPrems, isOwner, DevMode }) => {
@@ -14,18 +16,15 @@ let handler = async (m, { conn, command, text, isPrems, isOwner, DevMode }) => {
           if (!vid) throw 'Video/Audio Tidak ditemukan'
           let { dl_link, thumb, title, filesize, filesizeF} = await (/2$/.test(command) ? ytv : yta)(vid.url, 'id4')
           let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-          conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*Source:* ${vid.url}
-*${isLimit ? 'Pakai ': ''}Link:* ${dl_link}
-`.trim(), m)
-          if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(command)), `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*Source:* ${vid.url}
-`.trim(), m)
-      } catch (e) {
+
+          let caption = `
+*🔖Title:* ${title}
+*📁Filesize:* ${filesizeF}
+*📚Source:* ${vid.url}
+*💻Server y2mate:* ${usedServer}
+  `
+          conn.send2ButtonImg(m.chat, caption, thumb, `🎵Play Music`, `Audio` ,`.yta ${vid.url}`, `Video`, `.ytv ${vid.url})
+       } catch (e) {
           console.log(e)
           m.reply('error')
           if (DevMode) {
@@ -43,7 +42,7 @@ handler.tags = ['downloader']
 handler.command = /^play2?$/i
 
 handler.exp = 0
-handler.limit = true
+handler.limit = 10
 
 module.exports = handler
 
