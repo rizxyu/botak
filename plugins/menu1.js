@@ -195,11 +195,11 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
 *⚙️Bot Uptime:* ${uptime} *(${muptime})*
 
-*🏆Cek Rank Kamu di ${usedPrefix}Rank*
+*🏆Cek Rank Kamu di ${usedPrefix: _p}Rank*
 
 👥Github:
 github.com/Rizxyu
-_👥Grup Bot :'
+_👥Grup Bot :
 https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
 
 
