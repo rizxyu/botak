@@ -1,15 +1,18 @@
+//**IRI BILANG BOSS AHAY PAPALE PAPALE PAPALE PAPALE PALE
+//BY RIZKY
+//SILAHKAN REKODE MEK
 
 let handler = async (m, { conn, usedPrefix }) => {
 
 let user = global.DATABASE.data.users[m.sender]
-let name = m.fromMe ? conn.user : conn.contacts[m.sender]
-  
+let name = conn.getName(m.sender)
+
 let caption = `
 ╭──⌠  𝒴ℴ𝓊𝓇 ℬ𝒶𝓁𝒶𝓃𝒸ℯ ⌡
 ├ _${name} Bank Account 👛_
 │
-├ *💵Balance :* ${user.money}
-├ *🪙 Koin: ${user.koin}
+*├ 💵Balance :* ${user.money}
+*├ 🪙 Koin:* ${user.koin}
 │
 ╰────────────
 
