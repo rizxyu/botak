@@ -15,8 +15,9 @@ if ( user.exp >= text) {
     user.money += hmm * text
  
     conn.sendButton(m.chat, caption, '©RainXyz','Tukar Lagi',`${usedPrefix + command} 10`
-  } else m.reply('ngadi Ngadi lu duit abis mau ditukerin apa')
-    )
+   )
+ } else m.reply('ngadi Ngadi lu duit abis mau ditukerin apa')
+    
    }
 handler.help = ['tukarmoney <jumlah>']
 handler.tags = ['xp']
