@@ -190,10 +190,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
         "listMessage": {
           "title": `${ucapan()}, ${name}👋🏻
 🎟️Tiket/Limit : ${limit}
+🪅Tole: ${role}
 🎏Level: ${level}
 🎊Exp: ${exp}/${max}
 
 *⚙️Bot Uptime:* ${uptime} *(${muptime})*
+*Deploy in Heroku*
 
 *🏆Cek Rank Kamu di /Rank*
 
@@ -203,9 +205,10 @@ _👥Grup Bot :
 https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
 
 
-_*⛏️Bot Update setiap hari*_
+_Note:_
+Database kamu tidak akan tersimpan dalam database bot!
 `.trim(),
-          "description": "© stikerin X rain Xyz",
+          "description": "©Rain Xyz",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
