@@ -24,12 +24,12 @@ let kopi = `https://api.lolhuman.xyz/api/photooxy1/coffe?apikey=${apikey}&text=$
  //FUNCTION SEND FILENYA CUK
 try {
 conn.reply( m.chat, wait, m)
-      if (/shadow/.test(command)) conn.sendFile( m.chat, res, caption, m)
-      if (/love/.test(command)) conn.sendFile( m.chat, lov, caption, m)
-     if (/woodheart/.test(command))  conn.sendFile( m.chat, wud, caption, m)
-     if (/cup/.test(command))  conn.sendFile( m.chat, cu, caption, m)
-     if (/cup2/.test(command))  conn.sendFile( m.chat, cu2, caption, m)
-     if (/coffe/.test(command)) conn.sendFile( m.chat, kopi, caption, m)
+      if (/shadow/.test(command)) else conn.sendFile( m.chat, res, 'p.jpg', caption, m)
+      if (/love/.test(command)) else conn.sendFile( m.chat, lov, 'p.jpg', caption, m)
+     if (/woodheart/.test(command))  else conn.sendFile( m.chat, wud, 'p.jpg', caption, m)
+     if (/cup/.test(command)) else  conn.sendFile( m.chat, cu, 'p.jpg', caption, m)
+     if (/cup2/.test(command))  else conn.sendFile( m.chat, cu2, 'p.jpg', caption, m)
+     if (/coffe/.test(command)) else conn.sendFile( m.chat, kopi, 'p.jpg', caption, m)
      
 } catch (e) {
    throw e
