@@ -7,7 +7,7 @@ let apikey = 'HIRO'
 if (!text) throw 'Uhmm Where Url Link?'
 
 let res = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${apikey}&url=${text}`)
-let json = await json.res()
+let json = await res.json()
 if (json.result) throw 'eror'
 
 conn.sendFile( m.chat, json.result, `link: ${text}\nUrl: ${json.result}`, m)
