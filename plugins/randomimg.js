@@ -18,7 +18,7 @@ let bt = `https://api.lolhuman.xyz/api/random/bts?apikey=${apikey}`
 let wud = `https://api.lolhuman.xyz/api/random/estetic?apikey=${apikey}`
 let cu = `https://api.lolhuman.xyz/api/random/elf?apikey=${apikey}`
 let cu2 = `https://api.lolhuman.xyz/api/random/husbu?apikey=${apikey}`
-let kopi = `https://api.lolhuman.xyz/api/random/kanna?apikey=${apikey}
+let kopi = `https://api.lolhuman.xyz/api/random/kanna?apikey=${apikey}`
 let nf = `https://api.lolhuman.xyz/api/random/nsfw/lewdanimegirls?apikey=${apikey}`
 let hf = `https://api.lolhuman.xyz/api/random/nsfw/hentai4everyone?apikey=${apikey}`
 let bj = `https://api.lolhuman.xyz/api/random/nsfw/blowjob?apikey=${apikey}`
