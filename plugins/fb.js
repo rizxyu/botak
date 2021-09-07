@@ -8,9 +8,10 @@ if (!text) throw 'Uhmm Where Url Link?'
 
 let res = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${apikey}&url=${text}`)
 let json = await res.json()
-if (json.result) throw 'eror'
+if (json.result) {
 
-conn.sendFile( m.chat, json.result, `link: ${text}\nUrl: ${json.result}`, m)
+conn.sendFile( m.chat, json.result, 'fb.mp4', `link: ${text}\nUrl: ${json.result}`, m, )
+} else throw 'eror'
 }
 handler.help = ['fb <url>']
 handler.tags = ['downloader']
