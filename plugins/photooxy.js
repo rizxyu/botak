@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 let apikey = 'HIRO'//apakah maksud cuy
 let caption = `[ ❗ ] Sudah Jadi Nih we`
 let wait = `await`
-let { a1, a2 } = text.split`|`
+let [ a1, a2 ] = text.split`|`
 
 if (!text) throw `Salah Seharusnya ${usedPrefix + command} tot`
 

@@ -25,9 +25,9 @@ let hp = `https://api.lolhuman.xyz/api/random/nsfw/hentaiparadise?apikey=${apike
  //FUNCTION SEND FILENYA CUK
 try {
 conn.reply( m.chat, wait, m)
-      if (/(cecan|cewe)/.test(command)) return conn.sendFile( m.chat, res, 'p.jpg', caption, m)
-      if (/(cogan|cowo)/.test(command)) return conn.sendFile( m.chat, lov, 'p.jpg', caption, m)
-     if (/(aesthetic|aestetik)/.test(command))  return conn.sendFile( m.chat, wud, 'p.jpg', caption, m)
+      if (/cecan|cewe/.test(command)) return conn.sendFile( m.chat, res, 'p.jpg', caption, m)
+      if (/cogan|cowo/.test(command)) return conn.sendFile( m.chat, lov, 'p.jpg', caption, m)
+     if (/aesthetic|aestetik/.test(command))  return conn.sendFile( m.chat, wud, 'p.jpg', caption, m)
      if (/elf/.test(command)) return  conn.sendFile( m.chat, cu, 'p.jpg', caption, m)
      if (/husbu/.test(command))  return conn.sendFile( m.chat, cu2, 'p.jpg', caption, m)
      if (/kanna/.test(command)) return conn.sendFile( m.chat, kopi, 'p.jpg', caption, m)
