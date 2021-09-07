@@ -8,7 +8,7 @@ let handler = async (m, { conn, args }) => {
   conn.sendFile(m.chat, json.result.url, 'pubglogo.jpg', `Nih kak`, m, false)
 }
 handler.help = ['pubglogo'].map(v => v + ' teks|teks')
-handler.tags = ['sticker']
+handler.tags = ['photooxy']
 
 handler.command = /^(pubglogo)$/i
 
