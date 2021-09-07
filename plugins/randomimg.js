@@ -32,7 +32,6 @@ conn.reply( m.chat, wait, m)
       if (/cecan/.test(command)) return conn.sendFile( m.chat, res, 'p.jpg', caption, m)
       if (/cogan/.test(command)) return conn.sendFile( m.chat, lov, 'p.jpg', caption, m)
       if (/bts/.test(command)) return conn.sendFile( m.chat, bt, 'p.jpg', caption, m)
-    
      if (/aestetik/.test(command))  return conn.sendFile( m.chat, wud, 'p.jpg', caption, m)
      if (/elf/.test(command)) return  conn.sendFile( m.chat, cu, 'p.jpg', caption, m)
      if (/husbu/.test(command))  return conn.sendFile( m.chat, cu2, 'p.jpg', caption, m)
@@ -43,7 +42,6 @@ conn.reply( m.chat, wait, m)
      if (/hparadise/.test(command)) return conn.sendFile( m.chat, hp, 'p.jpg', caption, m)
     if (/ahegao/.test(command)) return conn.sendFile( m.chat, ahe, 'p.jpg', caption, m)
     if (/futanari/.test(command)) return conn.sendFile( m.chat, futa, 'p.jpg', caption, m)
-    
 } catch (e) {
    throw e
     }
