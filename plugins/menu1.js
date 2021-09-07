@@ -35,14 +35,15 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'rpg', 'kingdom', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'photooxy', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
     'game': 'Game',
     'xp': 'Exp & Limit',
-    'sticker': 'Stiker',
     'rpg': 'Rpg',
+    'kingdom': 'Kingdom',
+    'sticker': 'Stiker',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
     'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
@@ -53,6 +54,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'nulis': 'MagerNulis & Logo',
     'downloader': 'Downloader',
     'tools': 'Tools',
+    'photooxy': 'Photooxy',
     'fun': 'Fun',
     'database': 'Database',
     'vote': 'Voting',
@@ -66,11 +68,14 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'game') tags = {
     'game': 'Game'
   }
-if (teks == 'rpg') tags = {
-    'rpg': 'Rpg'
-  }
   if (teks == 'xp') tags = {
     'xp': 'Exp & Limit'
+  }
+  if (teks == 'rpg') tags = {
+  	'rpg': 'RpG'
+  }
+  if (teks == 'kingdom') tags = {
+  	'kingdom': 'Kingdom'
   }
   if (teks == 'stiker') tags = {
     'sticker': 'Stiker'
@@ -104,6 +109,9 @@ if (teks == 'rpg') tags = {
   }
   if (teks == 'tools') tags = {
     'tools': 'Tools'
+  }
+  if (teks == 'photooxy') tags = {
+  	'photooxy': 'Photooxy'
   }
   if (teks == 'fun') tags = {
     'fun': 'Fun'
@@ -194,12 +202,10 @@ if (teks == 'rpg') tags = {
         "listMessage": {
           "title": `${ucapan()}, ${name}👋🏻
 🎟️Tiket/Limit : ${limit}
-🪅Tole: ${role}
 🎏Level: ${level}
 🎊Exp: ${exp}/${max}
 
 *⚙️Bot Uptime:* ${uptime} *(${muptime})*
-*Deploy in Heroku*
 
 *🏆Cek Rank Kamu di /Rank*
 
@@ -209,10 +215,8 @@ _👥Grup Bot :
 https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
 
 
-_Note:_
-Database kamu tidak akan tersimpan dalam database bot!
 `.trim(),
-          "description": "©Rain Xyz",
+          "description": "Rain Xyz",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
@@ -226,12 +230,22 @@ Database kamu tidak akan tersimpan dalam database bot!
                   "title": "Game",
                   "description": "",
                   "rowId": ".? game"
-
+               }, {
+                  "title": "Rpg",
+                  "description": "",
+                  "rowId": ".? rpg"
+                  }, {
+                  "title": "Kingdom",
+                  "description": "",
+                  "rowId": ".? kingdom"
                 }, {
                   "title": "XP",
                   "description": "",
                   "rowId": ".? xp"
-
+               }, {
+                  "title": "photooxy",
+                  "description": "",
+                  "rowId": ".? photooxy"
                 }, {
                   "title": "Stiker",
                   "description": "",
@@ -400,7 +414,7 @@ Database kamu tidak akan tersimpan dalam database bot!
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.send2Button(m.chat, text.trim(), 'RainXyz', 'Owner','.owner','Rank','.rank')
+    conn.reply(m.chat, text.trim(), m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
