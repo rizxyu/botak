@@ -78,6 +78,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'kingdom') tags = {
   	'kingdom': 'Kingdom'
   }
+if (teks == 'randomimage') tags = {
+  	'randomimage': 'Random image'
+  }
   if (teks == 'stiker') tags = {
     'sticker': 'Stiker'
   }
@@ -202,7 +205,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}👋🏻
-🎟️Tiket/Limit : ${limit}
+*🎟️Tiket/Limit:* ${limit}
+*🎈Role:* ${role}
 🎏Level: ${level}
 🎊Exp: ${exp}/${max}
 
@@ -215,7 +219,8 @@ github.com/Rizxyu
 _👥Grup Bot :
 https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
 
-
+_orang orang apa yg ngeselin_
+*Orang yang spam bot❗*
 `.trim(),
           "description": "Rain Xyz",
           "buttonText": "Klik Disini",
