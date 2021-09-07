@@ -1,32 +1,18 @@
-let axios = require('axios')
+let fetch = require('node-fetch')
 
 let handler = async(m, { conn, text }) => {
-    let [link, resolusi] = text.split `|`
 
-    if (!link) return conn.reply(m.chat, 'Uhm... urlnya mana?', m)
-    if (!resolusi) return conn.reply(m.chat, 'Harap memasukkan resolusi hd/sd !', m)
+let apikey = 'HIRO'
 
-    conn.reply(m.chat, 'Searching...', m)
-    new Promise((resolve, reject) => {
-        axios.get(`https://mnazria.herokuapp.com/api/fbdownloadervideo?url=` + encodeURIComponent(link))
-            .then((res) => {
-                if (resolusi == 'hd') {
-                    let dl_link = res.data.resultHD
-                } else {
-                    let dl_link = res.data.resultSD
-                }
-                conn.reply(m.chat, `*Link:* ${dl_link} \n\nfile akan segera dikirim!`, m)
-                conn.sendFile(m.chat, dl_link, 'video.mp4', `*Title:* ${text}\n*Link:* ${dl_link}`, m)
+if (!text) throw 'Uhmm Where Url Link?'
 
-            })
-            .catch(reject => {
-                conn.reply(m.chat, 'Ada yang Erorr!', m)
-            })
-    })
+let res = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${apikey}&url=${text}`)
+let json = await json.res()
+if (json.result) throw 'eror'
 
+conn.sendFile( m.chat, json.result, `link: ${text}\nUrl: ${json.result}`, m)
 }
-
-handler.help = ['fb <hd/sd|url>']
+handler.help = ['fb <url>']
 handler.tags = ['downloader']
 handler.command = /^fb$/i
 handler.owner = false
