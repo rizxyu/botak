@@ -37,7 +37,7 @@ conn.reply( m.chat, wait, m)
      if (/smoke/.test(command)) return conn.sendFile( m.chat, smk, 'p.jpg', caption, m)
      if (/undergrass/.test(command)) return conn.sendFile( m.chat, ug, 'p.jpg', caption, m)
      if (/battlefield/.test(command)) return conn.sendFile( m.chat, btlf, 'p.jpg', caption, m)
-     if (/tiktok/.test(command)) return conn.sendFile( m.chat, kopi, 'p.jpg', caption, m)
+     if (/tiktok/.test(command)) return conn.sendFile( m.chat, tok, 'p.jpg', caption, m)
 
 } catch (e) {
    throw e

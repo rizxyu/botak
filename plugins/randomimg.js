@@ -4,8 +4,7 @@
 //> w <
 const fetch = require('node-fetch')
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-
+let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 let apikey = 'HIRO'//apakah maksud cuy
 let caption = `[ ❗ ] Sudah Jadi Nih we`
@@ -25,9 +24,9 @@ let hp = `https://api.lolhuman.xyz/api/random/nsfw/hentaiparadise?apikey=${apike
  //FUNCTION SEND FILENYA CUK
 try {
 conn.reply( m.chat, wait, m)
-      if (/cecan|cewe/.test(command)) return conn.sendFile( m.chat, res, 'p.jpg', caption, m)
-      if (/cogan|cowo/.test(command)) return conn.sendFile( m.chat, lov, 'p.jpg', caption, m)
-     if (/aesthetic|aestetik/.test(command))  return conn.sendFile( m.chat, wud, 'p.jpg', caption, m)
+      if (/cecan/.test(command)) return conn.sendFile( m.chat, res, 'p.jpg', caption, m)
+      if (/cogan/.test(command)) return conn.sendFile( m.chat, lov, 'p.jpg', caption, m)
+     if (/aestetik/.test(command))  return conn.sendFile( m.chat, wud, 'p.jpg', caption, m)
      if (/elf/.test(command)) return  conn.sendFile( m.chat, cu, 'p.jpg', caption, m)
      if (/husbu/.test(command))  return conn.sendFile( m.chat, cu2, 'p.jpg', caption, m)
      if (/kanna/.test(command)) return conn.sendFile( m.chat, kopi, 'p.jpg', caption, m)
@@ -42,8 +41,8 @@ conn.reply( m.chat, wait, m)
 }
 
 handler.help = ['cogan','cecan','aesthetic','elf','husbu','kanna','hentai','blowjob','NsfwW','hfe','Hparadise']
-handler.tags = ['Random Image']
-handler.command = /^(cecan|cewe|cogan|cowo|aesthetic|estetik|elf|husbu|kanna|blowjob|nsfww|hfe|hparadise)$/i
+handler.tags = ['randomimage']
+handler.command = /^(cecan|cogan|estetik|elf|husbu|kanna|blowjob|nsfww|hfe|hparadise)$/i
 
 handler.limit = true //or false
 

@@ -35,7 +35,7 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'rpg', 'kingdom', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'photooxy', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'rpg', 'randomimage', 'kingdom', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'photooxy', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
@@ -44,6 +44,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'rpg': 'Rpg',
     'kingdom': 'Kingdom',
     'sticker': 'Stiker',
+    'randomimage': 'Random image',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
     'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
