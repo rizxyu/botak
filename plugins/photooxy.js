@@ -1,89 +1,44 @@
-let fetch = require('node-fetch')
+//OOM MAU NGAPAIN OMMM
+//> w <
+//ape lu mau hapus kredit ya
+//BY RIZKY
 
-let handler = async(m, { conn, text }) => {
-let [effect, teks] = text.split `|`
+const fetch = require('node-fetch')
 
-let listeffect = `
-*List Effect Photooxy :*
+let handler = async (m, { conn, args, usedPrefix, command }) => {
 
-smoke
-wolfmetal
-underwaterocean
-typography
-neonlight
-google
-rainbowshine
-camuflage
-3dglowing
-vintage
-candy
-gradientavatar
-glowrainbow
-stars
-fur
-flaming
-crispchrome
-kueultah
-rainbowbg
-metalicglow
-striking3d
-watermelon
-underwebmatrix
-multimaterial
-harrypotter
-8bit
-kopi2
-luxuryroyal
-gerbang
-woodblock
-smoketypography
-sweetcandy
-silk
-bevel
-partyneon
-greenleaves
-modernmetal
-lolcover
-warface
-pentakill
-aov
-battlefield
-avatarlol
-pokemon
-lolavatarglitch
-shinebannerlol
-mastery7lol
-dota2avatar
-lol
-crossfire
-glowpentakill
-warfacecover
-coveroverwatch
-lolcover2
-csgo
-lolpentakill
-`.trim()
+let apikey = 'HIRO'//BELI SENDIRI NGENTOT
 
-    if (!effect) return conn.reply(m.chat, listeffect, m)
-    if (!teks) return conn.reply(m.chat, 'Uhm... Teksnya?', m)
+let caption = `[ ❗ ] Sudah Jadi Nih we`
+try {
+      if (/shadow/.test(command)) {
+    res = `https://api.lolhuman.xyz/api/photooxy1/shadow?apikey=${apikey}&text=${args[0]}`
+     } else conn.sendFile( m.chat, res, caption, m)
+      if (/love/.test(command)) {
+    lov = `https://api.lolhuman.xyz/api/photooxy1/shadow?apikey=${apikey}&text=${args[0]}`
+     } else conn.sendFile( m.chat, lov, caption, m)
+     if (/woodheart/.test(command)) {
+     wud = `https://api.lolhuman.xyz/api/photooxy1/woodheart?apikey=${apikey}&text=${args[0]}`
+     } else conn.sendFile( m.chat, wud, caption, m)
+     if (/cup/.test(command)) {
+     	cu = `https://api.lolhuman.xyz/api/photooxy1/cup?apikey=${apikey}&text=${args[0]}`
+     } else conn.sendFile( m.chat, cu, caption, m)
+     if (/cup2/.test(command)) {
+     	cu2 = `https://api.lolhuman.xyz/api/photooxy1/cup2?apikey=${apikey}&text=${args[0]}`
+     } else conn.sendFile( m.chat, cu2, caption, m)
+     if (/coffe/.test(command)) {
+     	kopi = `https://api.lolhuman.xyz/api/photooxy1/coffe?apikey=${apikey}&text=${args[0]}`
+     	} else conn.sendFile( m.chat, kopi, caption, m)
 
-  await m.reply('Sedang membuat...')
- let hasil = await (await fetch('https://api.xteam.xyz/photooxy/' + effect + '?text=' + teks + '&APIKEY=APIKEYMU')).buffer()
- let caption = `*PHOTOOXY*\n\nEffect : ${effect}`
-
-    conn.sendFile(m.chat, hasil, 'photooxy.jpg', caption, m)
+} catch (e) {
+   throw e
+    }
 }
-handler.help = ['photooxy <effect|teks>']
-handler.tags = ['sticker']
-handler.command = /^(photooxy)$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
 
-handler.fail = null
-handler.exp = 0
-handler.limit = true
+handler.help = ['shadow','love','woodheart','cup','cup2','coffe'].map(v => v + ' [TEKS]')
+handler.tags = ['photooxy']
+handler.command = /^(shadow|love|woodheart|cup|cup2|coffe)$/i
+
+handler.limit = true //or false
 
 module.exports = handler
