@@ -10,7 +10,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${apikey}&ur
 let json = await res.json()
 if (json.result) 
 conn.sendFile( m.chat, json.result, 'fb.mp4', `*📎link:* ${text}\n====================\n*🌐Url:* ${json.result}`, m, )
-
+else throw 'Sepertinya video yg kamu berikan tidak publik atau eror'
 }
 handler.help = ['fb <url>']
 handler.tags = ['downloader']
