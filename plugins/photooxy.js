@@ -24,7 +24,7 @@ let kopi = `https://api.lolhuman.xyz/api/photooxy1/coffe?apikey=${apikey}&text=$
 let smk = `https://api.lolhuman.xyz/api/photooxy1/smoke?apikey=${apikey}&text=${text}`
 let ug = `https://api.lolhuman.xyz/api/photooxy1/undergrass?apikey=${apikey}&text=${text}`
 let btlf = `https://api.lolhuman.xyz/api/photooxy2/battlefield4?apikey=${apikey}&text1=${a1}&text2=${a2}`
-let tok = `https://api.lolhuman.xyz/api/photooxy2/battlefield4?apikey=${apikey}&text1=${a1}&text2=${a2}`
+let tok = `https://api.lolhuman.xyz/api/photooxy2/tiktok?apikey=${apikey}&text1=${a1}&text2=${a2}`
  //FUNCTION SEND FILENYA CUK
 try {
 conn.reply( m.chat, wait, m)
@@ -37,16 +37,16 @@ conn.reply( m.chat, wait, m)
      if (/smoke/.test(command)) return conn.sendFile( m.chat, smk, 'p.jpg', caption, m)
      if (/undergrass/.test(command)) return conn.sendFile( m.chat, ug, 'p.jpg', caption, m)
      if (/battlefield/.test(command)) return conn.sendFile( m.chat, btlf, 'p.jpg', caption, m)
-     if (/tiktok/.test(command)) return conn.sendFile( m.chat, tok, 'p.jpg', caption, m)
+     if (/toktik/.test(command)) return conn.sendFile( m.chat, tok, 'p.jpg', caption, m)
 
 } catch (e) {
    throw e
     }
 }
 
-handler.help = ['shadow','love','woodheart','cup','cup2','coffe','smoke','undergrass','battlefield','tiktok'].map(v => v + ' [teks]')
+handler.help = ['shadow','love','woodheart','cup','cup2','coffe','smoke','undergrass','battlefield','toktik'].map(v => v + ' [teks]')
 handler.tags = ['photooxy']
-handler.command = /^(shadow|love|woodheart|cup|cup2|coffe|smoke|undergrass|battlefield|tiktok)$/i
+handler.command = /^(shadow|love|woodheart|cup|cup2|coffe|smoke|undergrass|battlefield|toktik)$/i
 
 handler.limit = true //or false
 
