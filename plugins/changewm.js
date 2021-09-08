@@ -7,17 +7,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 let [ a1, a2 ] = text.split`|`
 
+if (text) throw 'hmmm'
+
   try {
     if (/setwm/.test(command)) {
-    if (!text) throw '.wm lord|lord'
     global.author = a1
     global.packname = a2
-    conn.sendMessage(m.chat, `Berhasil ubah menjadi ${text}`, m)
+    m.reply(`Berhasil ubah menjadi ${text}`)
     }
     if (/setbotwm/.test(command)) {
-    if (text) throw '.botwm Anjay alok'
     global.botwm = text
-    conn.sendMessage(m.chat, `Berhasil mengubah wm bot menjadi ${text}`, m)
+    m.reply(`Berhasil mengubah wm bot menjadi ${text}`)
     }
    } catch (e) {
     throw 'eror ngab'
@@ -26,7 +26,7 @@ let [ a1, a2 ] = text.split`|`
 
 handler.help = ['setbotwm <text>','setwm <text>']
 handler.tags = ['owner']
-handler.command = /^(setbotwm|setwm)/i
+handler.command = /^(setwm|setbotwm)/i
 
 handler.owner = true
 
