@@ -14,10 +14,7 @@ Ashar : ${json.result.ashr}
 Maghrib : ${json.result.magrib}
 Isya : ${json.result.isya}`
 
-if (!json.result) 
-
-conn.reply( m.chat, caption, m)
-else conn.sendButton( m.chat, 'Sepertinya ada yg eror', 'Eror404', 'Report', '.bug ayatkursi')
+if (!json.result) return conn.reply( m.chat, caption, m)
 }
 
 handler.help = ['jadwalsolat <daerah>']

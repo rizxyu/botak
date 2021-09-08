@@ -5,7 +5,7 @@ let res = await fetch(`https://api-zeeoneofc.herokuapp.com/api/muslim/ayatkursi?
 json = await res.json()
 if (!json.result.data) 
 conn.reply( m.chat, `*———[ AYAT KURSI ]———*\n\n${json.result.data}`, m)
-else throw json
+
 }
 
 handler.help = ['ayatkursi']
