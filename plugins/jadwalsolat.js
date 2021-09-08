@@ -14,7 +14,9 @@ Ashar : ${json.result.ashr}
 Maghrib : ${json.result.magrib}
 Isya : ${json.result.isya}`
 
-if (!json.result) return conn.reply( m.chat, caption, m)
+if (!json.result) throw 'eror keknya!'
+
+conn.reply( m.chat, caption, m)
 }
 
 handler.help = ['jadwalsolat <daerah>']
