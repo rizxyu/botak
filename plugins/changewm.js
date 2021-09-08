@@ -12,7 +12,7 @@ let [ a1, a2 ] = text.split`|`
     if (!text) throw '.wm lord|lord'
     global.author = a1
     global.packname = a2
-    conn.sendMessage(m.chat, `Berhasil ubah menjadi ${text}` m)
+    conn.sendMessage(m.chat, `Berhasil ubah menjadi ${text}`, m)
     }
     if (/setbotwm/.test(command)) {
     if (text) throw '.botwm Anjay alok'
