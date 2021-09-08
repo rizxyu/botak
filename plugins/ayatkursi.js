@@ -3,7 +3,7 @@ let handler = async (m, { conn, args }) => {
 
 let res = await fetch(`https://api-zeeoneofc.herokuapp.com/api/muslim/ayatkursi?apikey=Alphabot`)
 json = await res.json()
-if (!json.result.data) 
+if (!json.result.data) throw 'eror'
 conn.reply( m.chat, `*———[ AYAT KURSI ]———*\n\n${json.result.data}`, m)
 
 }
