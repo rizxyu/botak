@@ -38,7 +38,6 @@
     "@adiwajshing/baileys": "github:adiwajshing/baileys",
     "awesome-phonenumber": "^2.47.0",
     "brainly-scraper-v2": "^2.0.3",
-    "canvacord": "^5.2.3",
     "axios": "^0.21.1",
     "cfonts": "^2.9.1",
     "chalk": "^4.1.0",
