@@ -1,7 +1,7 @@
 //**by Rizxyu
 //Kok kamu wibu
 //**\\
-
+//TELKOMSEL ASU
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
