@@ -1,6 +1,6 @@
 //**by Rizxyu
 Kok kamu wibu
-***\\
+**\\
 
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
