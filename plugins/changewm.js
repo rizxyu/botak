@@ -19,7 +19,7 @@ let [ a1, a2 ] = text.split`|`
     global.botwm = text
     conn.sendMessage(m.chat, `Berhasil mengubah wm bot menjadi ${text}`, m)
     }
-   } catch(e) {
+   } catch (e) {
     throw 'eror ngab'
   }
  }
