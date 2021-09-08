@@ -15,9 +15,9 @@ m)
 
 }
 
-handler.help = ['kisahnabi <namanabi>']
+handler.help = ['bukhori <nomor>']
 handler.tags = ['quran']
-handler.command = /^(kisahnabi)$/i
+handler.command = /^(bukhori)$/i
 
 module.exports = handler
 
