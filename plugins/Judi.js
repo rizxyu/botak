@@ -1,52 +1,59 @@
-let buatall = 1
-let { MessageType } = require('@adiwajshing/baileys')
-let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
-    conn.judi = conn.judi ? conn.judi : {}
-    if (m.chat in conn.judi) return m.reply ('Masih ada yang melakukan judi disini, tunggu sampai selesai!!')
-    else conn.judi[m.chat] = true
-    try {
-        let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
-        let randomkamu = `${Math.floor(Math.random() * 81)}`.trim() //hehe Biar Susah Menang :v
-        let Aku = (randomaku * 1)
-        let Kamu = (randomkamu * 1)
-        let count = args[0]
-        count = count ? /all/i.test(count) ? Math.floor(global.DATABASE._data.users[m.sender].money / buatall) : parseInt(count) : args[0] ? parseInt(args[0]) : 1
-        count = Math.max(1, count)
-        if (args.length < 1) return conn.reply(m.chat, usedPrefix + 'judi <jumlah>\n ' + usedPrefix + 'judi 1000', m)
-        if (global.DATABASE._data.users[m.sender].money >= count * 1) {
-            global.DATABASE._data.users[m.sender].money -= count * 1
-            await m.reply('*Jangan judi gk bakal menang!!, kalau gk percaya gpp*') //Kwkwwkkwlwlw
-            if (Aku > Kamu) {
-                conn.reply(m.chat, `aku roll:${Aku}\nKamu roll: ${Kamu}\n\nkamu *Kalah*, kamu kehilangan ${count} Money`.trim(), m)
-            } else if (Aku < Kamu) {
-                global.DATABASE._data.users[m.sender].money += count * 2
-                conn.reply(m.chat, `aku roll:${Aku}\nKamu roll: ${Kamu}\n\nkamu *Menang*, kamu Mendapatkan ${count * 2} Money`.trim(), m)
-            } else {
-                global.DATABASE._data.users[m.sender].money += count * 1
-                conn.reply(m.chat, `aku roll:${Aku}\nKamu roll: ${Kamu}\n\nkamu *Seri*, kamu Mendapatkan ${count * 1} Money`.trim(), m)
-            }
-        } else conn.reply(m.chat, `uang kamu tidak cukup untuk melakukan judi sebesar ${count} Money`.trim(), m)
-    } catch (e) {
-        console.log(e)
-        m.reply('Error!!')
-        if (DevMode) {
-            for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
-                conn.sendMessage(jid, 'Judi.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
-            }
-        }
-    } finally {
-        delete conn.judi[m.chat]
-    }
-}
-    
-handler.help = ['judi <jumlah>']
-handler.tags = ['rpg']
-handler.command = /^(judi)$/i
-handler.register = true
-handler.fail = null
+let handler = m => m
 
+let levelling = require('../lib/levelling')
+const canvacord = require('canvacord')
+handler.before = async function (m) {
+        let user = global.DATABASS.data.users[m.sender]
+        let users = Object.entries(global.DATABASE.data.users).map(([key, value]) => {
+                return { ...value, jid: key }
+        })
+        let pp = './src/avatar_contact.png'
+        let who = m.sender
+        let discriminator = who.substring(9, 13)
+        let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
+        let usersLevel = sortedLevel.map(enumGetKey)
+        let { min, xp, max } = levelling.xpRange(user.level, global.multiplier)
+        try {
+                pp = await this.getProfilePicture(who)
+        } catch (e) {
+
+        } finally {
+
+                if (!user.autolevelup) return !0
+                let before = user.level * 1
+                while (levelling.canLevelUp(user.level, user.exp, global.multiplier)) user.level++
+
+                if (before !== user.level) {
+                        let rank = await new canvacord.Rank()
+                                .setRank(usersLevel.indexOf(m.sender) + 1)
+                                .setAvatar(pp)
+                                .setLevel(user.level)
+                                .setCurrentXP(user.exp - min)
+                                .setRequiredXP(xp)
+                                .setProgressBar("#f2aa4c", "COLOR")
+                                .setUsername(this.getName(who))
+                                .setDiscriminator(discriminator);
+                        rank.build()
+                                .then(async data => {
+                                        await this.sendButtonImg(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), `©Rain`, 'Daily', ',daily')
+                                })
+                }
+        }
+}
 module.exports = handler
 
-function pickRandom(list) {
-    return list[Math.floor(Math.random() * list.length)]
+function sort(property, ascending = true) {
+        if (property) return (...args) => args[ascending & 1][property] - args[!ascending & 1][property]
+        else return (...args) => args[ascending & 1] - args[!ascending & 1]
+}
+
+function toNumber(property, _default = 0) {
+        if (property) return (a, i, b) => {
+                return { ...b[i], [property]: a[property] === undefined ? _default : a[property] }
+        }
+        else return a => a === undefined ? _default : a
+}
+
+function enumGetKey(a) {
+        return a.jid
 }
