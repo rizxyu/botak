@@ -3,7 +3,6 @@ let handler = async (m, { conn, text }) => {
 
 let res = await fetch(`https://api-zeeoneofc.herokuapp.com/api/jadwalshalat?kota=${text}&apikey=Alphabot`)
 json = await res.json()
-if (!json.result) 
 
 let caption = `
 ${json.result.tanggal}
@@ -13,8 +12,10 @@ Shubuh : ${json.result.shubuh}
 Dzuhur : ${json.result.dzuhur}
 Ashar : ${json.result.ashr}
 Maghrib : ${json.result.magrib}
-Isya : ${json.result.isya}
-`
+Isya : ${json.result.isya}`
+
+if (!json.result) 
+
 conn.reply( m.chat, caption, m)
 else conn.sendButton( m.chat, 'Sepertinya ada yg eror', 'Eror404', 'Report', '.bug ayatkursi')
 }
