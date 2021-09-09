@@ -12,7 +12,7 @@ handler.before = function (m, { user, isAdmin, isBotAdmin }) {
   if (chat.antiLink && link) {
  m.reply(`*「 ANTI LINK 」*\n\nTerdeteksi *${name}* telah mengirim link group!\n\nMaaf Kamu akan dikick dari grup ini!`)
    this.groupRemove(m.chat, [m.sender])
-  }
+  } else m.reply('Member berhasil dikick')
 }
 handler.group = true
 
