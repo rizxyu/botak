@@ -1,5 +1,5 @@
 let handler = async (m, { text }) => {
-if (text) throw 'alasan afknya mana?'
+
   let user = global.DATABASE.data.users[m.sender]
   user.afk = + new Date
   user.afkReason = text
