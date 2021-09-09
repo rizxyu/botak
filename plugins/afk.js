@@ -4,7 +4,7 @@ if (text) throw 'alasan afknya mana?'
   user.afk = + new Date
   user.afkReason = text
   m.reply(`
-${conn.getName(m.sender)} is now AFK$\n*Alasan:* {text ? ': ' + text : ''}
+${conn.getName(m.sender)} is now AFK\n*Alasan:* ${text ? ': ' + text : ''}
 `)
 }
 handler.help = ['afk [alasan]']
