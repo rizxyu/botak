@@ -1,6 +1,6 @@
 let handler = m => m
 
-let linkRegex = /chat.whatsapp.com/i
+let linkRegex = /https://chat.whatsapp.com/i
 
 handler.before = function (m, { user, isAdmin, isBotAdmin }) {
 
