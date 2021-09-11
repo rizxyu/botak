@@ -1,30 +1,35 @@
 let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
+	
+	let { lastberburu, lastadventure, lastfishing } = global.DATABASE._data.users[m.sender]
+	
     let healt = global.DATABASE._data.users[m.sender].healt
-let stamina = global.DATABASE._data.users[m.sender].stamina
+    let stamina = global.DATABASE._data.users[m.sender].stamina
     let armor = global.DATABASE._data.users[m.sender].armor 
+    let sword = global.DATABASE._data.users[m.sender].sword
+    let _sword = global.DATABASE._data.users[m.sender].sworddurability
     let warn = global.DATABASE._data.users[m.sender].warn
-let pancing = global.DATABASE._data.users[m.sender].pancing
+    let pancing = global.DATABASE._data.users[m.sender].pancing
 
-let psepick = global.DATABASE._data.users[m.sender].psepick
-let psenjata = global.DATABASE._data.users[m.sender].psenjata
+    let psepick = global.DATABASE._data.users[m.sender].psepick
+    let psenjata = global.DATABASE._data.users[m.sender].psenjata
 
-let ikan = global.DATABASE._data.users[m.sender].ikan
-let nila = global.DATABASE._data.users[m.sender].nila
-let bawal= global.DATABASE._data.users[m.sender].bawal
-let lele = global.DATABASE._data.users[m.sender].lele
-let udangb= global.DATABASE._data.users[m.sender].udang
+    let ikan = global.DATABASE._data.users[m.sender].ikan
+    let nila = global.DATABASE._data.users[m.sender].nila
+    let bawal= global.DATABASE._data.users[m.sender].bawal
+    let lele = global.DATABASE._data.users[m.sender].lele
+    let udangb= global.DATABASE._data.users[m.sender].udang
 
-let apel = global.DATABASE._data.users[m.sender].apel
-let ayamg = global.DATABASE._data.users[m.sender].ayamg
-let ayamb = global.DATABASE._data.users[m.sender].ayamb
-let sapir = global.DATABASE._data.users[m.sender].sapir
-let ssapi = global.DATABASE._data.users[m.sender].ssapi
+    let apel = global.DATABASE._data.users[m.sender].apel
+    let ayamg = global.DATABASE._data.users[m.sender].ayamg
+    let ayamb = global.DATABASE._data.users[m.sender].ayamb
+    let sapir = global.DATABASE._data.users[m.sender].sapir
+    let ssapi = global.DATABASE._data.users[m.sender].ssapi
 
-   let sapi = global.DATABASE._data.users[m.sender].sapi
-let ayam = global.DATABASE._data.users[m.sender].ayam
-let babi = global.DATABASE._data.users[m.sender].babi
-let banteng = global.DATABASE._data.users[m.sender].banteng
+    let sapi = global.DATABASE._data.users[m.sender].sapi
+    let ayam = global.DATABASE._data.users[m.sender].ayam
+    let babi = global.DATABASE._data.users[m.sender].babi
+    let banteng = global.DATABASE._data.users[m.sender].banteng
     let pet = global.DATABASE._data.users[m.sender].pet
     let kucing = global.DATABASE._data.users[m.sender].kucing
     let _kucing = global.DATABASE._data.users[m.sender].anakkucing
@@ -63,12 +68,12 @@ let banteng = global.DATABASE._data.users[m.sender].banteng
     let usersuncommon = sorteduncommon.map(v => v[0])
     let usersmythic = sortedmythic.map(v => v[0])
     let userslegendary = sortedlegendary.map(v => v[0])
-    let str = `
-📥Inventory *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*\n
+    let str = `📥Inventory *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*\n
 ♥️Health: *${healt}*
 🍸Stamina: *${stamina}
 🛡️Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor' : ''}*
-⚔️Pedang:
+⚔️Pedang: ${sword == 0 ? 'Tidak sword' : '' || sword == 1 ? 'Leather sword' : '' || sword == 2 ? 'Iron sword' : '' || sword == 3 ? 'Gold sword' : '' || sword == 4 ? 'Diamond sword' : '' || sword > 0 && sword < 5 ? `Ketahanan (*${_sword}* / *${sword *100}*)` : '' || sword == 5 ? '*Netherite Sword*' : ''}
+
 🎣Pancingan: ${ pancing == 0 ? 'Tidak punya' : '' || pancing == 1 ? 'kail pancing kayu' : '' }
 
 💰Money: *${money}*
@@ -130,6 +135,14 @@ Total inv: *${diamond + potion + sampah + makananpet}* item\n
 ╭────────────────
 │🐴Kuda/horse ${kuda == 0 ? 'Tidak Punya' : '' || kuda > 0 && kuda < 5 ? `Level *${kuda}* To level *${kuda + 1}*\n│Exp *${_kuda}* -> *${kuda *100}*` : '' || kuda == 5 ? '*Max Level*' : ''}
 ╰────────────────\n\n
+
+_🔄History Activity↓_
+Last Berburu : ${lastberburu > 0 ? new Date(lastberburu) : ''}
+Last Memancing : ${lastfishing > 0 ? new Date(lastfishing) : ''}
+Last Adventure : ${lastadventure > 0 ? new Date(lastadventure) : ''}
+Last Duel :
+Last War :
+
 *🎖️achievement*
 1.Top level *${userslevel.indexOf(m.sender) + 1}* dari *${userslevel.length}*
 2.Top Money *${usersmoney.indexOf(m.sender) + 1}* dari *${usersmoney.length}*
