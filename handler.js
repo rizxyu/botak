@@ -144,7 +144,7 @@ module.exports = {
             if (!isNumber(user.makanan)) user.makanan = 0
             
             if (!isNumber(user.sword)) user.sword = 0
-            if (!isNumber(user.sworddurability)) user.sworddurability = 0
+            if (!isNumber(user.sworddurability)) user.sworddurability = 100
             if (!isNumber(user.pickaxe)) user.pickaxe = 0
             if (!isNumber(user.pickaxedurability)) user.pickaxedurability = 0
             if (!isNumber(user.fishingrod)) user.fishingrod = 0
@@ -606,7 +606,7 @@ module.exports = {
     }
   },
   async delete(m) {
- if (m.key.fromMe) return
+    if (m.key.fromMe) return
     let chat = global.DATABASE._data.chats[m.key.remoteJid]
     if (chat.delete) return
     await this.send2Button(m.key.remoteJid, `
