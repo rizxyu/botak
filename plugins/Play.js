@@ -9,6 +9,7 @@ let handler = async (m, { conn, command, text, isPrems, isOwner, DevMode }) => {
   try {
       try {
           if (!text) throw 'Cari apa?'
+          let botol = global.botwm //WATERMARK BOT
           let results = await yts(text)
           let vid = results.all.find(video => video.seconds < 3600)
           if (!vid) throw 'Video/Audio Tidak ditemukan'
