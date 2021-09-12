@@ -1,10 +1,18 @@
 let buatall = 1
 let { MessageType } = require('@adiwajshing/baileys')
-let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
+let handler = async (m, { conn, args, usedPrefix, DevMode, command }) => {
     conn.judi = conn.judi ? conn.judi : {}
     if (m.chat in conn.judi) return m.reply ('Masih ada yang melakukan judi disini, tunggu sampai selesai!!')
     else conn.judi[m.chat] = true
     try {
+     if (/judi/.test(command)) {
+    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `.judino`, m )
+   }
+   /*
+   *HMMMMM EROR G YA
+   */
+     }
+      if (/judiya/.test(command)) {
         let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
         let randomkamu = `${Math.floor(Math.random() * 81)}`.trim() //hehe Biar Susah Menang :v
         let Aku = (randomaku * 1)
@@ -15,7 +23,6 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
         if (args.length < 1) return conn.reply(m.chat, usedPrefix + 'judi <jumlah>\n ' + usedPrefix + 'judi 1000', m)
         if (global.DATABASE._data.users[m.sender].money >= count * 1) {
             global.DATABASE._data.users[m.sender].money -= count * 1
-            await m.reply('*Jangan judi gk bakal menang!!, kalau gk percaya gpp*') //Kwkwwkkwlwlw
             if (Aku > Kamu) {
                 conn.reply(m.chat, `aku roll:${Aku}\nKamu roll: ${Kamu}\n\nkamu *Kalah*, kamu kehilangan ${count} Money`.trim(), m)
             } else if (Aku < Kamu) {
@@ -26,6 +33,11 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                 conn.reply(m.chat, `aku roll:${Aku}\nKamu roll: ${Kamu}\n\nkamu *Seri*, kamu Mendapatkan ${count * 1} Money`.trim(), m)
             }
         } else conn.reply(m.chat, `uang kamu tidak cukup untuk melakukan judi sebesar ${count} Money`.trim(), m)
+     }
+    //**BATESIN AJA**//
+    if (/judino/.test(command)) {
+    conn.send2Button( m.chat, 'Kamu membatalkan judi', `${global.botwm}`, `Kembali Ke menu`, `.menu`, `Afk`, `.afk sebentar`, m)
+    }
     } catch (e) {
         console.log(e)
         m.reply('Error!!')
@@ -41,7 +53,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
     
 handler.help = ['judi <jumlah>']
 handler.tags = ['rpg']
-handler.command = /^(judi)$/i
+handler.command = /^(judi|judiya|judino)$/i
 
 handler.fail = null
 
