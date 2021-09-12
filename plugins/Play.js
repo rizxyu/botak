@@ -6,9 +6,8 @@ let { buttonsMessage, image, MimeType } = MessageType
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-try {
-    if (/play/.test(command)) {
-  if (!text) throw `uhm.. cari apa?\n\ncontoh:\n${usedPrefix + command} california`
+
+  //if (!text) throw `uhm.. cari apa?\n\ncontoh:\n${usedPrefix + command} california`
   let chat = global.DATABASE.data.chats[m.chat]
   let results = await yts(text)
   let vid = results.all.find(video => video.seconds < 3600)
@@ -36,7 +35,17 @@ try {
   if (yt === false) throw 'semua server gagal'
   if (yt2 === false) throw 'semua server gagal'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
-  await conn.send2ButtonImg(m.chat,`
+  let _thumb = {}
+    try { _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
+  catch (e) { }
+  /*
+  * Jangan Diubah y
+  * Nanti eror nangis
+  */
+try {
+    if (/play/.test(command)) {
+if (!text) throw 'cari apa?\n\nExample: .play Legend never die'
+  conn.send2ButtonImg(m.chat,`
 *Judul:* ${title}
 *Ukuran File Audio:* ${filesizeF}
 *Ukuran File Video:* ${yt2.filesizeF}
@@ -54,12 +63,8 @@ try {
         }
      }
     })
-    let _thumb = {}
-    try { _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
-  catch (e) { }
 }
 if (/aplay/.test(command)) {
-let botol = global.botwm
 m.reply(`Sabar Kang Lagi di kirim`)
 conn.sendFile(m.chat, dl_link, title + '.mp3', `
 *Title:* ${title}
@@ -69,7 +74,6 @@ conn.sendFile(m.chat, dl_link, title + '.mp3', `
 })
 }
 if (/vplay/.test(command)) {
-let botol = global.botwm
 conn.sendFile(m.chat, dl_link, title + '.mp4', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
