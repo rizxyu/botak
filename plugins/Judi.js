@@ -40,8 +40,9 @@ Wm  aja
      }
     //**BATESIN AJA**//
     if (/judino/.test(command)) {
-    conn.send2Button( m.chat, 'Kamu membatalkan judi', `${global.botwm}`, `Kembali Ke menu`, `.menu`, `Afk`, `.afk sebentar`, m)
+    conn.send2Button( m.chat, 'Kamu membatalkan judi', `${botol}`, `Kembali Ke menu`, `.menu`, `Afk`, `.afk sebentar`, m)
     }
+
     } catch (e) {
         console.log(e)
         m.reply('Error!!')
