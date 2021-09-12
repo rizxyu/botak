@@ -1,3 +1,10 @@
+/*
+* Udah ngebagusin fitur eh dicolong malah hapus Credit nya lagi hadeh
+* games-wabot × Rizxyu
+* Uh
+* Udah gitu aja
+*/
+
 let buatall = 1
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, args, usedPrefix, DevMode, command }) => {
@@ -10,13 +17,13 @@ Wm  aja
     let botol = global.botwm
     try {
      if (/judi/.test(command)) {
-    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `TIDAK`, `.judino`, m )
+    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?\n Dengan Nilai ${args[0}`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `TIDAK`, `.judino`, m )
    }
    /*
    *HMMMMM EROR G YA
    */
      
-      if (/judiya/.test(command)) {
+      if (/judya/.test(command)) {
         let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
         let randomkamu = `${Math.floor(Math.random() * 81)}`.trim() //hehe Biar Susah Menang :v
         let Aku = (randomaku * 1)
@@ -39,7 +46,7 @@ Wm  aja
         } else conn.reply(m.chat, `uang kamu tidak cukup untuk melakukan judi sebesar ${count} Money`.trim(), m)
      }
     //**BATESIN AJA**//
-    if (/judino/.test(command)) {
+    if (/judno/.test(command)) {
     conn.send2Button( m.chat, 'Kamu membatalkan judi', `${botol}`, `Kembali Ke menu`, `.menu`, `Afk`, `.afk sebentar`, m)
     }
 
@@ -58,7 +65,7 @@ Wm  aja
     
 handler.help = ['judi <jumlah>']
 handler.tags = ['rpg']
-handler.command = /^(judi|judiya|judino)$/i
+handler.command = /^(judi|judya|judno)$/i
 
 handler.fail = null
 
