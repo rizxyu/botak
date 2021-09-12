@@ -162,7 +162,7 @@ Last War :
 handler.help = ['inventory', 'inv']
 handler.tags = ['rpg']
 handler.command = /^(inv(entory)?|bal|level(ing)?|myinv|e?xp)$/i
-handler.register = true
+handler.register = false
 module.exports = handler
 
 const more = String.fromCharCode(8206)
