@@ -68,10 +68,10 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
          global.DATABASE._data.users[m.sender].lele += lele * 1
          global.DATABASE._data.users[m.sender].bawal += bawal * 1
          global.DATABASE._data.users[m.sender].udang += udang * 1
-         global.DATABASE._data.users[m.sender].lastfishing = new Date * 1
+         global.DATABASE._data.users[m.sender].lastfishing += new Date * 1
 
         	  } else m.reply(`You're already fishing, wait until ${timers}`)
-           } else conn.sendButton( m.chat, `🇬🇧EN: you don\'t have a fishing rod🎣\n🇮🇩ID: kamu tidak punya kail pancing🎣`, `Games Wa bot`, `🛒buy kail pancing`, '.beli pancing')
+           } else conn.sendButton( m.chat, `kamu tidak punya kail pancing🎣`, `Games Wa bot`, `🛒buy kail pancing`, '.beli pancing', m)
            } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
