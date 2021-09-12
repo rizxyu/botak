@@ -33,6 +33,8 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (yt === false) throw 'semua server gagal'
   if (yt2 === false) throw 'semua server gagal'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
+try {
+if (/play/.test(command)) {
   await conn.send2ButtonImg(m.chat,`
 *Judul:* ${title}
 *Ukuran File Audio:* ${filesizeF}
@@ -51,17 +53,10 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
         }
      }
     })
-    /*let _thumb = {}
+    let _thumb = {}
     try { _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
   catch (e) { }
-  */
-  /*
-  *This barrier
-  *BY RIZXYU
-  *DONT DELETE THIS CREDIT 
-  * IF YOU KONTOL
-  */
-try {
+}
 if (/aplay/.test(command)) {
 m.reply(`Sabar Kang Lagi di kirim`)
 conn.sendFile(m.chat, dl_link, title + '.mp3', `
@@ -71,7 +66,7 @@ conn.sendFile(m.chat, dl_link, title + '.mp3', `
   asDocument: chat.useDocument
 })
 }
-/*if (/vplay/.test(command)) {
+if (/vplay/.test(command)) {
 conn.sendFile(m.chat, dl_link, title + '.mp4', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
@@ -81,7 +76,7 @@ conn.sendFile(m.chat, dl_link, title + '.mp4', `
 ..._thumb,
  asDocument: chat.useDocument
 })
-}*/
+}
         } catch (e) {
 	return conn.sendButton(m.chat, `there seems to be something wrong or an error`, `${botol}`, `⚠️REPORT`, `.bug Bug di bagian Play musik`, m)
   }
