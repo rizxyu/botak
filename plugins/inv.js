@@ -137,9 +137,9 @@ Total inv: *${diamond + potion + sampah + makananpet}* item\n
 ╰────────────────\n\n
 
 _🔄History Activity↓_
-Last Berburu : ${lastberburu > 0 ? new Date(lastberburu) : ''}
-Last Memancing : ${lastfishing > 0 ? new Date(lastfishing) : ''}
-Last Adventure : ${lastadventure > 0 ? new Date(lastadventure) : ''}
+Last Berburu : ${lastberburu > 0 ? '' + new Date(lastberburu) : ''}
+Last Memancing : ${lastfishing > 0 ? '' +  new Date(lastfishing) : ''}
+Last Adventure : ${lastadventure > 0 ? '' + new Date(lastadventure) : ''}
 Last Duel :
 Last War :
 
