@@ -9,10 +9,10 @@ handler.before = function (m, { user }) {
 
 if (chat.antiToxic && grup ) {
 
-conn.sendButton( m.chat, `*[ ANTI BADWORD ]*
+conn.reply( m.chat, `*[ ANTI BADWORD ]*
 
 _JANGAN TOXIC BANG DOSA!_
-`, `${botol}`, `Astaghfirullah`, `p`, m)
+`, m)
  if (global.opts['restrict']) {
         }
     }
