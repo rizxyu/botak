@@ -35,7 +35,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   let { dl_link, thumb, title, filesize, filesizeF } = yt
 try {
 if (/play/.test(command)) {
-  await conn.send2ButtonImg(m.chat,`
+  conn.send2ButtonImg(m.chat,`
 *Judul:* ${title}
 *Ukuran File Audio:* ${filesizeF}
 *Ukuran File Video:* ${yt2.filesizeF}
