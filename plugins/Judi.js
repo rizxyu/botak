@@ -10,7 +10,7 @@ Wm  aja
     let botol = global.botwm
     try {
      if (/judi/.test(command)) {
-    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `.judino`, m )
+    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `TIDAK`, `.judino`, m )
    }
    /*
    *HMMMMM EROR G YA
