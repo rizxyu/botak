@@ -59,6 +59,7 @@ try {
   catch (e) { }
 }
 if (/aplay/.test(command)) {
+let botol = global.botwm
 m.reply(`Sabar Kang Lagi di kirim`)
 conn.sendFile(m.chat, dl_link, title + '.mp3', `
 *Title:* ${title}
@@ -68,6 +69,7 @@ conn.sendFile(m.chat, dl_link, title + '.mp3', `
 })
 }
 if (/vplay/.test(command)) {
+let botol = global.botwm
 conn.sendFile(m.chat, dl_link, title + '.mp4', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
