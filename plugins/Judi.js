@@ -4,6 +4,10 @@ let handler = async (m, { conn, args, usedPrefix, DevMode, command }) => {
     conn.judi = conn.judi ? conn.judi : {}
     if (m.chat in conn.judi) return m.reply ('Masih ada yang melakukan judi disini, tunggu sampai selesai!!')
     else conn.judi[m.chat] = true
+/*
+Wm  aja
+*/
+    let botol = global.botwm
     try {
      if (/judi/.test(command)) {
     conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `.judino`, m )
