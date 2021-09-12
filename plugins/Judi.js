@@ -6,7 +6,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode, command }) => {
     let botol = global.botwm
     try {
      if (/judi/.test(command)) {
-    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judiya ${args[0]}`, `TIDAK`, `.judino`, m )
+    conn.send2Button( m.chat, `Yakin Ingin Memainkan Judi?`, `${botol}`, `IYA`, `.judya ${args[0]}`, `TIDAK`, `.judno`, m )
    }
    /*
    *HMMMMM EROR G YA
