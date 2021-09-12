@@ -47,9 +47,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode, command }) => {
                 conn.sendMessage(jid, 'Judi.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
             }
         }
-    } /*finally {
-        delete conn.judi[m.chat]
-    }*/
+    } 
 }
     
 handler.help = ['judi <jumlah>']
