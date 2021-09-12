@@ -51,9 +51,10 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
         }
      }
     })
-    let _thumb = {}
+    /*let _thumb = {}
     try { _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
   catch (e) { }
+  */
   /*
   *This barrier
   *BY RIZXYU
@@ -70,7 +71,7 @@ conn.sendFile(m.chat, dl_link, title + '.mp3', `
   asDocument: chat.useDocument
 })
 }
-if (/vplay/.test(command)) {
+/*if (/vplay/.test(command)) {
 conn.sendFile(m.chat, dl_link, title + '.mp4', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
@@ -80,7 +81,7 @@ conn.sendFile(m.chat, dl_link, title + '.mp4', `
 ..._thumb,
  asDocument: chat.useDocument
 })
-}
+}*/
         } catch (e) {
 	return conn.sendButton(m.chat, `there seems to be something wrong or an error`, `${botol}`, `⚠️REPORT`, `.bug Bug di bagian Play musik`, m)
   }
