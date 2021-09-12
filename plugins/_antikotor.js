@@ -9,10 +9,13 @@ handler.before = function (m, { user }) {
 
 if (chat.antiToxic && grup ) {
 
-conn.reply( m.chat, `*[ ANTI BADWORD ]*
+m.reply(`*[ ANTI BADWORD ]*
 
 _JANGAN TOXIC BANG DOSA!_
-`, m)
+
+*untuk mematikan Anti toxic
+Ketik /disable antitoxic
+`)
  if (global.opts['restrict']) {
         }
     }
