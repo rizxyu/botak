@@ -18,9 +18,8 @@ let handler = async (m, { conn, command, text, isPrems, isOwner, DevMode }) => {
           conn.send2ButtonImg(m.chat,`
 *Judul:* ${title}
 *Ukuran File Audio:* ${filesizeF}
-*Ukuran File Video:* ${yt2.filesizeF}
-*Server y2mate:* ${usedServer}
-`.trim(), thumb,  `${botol}`, `🎵Audio ${filesizeF}`, `.yta ${vid.url}`, `🎥Video ${yt2.filesizeF}`, `.yt ${vid.url}`, m)
+*Ukuran File Video:* ${filesize}
+`.trim(), thumb,  `${botol}`, `🎵Audio ${filesizeF}`, `.yta ${dl_link}`, `🎥Video ${filesize}`, `.yt ${dl_link}`, m)
 
       } catch (e) {
           console.log(e)
