@@ -15,7 +15,7 @@ Wm  aja
    /*
    *HMMMMM EROR G YA
    */
-     }
+     
       if (/judiya/.test(command)) {
         let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
         let randomkamu = `${Math.floor(Math.random() * 81)}`.trim() //hehe Biar Susah Menang :v
