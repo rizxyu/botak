@@ -38,7 +38,19 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 *Ukuran File Audio:* ${filesizeF}
 *Ukuran File Video:* ${yt2.filesizeF}
 *Server y2mate:* ${usedServer}
-`.trim(), thumb,  `${botol}`, `🎵Audio ${filesizeF}`, `.yta ${vid.url}`, `🎥Video ${yt2.filesizeF}`, `.yt ${vid.url}`, m)
+`.trim(), thumb,  `${botol}`, `🎵Audio ${filesizeF}`, `.yta ${vid.url}`, `🎥Video ${yt2.filesizeF}`, `.yt ${vid.url}`, {
+    quoted: m,
+    contextInfo: {
+        externalAdReply: {
+            title: `${title}`,
+            body: `Apakah ini Benar dengan Lagu yg dicari?`,
+            description: `Apakah ini benar dengan lagu yg dicari?`,
+            mediaType: 2,
+          thumbnail: thumb,
+         mediaUrl: vid.url
+        }
+     }
+    })
 }
 handler.help = ['play'].map(v => v + ' <pencarian>')
 handler.tags = ['downloader']
