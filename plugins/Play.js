@@ -4,7 +4,10 @@ let fetch = require('node-fetch')
 let { MessageType } = require('@adiwajshing/baileys')
 let { buttonsMessage, image, MimeType } = MessageType
 
-let handler = async (m, { conn, command, text, usedPrefix }) => {
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+
+try {
+    if (/play/.test(command)) {
   if (!text) throw `uhm.. cari apa?\n\ncontoh:\n${usedPrefix + command} california`
   let chat = global.DATABASE.data.chats[m.chat]
   let results = await yts(text)
@@ -33,9 +36,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (yt === false) throw 'semua server gagal'
   if (yt2 === false) throw 'semua server gagal'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
-try {
-if (/play/.test(command)) {
-  conn.send2ButtonImg(m.chat,`
+  await conn.send2ButtonImg(m.chat,`
 *Judul:* ${title}
 *Ukuran File Audio:* ${filesizeF}
 *Ukuran File Video:* ${yt2.filesizeF}
