@@ -12,7 +12,7 @@ handler.before = m => {
         let str = `Selamat @${m.sender.split`@`[0]} Anda Naik 🧬level 
 *${before}* --> *${user.level}*
 `.trim()
-        conn.sendFile(m.chat, img, 'img.jpg', str, false, {
+        conn.sendButton(m.chat, str, `Profil`, `.inv`, m, false, {
             contextInfo: {
                 mentionedJid: [m.sender]
             }
