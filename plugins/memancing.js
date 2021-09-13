@@ -23,15 +23,15 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
            let psenjata = (_psenjata * 1)
            
         let mcng = `
-        *Your 🎣Fishing Results!*
+*Your 🎣Fishing Results!*
         
-        🐟parrot fish : ${nila}
-        🐡Pomfret : ${bawal}
-        🐟catfish : ${lele}
-        🐟 fish : ${ikan}
-        🦐 shrimp : ${udang}
-        _total fishing catch ${you}↓_
-        ${nila + bawal + ikan + lele}
+🐟Ikan nila : ${nila}
+🐡Bawal : ${bawal}
+🐟lele : ${lele}
+🐟 ikan : ${ikan}
+🦐 udang : ${udang}
+_total fishing catch ${you}↓_
+${nila + bawal + ikan + lele}
         
         you can cook it to increase stamina or blood💉
         _example:_
@@ -43,11 +43,11 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
         //
          if (psepick > 0 ) {
          	global.DATABASE._data.users[m.sender].psepick += psepick * 1
-         conn.sendButton( m.chat, `You Get 🎁chest weapons epic ${psepick} item`, `games wa bot`, `again`, `.mancing`)
+         conn.sendButton( m.chat, `You Get 🎁chest weapons epic ${psepick} item`, `games wa bot`, `again`, `.mancing`, m)
          } 
         if  (psenjata > 0 ) {
         	global.DATABASE._data.users[m.sender].psenjata+= psenjata * 1
-        conn.sendButton( m.chat, `You Get 🎁chest weapons ${psenjata} item`, `games wa bot`, `Again`, `.mancing`)
+        conn.sendButton( m.chat, `You Get 🎁chest weapons ${psenjata} item`, `games wa bot`, `Again`, `.mancing`, m)
         	}
         }, 38000)
         setTimeout(() => {
@@ -71,7 +71,7 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
          global.DATABASE._data.users[m.sender].lastfishing += new Date * 1
 
         	  } else m.reply(`You're already fishing, wait until ${timers}`)
-           } else conn.sendButton( m.chat, `kamu tidak punya kail pancing🎣`, `Games Wa bot`, `🛒buy kail pancing`, '.beli pancing', m)
+           } else conn.sendButton( m.chat, `kamu tidak punya kail pancing🎣`, `Games Wa bot`, `🛒beli pancingan`, '.beli pancing', m)
            } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
