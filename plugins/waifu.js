@@ -8,8 +8,8 @@ let handler = async(m, { conn }) => {
 }
 handler.help = ['waifu']
 handler.tags = ['internet']
-handler.register = true
-handler.limit = 5
+
+handler.limit = 1
 handler.command = /^(waifu)$/i
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler
