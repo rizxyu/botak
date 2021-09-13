@@ -1,8 +1,8 @@
 global.DeveloperMode = 'false' //true Or false
-global.linkGC = ['https://chat.whatsapp.com/Lb4Emjih98rBiCZiZoS2eM', 'https://chat.whatsapp.com/FrluVyY5kBRIhY6yKfH4DI']
-global.owner = ['6282328303332','6285729191215'] // Owner
-global.mods = ['6283190403329'] // moderator
-global.prems = ['6282328303332','6285876347141','6283190403329','62895801224266','6281273157920']  //premium
+global.linkGC = ['u', 'u']
+global.owner = ['6282328303332'] // Owner
+global.mods = ['6282328303332'] // moderator
+global.prems = ['6282328303332']  //premium
 global.wait = 'Await'
 
 global.botwm = '· Rain Xyz ·'
@@ -13,6 +13,7 @@ global.APIs = { // API Prefix
   xteam: 'https://api.xteam.xyz',
   nzcha: 'http://nzcha-apii.herokuapp.com',
   bg: 'http://bochil.ddns.net',
+  dhnjing: 'https://dhnjing.xyz',
   fdci: 'https://api.fdci.se',
   dzx: 'https://api.dhamzxploit.my.id',
   bsbt: 'https://bsbt-api-rest.herokuapp.com',
@@ -28,7 +29,7 @@ global.APIKeys = { // APIKey Here
   'https://bsbt-api-rest.herokuapp.com': 'benniismael',
   'https://api.zeks.xyz': 'apivinz',
   'https://pencarikode.xyz': 'pais',
-'https://hardianto-chan.herokuapp.com': 'hardianto',
+  'https://hardianto-chan.herokuapp.com': 'hardianto',
   'https://leyscoders-api.herokuapp.com': 'MIMINGANZ' 
 }
 
