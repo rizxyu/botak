@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
    
      
     let caption = `
-Kamu Menukarkan Exp kamu dengan Uang senilai Rp*${text * hmm}*💵`
+Kamu Menukarkan Exp kamu dengan Uang senilai Rp*${text}*💵`
 
 
 
