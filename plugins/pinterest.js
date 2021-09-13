@@ -1,6 +1,15 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) throw `uhm.. cari apa?\n\ncontoh:\n${usedPrefix + command} logo`
+  /*
+  * Bot wm
+  */
+  let botol = global.botwm
+  /*
+  * res api
+  * Json
+  * send Message button
+  */
   let res = await fetch(global.API('zeks', '/api/pinimg', {
     q: text
   }, 'apikey'))
