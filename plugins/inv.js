@@ -72,7 +72,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 ♥️Health: *${healt}*
 🍸Stamina: *${stamina}
 🛡️Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor' : ''}*
-⚔️Pedang: ${sword == 0 ? 'Tidak sword' : '' || sword == 1 ? 'Leather sword' : '' || sword == 2 ? 'Iron sword' : '' || sword == 3 ? 'Gold sword' : '' || sword == 4 ? 'Diamond sword' : '' || sword > 0 && sword < 5 ? `Ketahanan (*${_sword}* / *${sword *100}*)` : '' || sword == 5 ? '*Netherite Sword*' : ''}
+⚔️Pedang: ${sword == 0 ? 'Tidak punya' : '' || sword == 1 ? 'Leather sword' : '' || sword == 2 ? 'Iron sword' : '' || sword == 3 ? 'Gold sword' : '' || sword == 4 ? 'Diamond sword' : '' || sword > 0 && sword < 5 ? `Ketahanan (*${_sword}* / *${sword *100}*)` : '' || sword == 5 ? '*Netherite Sword*' : ''}
 
 🎣Pancingan: ${ pancing == 0 ? 'Tidak punya' : '' || pancing == 1 ? 'kail pancing kayu' : '' }
 
@@ -80,19 +80,23 @@ let handler = async (m, { conn, usedPrefix }) => {
 ✳️Level: *${level}*
 ❇️Exp: *${exp}*\n
 
+
 *🏹hasil Buruan:*
 🐔 ayam: ${ayam}
 🐄Sapi: ${sapi}
 🐖Babi: ${babi}
 🐂Banteng: ${banteng}
-🔫Total ada: ${ ayam + sapi + babi + banteng } tangkapan\n
+🔫Total ada: ${ ayam + sapi + babi + banteng } tangkapan
+Bisa kamu masak /masak ayamb
+\n
 *🍛Stok Makanan:*
 🍎 apel : ${apel}
 🍗ayam bakar: ${ayamb}
 🍖ayam goreng: ${ayamg}
 🍖Rendang Sapi : ${sapir}
 🍢steak sapi: ${ssapi}
-*Total Stok Makanan:* ${apel + ayamb + ayamg + sapir + ssapi } \n
+*Total Stok Makanan:* ${apel + ayamb + ayamg + sapir + ssapi } 
+Untuk Memakan /eat ayamb\n
 
 *🎣Tangkapan Memancing/Fishing catch:*
 🐟ikan: ${ikan}
@@ -157,7 +161,7 @@ Last War :
 ⚠️Warn: *${warn}*
 ❎Banned: *No*
 `.trim()
-    conn.sendButton(m.chat, str, `🎮Games Wa Bot`, `Back To Home`, `.menu`)
+    conn.sendButton(m.chat, str, `Bot By Rizxyu`, `Kembali`, `.menu`, m)
 }
 handler.help = ['inventory', 'inv']
 handler.tags = ['rpg']
