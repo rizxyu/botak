@@ -1,4 +1,4 @@
-let hmm = 100
+
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `_Example:_ ${usedPrefix + command} 10`
@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
    
      
     let caption = `
-Kamu Menukarkan 🎑Exp kamu dengan money senilai ${text * hmm}money💵`
+Kamu Menukarkan 🎑Exp kamu dengan money senilai ${text}money💵`
 
 
 
