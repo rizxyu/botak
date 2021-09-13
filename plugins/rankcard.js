@@ -22,6 +22,8 @@ let handler  = async (m, { conn, text }) => {
 *🎏Role :* ${role}
 *🏮Level:* ${level}
 *🎋Exp :* ${exp} --> ${max}
+
+😟DoNasi gan biar bot aktif terus
 `
 conn.sendFile(m.chat, res, 'test.jpg', caption, m, false)
      } 
