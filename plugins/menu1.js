@@ -22,6 +22,7 @@ const defaultMenu = {
 ├ Database: %rtotalreg dari %totalreg
 ├ Github:
 ├ %github
+├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
 └────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
@@ -155,6 +156,8 @@ if (teks == 'randomimage') tags = {
     let { exp, limit, level, role, registered } = global.DATABASE.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = registered ? global.DATABASE.data.users[m.sender].name : conn.getName(m.sender)
+    let user = global.DATABASE.data.users[m.sender]
+    let avtar = await conn.getProfilePicture(conn.user.jid)
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
@@ -420,7 +423,7 @@ _orang orang apa yg ngeselin_
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.reply(m.chat, text.trim(), m)
+    conn.send2ButtonImg(m.chat, text.trim(), avtar, `•Rain Xyz•`, `Owner`,`.owner`, `Donasi`, `.donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
