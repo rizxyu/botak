@@ -1,29 +1,29 @@
 let levelling = require('../lib/levelling')
-///let fetch = require('node-fetch')
-let fs = require('fs')
 
-let handler  = async (m, { conn, text }) => {
-	
-	
-      let pp = await conn.getProfilePicture(m.sender)
-let { exp, limit, level, role } = global.DATABASE.data.users[m.sender]
-let { min, xp, max } = levelling.xpRange(level, global.multiplier)
-let name = conn.getName(m.sender)
-let res = `http://hardianto-chan.herokuapp.com/api/rankcard?profile=${pp}&name=${name}&bg=https://i.ibb.co/y4S494f/wallpaper.jpg&needxp=${max}&curxp=${exp}&level=${level}&logorank=https://i.ibb.co/Wn9cvnv/FABLED.png`
-let caption = `
-*👾Your Profile!:*
-*👤Name:* ${name}
-*🎏Role :* ${role}
-*🏮Level:* ${level}
-*🎋Exp :* ${exp} --> ${max}
-`
-conn.sendFile(m.chat, res, 'test.jpg', caption, m, false)
-    
-    }
-handler.help = ['rank']
-handler.tags = ['info']
-handler.command = /^(rank|profile)$/i
+let handler = async(m) => {
+  let name = m.fromMe ? conn.user : conn.contacts[m.sender] 
+  let sortedExp = Object.entries(global.DATABASE.data.users).sort((a, b) => b[1].exp - a[1].exp)
+  let sortedLim = Object.entries(global.DATABASE.data.users).sort((a, b) => b[1].limit - a[1].limit)
+  let sortedmoney = Object.entries(global.DATABASE.data.users).sort((a, b) => b[1].money - a[1].money)
+  let sortedlevel = Object.entries(global.DATABASE.data.users).sort((a, b) => b[1].level - a[1].level)
+  let usersExp = sortedExp.map(v => v[0])
+  let usersLim = sortedLim.map(v => v[0])
+  let usersmoney = sortedmoney.map(v => v[0])
+  let userslevel = sortedlevel.map(v => v[0])
 
-handler.fail = null
+  let user = global.DATABASE.data.users[m.sender]
+  let pp = await conn.getProfilePicture(m.sender)
+  let { min, max } = levelling.xpRange(user.level, user.exp, global.multiplier)
+  let url = `https://api.lolhuman.xyz/api/rank?apikey=HIRO&img=${pp}&background=https://i.ibb.co/y4S494f/wallpaper.jpg&username=${name.notify}&level=${user.level}&ranking=${userslevel.indexOf(m.sender) + 1}&currxp=${min}&xpneed=${max}`
+  conn.sendFile(m.chat, url, "niga.jpg", "
+*Rank Profile:*
+Name: ${name}
+Level: ${user.level}
+${max} -> ${min}
+Rank: ${userslevel.indexOf(m.sender) + 1}
+", m)
+}
+
+handler.command = /^rank$/i
 
 module.exports = handler
