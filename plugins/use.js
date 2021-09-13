@@ -67,7 +67,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
 handler.help = ['use <item> <jumlah>', 'heal']
 handler.tags = ['rpg']
 handler.command = /^(use|heal)$/i
-handler.register = true
+
 module.exports = handler
 
 function pickRandom(list) {
