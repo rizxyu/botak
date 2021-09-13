@@ -18,10 +18,10 @@ let handler  = async (m, { conn, text }) => {
 *🏮Level:* ${level}
 *🎋Exp :* ${exp} --> ${max}
 
-😟DoNasi gan biar bot aktif terus
+Ketik /menu y untuk cek list menu
 `
 conn.sendFile(m.chat, res, 'test.jpg', caption, m, false)
-     } 
+
  }
 
 handler.help = ['rank']
