@@ -11,3 +11,7 @@ let handler = async ( m, { conn, command}) => {
  }
 
 module.exports = handler
+
+/**masih Projek
+*Iy
+*/
