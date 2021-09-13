@@ -86,7 +86,6 @@ ${nila + bawal + ikan + lele}
       handler.help = ['mancing','fishing']
 handler.tags = ['rpg']
 handler.command = /^(mancing|memancing|fishing)$/i 
-handler.register = true
 
 module.exports = handler
 //JANGAN DIUBAH YA YG DIBAWAH
