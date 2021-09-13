@@ -1,7 +1,7 @@
 let handler = async ( m, { conn, command}) => {
 
   try {
- if (command) {
+ switch (command) {
     case 'komk':
    m.reply('iy work')
     break
@@ -9,7 +9,5 @@ let handler = async ( m, { conn, command}) => {
     throw e 
     }
  }
-
-handler.command = /komk/i
 
 module.exports = handler
