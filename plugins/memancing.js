@@ -94,7 +94,7 @@ ${ usedPrefix }Cook catfish `
       }
       handler.help = ['mancing','fishing']
 handler.tags = ['rpg']
-handler.command = /^(mancing|memancing|fishing|fish)$/i 
+handler.command = /^(mancing|memancing|fish)$/i 
 
 module.exports = handler
 //JANGAN DIUBAH YA YG DIBAWAH
