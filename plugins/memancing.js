@@ -13,10 +13,10 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
         
         let ikan = `${Math.floor(Math.random() * 30)}`.trim() 
         let lele = `${Math.floor(Math.random() * 15)}`.trim() 
-          let nila = `${Math.floor(Math.random() * 10)}`.trim() 
-           let bawal = `${Math.floor(Math.random() * 10)}`.trim() 
-           let udang = `${Math.floor(Math.random() * 39)}`.trim()
-           
+        let nila = `${Math.floor(Math.random() * 10)}`.trim() 
+        let bawal = `${Math.floor(Math.random() * 10)}`.trim() 
+        let udang = `${Math.floor(Math.random() * 39)}`.trim()
+        let paus = `${Math.floor(Math.random() * 2)}`.trim() 
            let _psepick= `${pickRandom(['1', '0', '0', '1'])}`
             let psepick = (_psepick * 1)
             let _psenjata = `${pickRandom(['1', '0', '0', '0'])}`
@@ -30,15 +30,18 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
 🐟lele : ${lele}
 🐟 ikan : ${ikan}
 🦐 udang : ${udang}
+🐋 Paus: ${paus}
+
 _total fishing catch ${you}↓_
 ${nila + bawal + ikan + lele}
         
-        you can cook it to increase stamina or blood💉
-        _example:_
-        ${ usedPrefix }Cook catfish `//
-        
-        setTimeout(() => {
-   //                  
+you can cook it to increase stamina or blood💉
+_example:_
+${ usedPrefix }Cook catfish `
+        /*
+        * Set time out
+        */
+        setTimeout(() => {                 
         conn.reply( m.chat, mcng, m)
         //
          if (psepick > 0 ) {
@@ -85,7 +88,7 @@ ${nila + bawal + ikan + lele}
       }
       handler.help = ['mancing','fishing']
 handler.tags = ['rpg']
-handler.command = /^(mancing|memancing|fishing)$/i 
+handler.command = /^(mancing|memancing|fishing|fish)$/i 
 
 module.exports = handler
 //JANGAN DIUBAH YA YG DIBAWAH
