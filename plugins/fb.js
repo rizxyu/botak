@@ -5,10 +5,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   facebook(args[0]).then(async res => {
     let fb = JSON.stringify(res)
     let json = JSON.parse(fb)
-    // m.reply(require('util').format(json))
     if (!json.status) throw json
     await m.reply(wait)
-    await conn.sendFile(m.chat, json.data[0].url, '', '© stikerin', m)
+    await conn.sendFile(m.chat, json.data[0].url, 'fbdl.mp4', '© stikerin', m)
   }).catch(_ => _)
 }
 handler.help = ['fb'].map(v => v + ' <url>')
