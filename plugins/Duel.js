@@ -45,7 +45,7 @@ let Kamu = (randomkamu * 1)
                 conn.reply(m.chat, `${nama} Dan ${who}\n *Seri*, kamu Mendapatkan masing masing 450 Money`.trim(), m)
             }
    }
-    if (/dno/.rest(command)) {
+    if (/dno/.test(command)) {
     conn.reply( m.chat, `${who} Membatalkan Ajakan Duel`, m)
     }
        } catch (e) {
