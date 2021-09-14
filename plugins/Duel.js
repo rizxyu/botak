@@ -22,6 +22,12 @@ let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
 let Aku = (randomaku * 1)
 let Kamu = (randomkamu * 1)
 
+conn.duel = conn.duel ? conn.duel : {}
+if (m.chat in conn.duel) throw 'kamu masih ada sesi duel'
+else conn.duel[m.chat] = true
+
+
+   try {
      try {
 
    if (/duel/.test(command)) {
@@ -30,8 +36,7 @@ let Kamu = (randomkamu * 1)
            }
 
    if (/dya/.test(command)) {
-   if (!who || !args[1]) throw 'Lu siapa?\nkok ikut kut mau duel'
-   if (Aku > Kamu) {
+    if (Aku > Kamu) {
              user.money -= 900
              enemy.money += 900
                 conn.reply(m.chat, `${nama} KALAH dan ${who} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
@@ -42,7 +47,7 @@ let Kamu = (randomkamu * 1)
             } else {
                 user.money += 450
                 enemy.money += 450
-                conn.reply(m.chat, `${nama} Dan ${who}\n *Seri*, kamu Mendapatkan masing masing 450 Money`.trim(), m)
+                conn.reply(m.chat, `${nama} Dan ${who}\n *Seri* \n kamu Mendapatkan masing masing 450 Money`.trim(), m)
             }
    }
     if (/dno/.test(command)) {
@@ -51,6 +56,9 @@ let Kamu = (randomkamu * 1)
        } catch (e) {
         return conn.sendButton( m.chat, `Sepertinya ada bug`, `laporkan ke owner`, `Kanjut Badag`, `.bug eror duel`, m)
          }
+      } finally {
+         delete conn.duel[m.chat]
+     }
    }
 handler.help = ['Duel @tag <Fitur Baru>']
 handler.tags = ['rpg']
