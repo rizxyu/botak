@@ -6,9 +6,10 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
         let _timers = (3000000 - __timers) 
         let timers = clockString(_timers)
         let you = conn.getName(m.sender)
+        let user = global.DATABASE.data.users[m.sender
         
-        if (global.DATABASE.data.users[m.sender].pancing == 1 ) {
-        	if (new Date - global.DATABASE.data.users[m.sender].lastfishing > 3000000) {
+        if (global.DATABASE.data.users[m.sender].pancing > 1 ) {
+        if (new Date - global.DATABASE.data.users[m.sender].lastfishing > 3000000) {
         	
         
         let ikan = `${Math.floor(Math.random() * 30)}`.trim() 
@@ -17,6 +18,7 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
         let bawal = `${Math.floor(Math.random() * 10)}`.trim() 
         let udang = `${Math.floor(Math.random() * 39)}`.trim()
         let paus = `${Math.floor(Math.random() * 2)}`.trim() 
+        let kepiting = `${Math.floor(Math.random() * 27)}`.trim() 
            let _psepick= `${pickRandom(['1', '0', '0', '1'])}`
             let psepick = (_psepick * 1)
             let _psenjata = `${pickRandom(['1', '0', '0', '0'])}`
@@ -31,8 +33,9 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
 🐟 ikan : ${ikan}
 🦐 udang : ${udang}
 🐋 Paus: ${paus}
+🦀 Kepiting: ${kepiting}
 
-_total fishing catch ${you}↓_
+_total pancingan↓_
 ${nila + bawal + ikan + lele}
         
 you can cook it to increase stamina or blood💉
@@ -53,16 +56,17 @@ ${ usedPrefix }Cook catfish `
         conn.sendButton( m.chat, `You Get 🎁chest weapons ${psenjata} item`, `games wa bot`, `Again`, `.mancing`, m)
         	}
         }, 38000)
+
         setTimeout(() => {
                      m.reply(`*The hook is pulled by the fish, and you try to pull it*`)
                       }, 28000)
-          setTimeout(() => {
+        setTimeout(() => {
                      m.reply(`*Waiting for the fish to be hooked*`)
                       }, 18000)
-            setTimeout(() => {
+       setTimeout(() => {
                      m.reply(`*you throw a fishing hook into the river*`)
                       }, 8000)
-             setTimeout(() => {
+       setTimeout(() => {
                      m.reply(`*you go fishing🎣*`)
                       }, 0)
                       
@@ -72,6 +76,8 @@ ${ usedPrefix }Cook catfish `
          global.DATABASE._data.users[m.sender].bawal += bawal * 1
          global.DATABASE._data.users[m.sender].udang += udang * 1
          global.DATABASE._data.users[m.sender].lastfishing += new Date * 1
+         user.paus += paus * 1
+         user.kepiting += kepiting * 1
 
         	  } else m.reply(`You're already fishing, wait until ${timers}`)
            } else conn.sendButton( m.chat, `kamu tidak punya kail pancing🎣`, `Games Wa bot`, `🛒beli pancingan`, '.beli pancing', m)
