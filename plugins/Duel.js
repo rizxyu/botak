@@ -17,11 +17,6 @@ let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args
 
 let nama = conn.getName(m.sender)
 
-let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
-let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
-let Aku = (randomaku * 1)
-let Kamu = (randomkamu * 1)
-
 conn.duel = conn.duel ? conn.duel : {}
 if (m.chat in conn.duel) throw 'kamu masih ada sesi duel'
 else conn.duel[m.chat] = true
@@ -36,22 +31,26 @@ else conn.duel[m.chat] = true
            }
 
    if (/dya/.test(command)) {
+    let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
+    let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
+    let Aku = (randomaku * 1)
+    let Kamu = (randomkamu * 1)
     if (Aku > Kamu) {
              user.money -= 900
              enemy.money += 900
-                conn.reply(m.chat, `${nama} KALAH dan ${who} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
+                conn.reply(m.chat, `${nama} KALAH dan ${args[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
             } else if (Aku < Kamu) {
                 user.money += 900
                 enemy.money -= 900
-                conn.reply(m.chat, `${nama} MENANG🎉 dan ${who} kalah\n*Hadiah:*\n 900 money`.trim(), m)
+                conn.reply(m.chat, `${nama} MENANG🎉 dan ${args[0]} kalah\n*Hadiah:*\n 900 money`.trim(), m)
             } else {
                 user.money += 450
                 enemy.money += 450
-                conn.reply(m.chat, `${nama} Dan ${who}\n *Seri* \n kamu Mendapatkan masing masing 450 Money`.trim(), m)
+                conn.reply(m.chat, `${nama} Dan ${args[0]}\n *Seri* \n kamu Mendapatkan masing masing 450 Money`.trim(), m)
             }
    }
     if (/dno/.test(command)) {
-    conn.reply( m.chat, `${who} Membatalkan Ajakan Duel`, m)
+    conn.reply( m.chat, `${args[0]} Membatalkan Ajakan Duel`, m)
     }
        } catch (e) {
         return conn.sendButton( m.chat, `Sepertinya ada bug`, `laporkan ke owner`, `Kanjut Badag`, `.bug eror duel`, m)
