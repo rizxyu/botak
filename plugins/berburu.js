@@ -29,19 +29,26 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
             ///HEWAN YG BERHASIL DIBURU\\
           let sapi = `${Math.floor(Math.random() * 20)}`.trim() 
         let babi = `${Math.floor(Math.random() * 15)}`.trim() 
-          let ayam = `${Math.floor(Math.random() * 25)}`.trim() 
-           let banteng = `${Math.floor(Math.random() * 30)}`.trim() 
+        let ayam = `${Math.floor(Math.random() * 25)}`.trim() 
+        let banteng = `${Math.floor(Math.random() * 30)}`.trim() 
+        let unta = `${Math.floor(Math.random() * 39)}`.trim() 
+        let keledai = `${Math.floor(Math.random() * 44)}`.trim() 
+        let domba = `${Math.floor(Math.random() * 60)}`.trim() 
+        let kambing = `${Math.floor(Math.random() * 50)}`.trim() 
             ///m.reply(`Sedang Berburu.....`)
            let ber = `Nyawamu yg berkurang *-${healt * 1}* Akibat Diserang hewan ataupun terjatuh
 Stamina mu juga berkurang -${stamina}
 
 _Hewan yang kamu berhasil diburu:_
-🐄Sapi: ${sapi}
-🐖Babi: ${babi}
+🐄Sapi: ${sapi}      🐑domba:${domba}
+🐖Babi: ${babi}      🐑Kambing ${kambing}
 🐓Ayam: ${ayam}
-🐂 Banteng: ${banteng}`.trim()
+🐂Banteng: ${banteng}
+🐪Unta: ${unta}
+🐪Keledai: ${keledai}
+`.trim()
 setTimeout(() => {
-conn.send2Button( m.chat, ber, `Games Rpg`, 'Again', '.berburu', 'Back', '.gmenu')
+conn.send2Button( m.chat, ber, `Games Rpg`, 'Again', '.berburu', 'inventory', '.inv', m)
 }, 23000) 
 
                      setTimeout(() => {
@@ -83,7 +90,7 @@ conn.send2Button( m.chat, ber, `Games Rpg`, 'Again', '.berburu', 'Back', '.gmenu
 }
 handler.help = ['berburu']
 handler.tags = ['rpg']
-handler.command = /^berburu$/i 
+handler.command = /^(berburu|buru)$/i 
 handler.register = true
 module.exports = handler
 //JANGAN DIUBAH YA YG DIBAWAH
