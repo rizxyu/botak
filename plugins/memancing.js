@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
         let _timers = (3000000 - __timers) 
         let timers = clockString(_timers)
         let you = conn.getName(m.sender)
-        let user = global.DATABASE.data.users[m.sender
+        let user = global.DATABASE.data.users[m.sender]
         
         if (global.DATABASE.data.users[m.sender].pancing > 1 ) {
         if (new Date - global.DATABASE.data.users[m.sender].lastfishing > 3000000) {
@@ -40,13 +40,9 @@ ${nila + bawal + ikan + lele}
         
 you can cook it to increase stamina or blood💉
 _example:_
-${ usedPrefix }Cook catfish `
-        /*
-        * Set time out
-        */
+${ usedPrefix }Cook catfish `    
         setTimeout(() => {                 
         conn.reply( m.chat, mcng, m)
-        //
          if (psepick > 0 ) {
          	global.DATABASE._data.users[m.sender].psepick += psepick * 1
          conn.sendButton( m.chat, `You Get 🎁chest weapons epic ${psepick} item`, `games wa bot`, `again`, `.mancing`, m)
