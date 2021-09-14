@@ -22,7 +22,7 @@ ${caption}
 }
 handler.help = ['ig'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.limit = 10
+handler.limit = 1
 handler.register = true
 handler.command = /^(ig(dl)?)$/i
 
