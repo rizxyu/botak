@@ -114,7 +114,7 @@ module.exports = {
      if (!isNumber(user.ikan)) user.ikan = 0
      if (!isNumber(user.orca)) user.orca = 0
         
-        if (!isNumber(user.banteng)) user.banteng = 0
+     if (!isNumber(user.banteng)) user.banteng = 0
      if (!isNumber(user.harimau)) user.harimau = 0
      if (!isNumber(user.gajah)) user.gajah = 0
      if (!isNumber(user.kambing)) user.kambing = 0
@@ -126,6 +126,10 @@ module.exports = {
      if (!isNumber(user.babihutan)) user.babihutan = 0
      if (!isNumber(user.babi)) user.babi = 0
      if (!isNumber(user.ayam)) user.ayam = 0
+     if (!isNumber(user.rusa)) user.rusa = 0
+     if (!isNumber(user.keledai)) user.keledai = 0
+     if (!isNumber(user.beruang)) user.beruang = 0
+     if (!isNumber(user.unta)) user.unta = 0
      //
       if (!isNumber(user.lastberbru)) user.lastberbru = 0
             if (!isNumber(user.anakkucing)) user.anakkucing = 0
