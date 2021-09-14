@@ -1,7 +1,7 @@
 const fbdl = require("fbdl-core");
 const fs = require('fs')
 const { MessageType } = require('@adiwajshing/baileys')
-const { getBuffer } = require('./lib/functions.js')
+const getBuffer = require('./lib/functions.js')
 
 let handler = async ( m, { conn, command}) => {
 
