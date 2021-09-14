@@ -19,7 +19,7 @@ let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args
    if (!who || !args[0]) return m.reply('tag yg ingin di ajak duel!')
    conn.send2Button( m.chat, ` @${m.sender.replace(/@.+/, '')} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `.dya`, `No`, `.dno`, m, false, {
     contextInfo: {
-      mentionedJid: conn.parseMention(text)
+      mentionedJid: conn.parseMention(args)
     }
   })
            }
