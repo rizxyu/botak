@@ -16,14 +16,13 @@ const defaultMenu = {
 │ 
 ├ Tanggal: *%week %weton, %date*
 ├ Tanggal Islam: *%dateIslamic*
-├ Waktu: *%time*
+├ Waktu: *%jam* WIB
 │
 ├ Uptime: *%uptime (%muptime)*
 ├ Database: %rtotalreg dari %totalreg
-├ Github:
-├ %github
-├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
-└────
+╰┬──────────────★᭄ꦿ᭄ꦿ
+ ├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
+ └────────────────────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
   body: '├ %cmd %islimit %isPremium',
@@ -156,8 +155,10 @@ if (teks == 'randomimage') tags = {
     let { exp, limit, level, role, registered } = global.DATABASE.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = registered ? global.DATABASE.data.users[m.sender].name : conn.getName(m.sender)
-    //let user = global.DATABASE.data.users[m.sender]
-    //let avtar = await conn.getProfilePicture(conn.user.jid)
+    //Module Jam
+    let jam = moment.tz('Asia/Jakarta').format('HH:mm')
+    let wita = moment.tz('Asia/Makassar').format("HH:mm:ss")
+    let wit = moment.tz('Asia/Jayapura').format("HH:mm:ss")
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
@@ -207,23 +208,20 @@ if (teks == 'randomimage') tags = {
     if (teks == '404') {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
-          "title": `${ucapan()}, ${name}👋🏻
-*🎟️Tiket/Limit:* ${limit}
-*🎈Role:* ${role}
-🎏Level: ${level}
-🎊Exp: ${exp}/${max}
+          "title": `
+╭────⌠ 𝐲𝐨𝐮𝐫 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 ⌡
+│
+├ ${ucapan()}, ${name}👋🏻
+*├ Tiket/Limit:* ${limit}
+*├ Role:* ${role}
+├ Level: ${level}
+├ Exp: ${exp}/${max}
+╰┬────────────★᭄ꦿ᭄ꦿ
+ ├ Bot Uptime:* ${uptime} 
+ ├ *(${muptime})*
+ ╰───────────────★᭄ꦿ᭄ꦿ
 
-*⚙️Bot Uptime:* ${uptime} *(${muptime})*
-
-*🏆Cek Rank Kamu di /Rank*
-
-👥Github:
-github.com/Rizxyu
-_👥Grup Bot :
-https://chat.whatsapp.com/CkNED9yeZf82XnVMzRMVRU
-
-_orang orang apa yg ngeselin_
-*Orang yang spam bot❗*
+Is now ${jam} WIB
 `.trim(),
           "description": "Rain Xyz",
           "buttonText": "Klik Disini",
@@ -419,7 +417,7 @@ _orang orang apa yg ngeselin_
       totalexp: exp,
       xp4levelup: max - exp <= 0 ? `Siap untuk *${_p}levelup*` : `${max - exp} XP lagi untuk levelup`,
       github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
-      level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+      level, limit, name, jam, wit, wita, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
