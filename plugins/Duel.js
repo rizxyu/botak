@@ -1,6 +1,7 @@
 /*
 * By Rizxyu
 * Terimakasih udah support saya bang
+* Fitur Beta
 */
 
 const { MessageType } = require('@adiwajshing/baileys')
