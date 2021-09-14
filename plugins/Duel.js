@@ -53,7 +53,7 @@ else conn.duel[m.chat] = true
     conn.reply( m.chat, `${args[0]} Membatalkan Ajakan Duel`, m)
     }
        } catch (e) {
-        return conn.sendButton( m.chat, `Sepertinya ada bug`, `laporkan ke owner`, `Kanjut Badag`, `.bug eror duel`, m)
+        return throw e 
          }
       } finally {
          delete conn.duel[m.chat]
