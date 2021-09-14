@@ -16,6 +16,8 @@ let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args
 
 let nama = conn.getName(m.sender)
 
+let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
+let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
 let Aku = (randomaku * 1)
 let Kamu = (randomkamu * 1)
 
@@ -49,7 +51,7 @@ let Kamu = (randomkamu * 1)
         return conn.sendButton( m.chat, `Sepertinya ada bug`, `laporkan ke owner`, `Kanjut Badag`, `.bug eror duel`, m)
          }
    }
-
+handler.help = ['Duel @tag <Fitur Baru>']
 handler.tags = ['rpg']
 handler.command = /^(duel|dya|dno)/i
 
