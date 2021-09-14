@@ -10,12 +10,14 @@ Please choose what to cook🍳
 🍖 ⟩ ${usedPrefix}ayamb *[ to cook grilled chicken ]*
 🍗 ⟩ ${usedPrefix}ayamg *[ to cook fried chicken]*
 🍣${usedPrefix}leleg
-🍣${usedPrefix}leleb
+🍣${usedPrefix}leleb *[ lele bakar ]*
 🍖${usedPrefix}sapir
 🍖${usedPrefix}ssapi [ to cook beef steak ]
 
 typing command↓
-${usedPrefix + command }sapir
+${usedPrefix + command } sapir
+
+Untuk makan ${usedPrefix}eat ayamg
 `
 
 try {
@@ -63,8 +65,16 @@ break
                             conn.reply(m.chat, `Succes memmasak ${ count } lele bakar🐟`, m)
                        } else conn.reply(m.chat, `Stok buruan mu tidak cukup untuk dimasak`, m)
 break
+             case 'ssapi':
+            if (global.DATABASE._data.users[m.sender].sapi >= count * 1) {
+                            global.DATABASE._data.users[m.sender].sapi >= count * 1///DONT DELETE THIS
+                            global.DATABASE._data.users[m.sender].sapi -= count * 1
+                            global.DATABASE._data.users[m.sender].ssapi += count * 1
+                            conn.reply(m.chat, `Succes memmasak ${ count } steak sapi`, m)
+                       } else conn.reply(m.chat, `Stok buruan mu tidak cukup untuk dimasak`, m)
+break
                 default:
-                    return conn.sendButton( m.chat, cok, `🎮Games Bot wa`, `Ok`, `ok`)
+                    return conn.sendButton( m.chat, cok, `🎮Games Bot wa`, `Makan`, `.eat ayamb 1`)
             }
         }
     } catch (e) {
