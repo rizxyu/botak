@@ -1,31 +1,19 @@
-let fetch = require('node-fetch')
-
-let handler = async(m, { conn, text }) => {
-
-let apikey = 'HIRO'
-
-if (!text) throw 'Uhmm Where Url Link?'
-
-let res = await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${apikey}&url=${text}`)
-let json = await res.json()
-if (json.result) 
-conn.sendFile( m.chat, json.result, 'fb.mp4', `*📎link:* ${text}\n====================\n*🌐Url:* ${json.result}`, m, )
-else throw 'Sepertinya video yg kamu berikan tidak publik atau eror'
+const { facebook } = require('../lib/facebook')
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+  if (!args[0]) throw `uhm.. url nya mana?\n\ncontoh:\n${usedPrefix + command} https://www.facebook.com/alanwalkermusic/videos/277641643524720`
+  if (!args[0].match(/https:\/\/.*(facebook.com|fb.watch)/gi)) throw `url salah`
+  facebook(args[0]).then(async res => {
+    let fb = JSON.stringify(res)
+    let json = JSON.parse(fb)
+    // m.reply(require('util').format(json))
+    if (!json.status) throw json
+    await m.reply(wait)
+    await conn.sendFile(m.chat, json.data[0].url, '', '© stikerin', m)
+  }).catch(_ => _)
 }
-handler.help = ['fb <url>']
+handler.help = ['fb'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.command = /^fb$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
 
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
-handler.exp = 0
-handler.limit = true
+handler.command = /^f((b|acebook)(dl|download)?(er)?)$/i
 
 module.exports = handler
