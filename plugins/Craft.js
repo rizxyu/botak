@@ -11,9 +11,9 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let type = (args[0] || '').toLowerCase()
   let _type = (args[0] || '').toLowerCase()
   let user = global.DATABASE.data.users[m.sender]
-  global.DATABASE.data.users[m.sender].pickaxe = global.DATABASE.data.users[m.sender].pickaxe || 0
-  global.DATABASE.data.users[m.sender].pedang = global.DATABASE.data.users[m.sender].pedang || 0
-  global.DATABASE.data.users[m.sender].pancing = global.DATABASE.data.users[m.sender].pancing || 0
+  //global.DATABASE.data.users[m.sender].pickaxe = global.DATABASE.data.users[m.sender].pickaxe || 0
+  //global.DATABASE.data.users[m.sender].pedang = global.DATABASE.data.users[m.sender].pedang || 0
+  //global.DATABASE.data.users[m.sender].pancing = global.DATABASE.data.users[m.sender].pancing || 0
   
   let caption = `
 💠Crafting : 
