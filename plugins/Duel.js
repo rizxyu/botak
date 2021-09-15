@@ -46,7 +46,7 @@ let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
     conn.reply( m.chat, `${args[0]} Membatalkan Ajakan Duel`, m)
     }
        } catch (e) {
-        return m.reply(`${e} `)
+        return m.reply("Error" + err.stack )
          }
    }
 handler.help = ['Duel @tag <Fitur Baru>']
