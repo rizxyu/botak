@@ -74,7 +74,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let str = `📥Inventory *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*\n
 ♥️Health: *${healt}*
 🍸Stamina: *${stamina}
-🛡️Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor' : ''}*
+🥋Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor' : ''}*
 ⚔️Pedang: ${sword == 0 ? 'Tidak punya' : '' || sword == 1 ? 'Leather sword' : '' || sword == 2 ? 'Iron sword' : '' || sword == 3 ? 'Gold sword' : '' || sword == 4 ? 'Diamond sword' : '' || sword > 0 && sword < 5 ? `Ketahanan (*${_sword}* / *${sword *100}*)` : '' || sword == 5 ? '*Netherite Sword*' : ''}
 
 🎣Pancingan: ${ pancing == 0 ? 'Tidak punya' : '' || pancing == 1 ? 'kail pancing kayu' : '' }
@@ -147,11 +147,11 @@ Total inv: *${diamond + potion + sampah + makananpet}* item\n
 ╰────────────────\n\n
 
 _🔄Cooldown↓_
-Last Berburu : ${lastberburu > 0 ? '✅' + new Date(lastberburu) : ''}
-Last Memancing : ${lastfishing > 0 ? '✅' +  new Date(lastfishing) : ''}
-Last Adventure : ${lastadventure > 0 ? '✅' + new Date(lastadventure) : ''}
-Last Duel : ${lastduel > 0 ? '✅' + new Date(lastduel) : ''}
-Last War : ${lastwar > 0 ? '✅' + new Date(lastwar) : ''}
+Last Berburu : ${lastberburu > 0 ? '❌' + new Date(lastberburu) : '✅'}
+Last Memancing : ${lastfishing > 0 ? '❌' +  new Date(lastfishing) : '✅'}
+Last Adventure : ${lastadventure > 0 ? '❌' + new Date(lastadventure) : '✅'}
+Last Duel : ${lastduel > 0 ? '❌' + new Date(lastduel) : '✅'}
+Last War : ${lastwar > 0 ? '❌' + new Date(lastwar) : '✅'}
 
 *🎖️achievement*
 1.Top 🏆level *${userslevel.indexOf(m.sender) + 1}* dari *${userslevel.length}*
