@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix, owner }) => {
         let you = conn.getName(m.sender)
         let user = global.DATABASE.data.users[m.sender]
         
-        if (global.DATABASE.data.users[m.sender].pancing > 1 ) {
+        if (global.DATABASE.data.users[m.sender].pancing > 0 ) {
         if (new Date - global.DATABASE.data.users[m.sender].lastfishing > 3000000) {
         	
         
