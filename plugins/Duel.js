@@ -32,7 +32,7 @@ let handler = async ( m, { conn, args, command}) => {
      if (Aku > Kamu) {
        user.money -= 900
        enemy.money += 900
-       conn.reply(m.chat, `@${m.sender.split("@")[0]} KALAH dan @${who.split("@")[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
+       conn.reply(m.chat, `@${.split("@")[0]} KALAH dan @${who.split("@")[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
      } else if (Aku < Kamu) {
        user.money += 900
        enemy.money -= 900
@@ -44,6 +44,8 @@ let handler = async ( m, { conn, args, command}) => {
      }
    }
    if (/dno/.test(command)) {
+    if(kenal) throw 'maaf y gan btw Lu siapa?\nkok ikut kut mau duel'
+    
      conn.reply( m.chat, `@${who.split("@")[0]} Membatalkan Ajakan Duel`, m)
    }
  } catch (e) {
