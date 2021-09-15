@@ -1,7 +1,7 @@
 let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
 	
-	let { lastberburu, lastadventure, lastfishing, lastwar, lastduel } = global.DATABASE._data.users[m.sender]
+	let { lastberburu, lastadventure, lastfishing, lastwar, lastduel, lastmining, lastdungeon, lastclaim, lastweekly, lastmonthly } = global.DATABASE._data.users[m.sender]
 	
     let healt = global.DATABASE._data.users[m.sender].healt
     let stamina = global.DATABASE._data.users[m.sender].stamina
@@ -10,6 +10,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let _sword = global.DATABASE._data.users[m.sender].sworddurability
     let warn = global.DATABASE._data.users[m.sender].warn
     let pancing = global.DATABASE._data.users[m.sender].pancing
+    let pickaxe = global.DATABASE._data.users[m.sender].pickaxe
 
     let psepick = global.DATABASE._data.users[m.sender].psepick
     let psenjata = global.DATABASE._data.users[m.sender].psenjata
@@ -50,6 +51,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let level = global.DATABASE._data.users[m.sender].level
     let money = global.DATABASE._data.users[m.sender].money
     let exp = global.DATABASE._data.users[m.sender].exp
+    let limit = global.DATABASE._data.users[m.sender].limit
     let sampah = global.DATABASE._data.users[m.sender].sampah
     let { max } = levelling.xpRange(level, exp, global.multiplier)
     let name = m.fromMe ? conn.user : conn.contacts[m.sender]
@@ -75,31 +77,22 @@ let handler = async (m, { conn, usedPrefix }) => {
 ♥️Health: *${healt}*
 🍸Stamina: *${stamina}
 🥋Armor: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor' : ''}*
-⚔️Pedang: ${sword == 0 ? 'Tidak punya' : '' || sword == 1 ? 'Leather sword' : '' || sword == 2 ? 'Iron sword' : '' || sword == 3 ? 'Gold sword' : '' || sword == 4 ? 'Diamond sword' : '' || sword > 0 && sword < 5 ? `Ketahanan (*${_sword}* / *${sword *100}*)` : '' || sword == 5 ? '*Netherite Sword*' : ''}
-
+⚔️Pedang: ${sword == 0 ? 'Tidak punya' : '' || sword == 1 ? 'wood sword' : '' || sword == 2 ? 'Iron sword' : '' || sword == 3 ? 'Gold sword' : '' || sword == 4 ? 'Diamond sword' : '' || sword > 0 && sword < 5 ? `Ketahanan (*${_sword}* / *${sword *100}*)` : '' || sword == 5 ? '*Netherite Sword*' : ''}
+⛏️Pickaxe: *${pickaxe == 0 ? 'Tidak Punya' : '' || pickaxe == 1 ? 'wood Armor' : '' || pickaxe == 2 ? 'Iron pickaxe' : '' || pickaxe == 3 ? 'Gold pickaxe' : '' || pickaxe == 4 ? 'Diamond pickaxe' : '' || pickaxe == 5 ? 'Netherite pickaxe' : ''}*
 🎣Pancingan: ${ pancing == 0 ? 'Tidak punya' : '' || pancing == 1 ? 'kail pancing kayu' : '' }
 
 💰Money: *${money}*
 ✳️Level: *${level}*
-❇️Exp: *${exp}*\n
+❇️Exp: *${exp}*
+🎟️Limit: ${limit}
 
-
-*🏹hasil Buruan:*
+*🏹hewan dikandang:*
 🐔 ayam: ${ayam}
 🐄Sapi: ${sapi}
 🐖Babi: ${babi}
 🐂Banteng: ${banteng}
 🔫Total ada: ${ ayam + sapi + babi + banteng } tangkapan
 Bisa kamu masak /masak ayamb
-\n
-*🍛Stok Makanan:*
-🍎 apel : ${apel}
-🍗ayam bakar: ${ayamb}
-🍖ayam goreng: ${ayamg}
-🍖Rendang Sapi : ${sapir}
-🍢steak sapi: ${ssapi}
-*Total Stok Makanan:* ${apel + ayamb + ayamg + sapir + ssapi } 
-Untuk Memakan /eat ayamb\n
 
 *🎣Tangkapan Memancing/Fishing catch:*
 🐟ikan: ${ikan}
@@ -107,7 +100,8 @@ Untuk Memakan /eat ayamb\n
 🐡bawal: ${bawal}
 🐟Nila: ${nila}\n
 _🕸️Total Item:_
-${nila + bawal + ikan + lele + psepick + psenjata }\n\n
+${nila + bawal + ikan + lele + psepick + psenjata }
+
 *🎒Inventory*
 💎Diamond: *${diamond}*
 💊Potion: *${potion}*
@@ -117,8 +111,13 @@ ${nila + bawal + ikan + lele + psepick + psenjata }\n\n
 🕸️String: ${string}
 🪙Gold: ${emas}
 ⛓️Besi: ${besi}
+🍎 apel : ${apel}
+🍗ayam bakar: ${ayamb}
+🍖ayam goreng: ${ayamg}
+🍖Rendang Sapi : ${sapir}
+🍢steak sapi: ${ssapi}
 
-Total inv: *${diamond + potion + sampah + makananpet}* item\n
+Total inv: *${diamond + potion + sampah + makananpet + apel + ayamb + ayamg + sapir + ssapi }* item\n
 *🎁Crate*
 🎁Common: *${common}*
 🎁Uncommon: *${uncommon}*
@@ -152,6 +151,12 @@ Last Memancing : ${lastfishing > 0 ? '❌' +  new Date(lastfishing) : '✅'}
 Last Adventure : ${lastadventure > 0 ? '❌' + new Date(lastadventure) : '✅'}
 Last Duel : ${lastduel > 0 ? '❌' + new Date(lastduel) : '✅'}
 Last War : ${lastwar > 0 ? '❌' + new Date(lastwar) : '✅'}
+Last Dungeon: ${lastdungeon > 0 ? '❌' + new Date(lastdungeon) : '✅'}
+Last Mining: ${lastmining > 0 ? '❌' + new Date(lastmining) : '✅'}
+Last Claim: ${lastclaim > 0 ? '❌' + new Date(lastclaim) : '✅'}
+Last Weekly: ${lastweekly > 0 ? '❌' + new Date(lastweekly) : '✅'}
+Last Monthly: ${lastmonthly > 0 ? '❌' + new Date(lastmonthly) : '✅'}
+
 
 *🎖️achievement*
 1.Top 🏆level *${userslevel.indexOf(m.sender) + 1}* dari *${userslevel.length}*
