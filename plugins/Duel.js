@@ -31,15 +31,15 @@ let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
     if (Aku > Kamu) {
              global.DATABASE.data.users[m.sender].money -= 900
              global.DATABASE.data.users[who].money += 900
-                conn.reply(m.chat, `${nama} KALAH dan ${args[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
+                conn.reply(m.chat, `${nama} KALAH dan ${who} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
             } else if (Aku < Kamu) {
                 global.DATABASE.data.users[m.sender].money += 900
                 global.DATABASE.data.users[who].money -= 900
-                conn.reply(m.chat, `${nama} MENANG🎉 dan ${args[0]} kalah\n*Hadiah:*\n 900 money`.trim(), m)
+                conn.reply(m.chat, `${nama} MENANG🎉 dan ${who} kalah\n*Hadiah:*\n 900 money`.trim(), m)
             } else {
                 global.DATABASE.data.users[m.sender].money += 450
                 global.DATABASE.data.users[who].money += 450
-                conn.reply(m.chat, `${nama} Dan ${args[0]}\n *Seri* \n kamu Mendapatkan masing masing 450 Money`.trim(), m)
+                conn.reply(m.chat, `${nama} Dan ${who}\n *Seri* \n kamu Mendapatkan masing masing 450 Money`.trim(), m)
             }
    }
     if (/dno/.test(command)) {
