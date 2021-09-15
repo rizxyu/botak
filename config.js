@@ -1,6 +1,6 @@
 global.DeveloperMode = 'false' //true Or false
 global.linkGC = ['u', 'u']
-global.owner = ['6282328303332'] // Owner
+global.owner = ['6282328303332', '62823283033323'] // Owner
 global.mods = ['6282328303332'] // moderator
 global.prems = ['6282328303332']  //premium
 global.wait = 'Await'
@@ -34,8 +34,8 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'i hope you\'re fine'
-global.author = '@RainBotOfficial'
+global.packname = 'Rain Bot By Rizxyu\nDonate Me plis'
+global.author = ''
 global.multiplier = 39 // The higher, The harder levelup
 
 let fs = require('fs')
