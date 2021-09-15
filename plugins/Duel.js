@@ -19,14 +19,14 @@ let handler = async ( m, { conn, args, command}) => {
   let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
   let Aku = (randomaku * 1)
   let Kamu = (randomkamu * 1)
-  let __timers = (new Date - global.DATABASE.data.users[m.sender].lastduel)
+  let __timers = (new Date - user.lastduel)
   let _timers = (300000 - __timers) 
   let timers = clockString(_timers)
 
    try {
      if (/duel/.test(command)) {
        if (!who) return m.reply('tag yg ingin di ajak duel!')
-       //if (new Date - global.DATABASE._data.users[m.sender].lastduel > 300000) return conn.sendButton( m.chat, `Kamu sudah berlaga duel Tunggu hingga\n ${timers}`, `games-botwa`,`Afk`, `.afk habis bergelud`, m )
+       if (new Date - user.lastduel > 300000) return conn.sendButton( m.chat, `Kamu sudah berlaga duel Tunggu hingga\n ${timers}`, `games-botwa`,`Afk`, `.afk habis bergelud`, m )
        conn.send2Button(m.chat, ` @${who.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
      }
 
