@@ -45,7 +45,7 @@ let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
     if (/dno/.test(command)) {
     conn.reply( m.chat, `${args[0]} Membatalkan Ajakan Duel`, m)
     }
-       } catch (er) {
+       } catch (err) {
         m.reply("Error" + err.stack )
          }
    }
