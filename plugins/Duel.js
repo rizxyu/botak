@@ -32,20 +32,18 @@ let handler = async ( m, { conn, args, command}) => {
      if (Aku > Kamu) {
        user.money -= 900
        enemy.money += 900
-       conn.reply(m.chat, `@${nama} KALAH dan @${who.split("@")[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
+       conn.reply(m.chat, `@${who.split("@")[1]} KALAH dan @${who.split("@")[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
      } else if (Aku < Kamu) {
        user.money += 900
        enemy.money -= 900
-       conn.reply(m.chat, `@${nama} MENANG🎉 dan @${who.split("@")[0]} kalah\n*Hadiah:*\n 900 money`.trim(), m)
+       conn.reply(m.chat, `@${who.split("@")[1]} MENANG🎉 dan @${who.split("@")[0]} kalah\n*Hadiah:*\n 900 money`.trim(), m)
      } else {
        user.money += 450
        enemy.money += 450
-       conn.reply(m.chat, `@${nama} Dan @${who.split("@")[0]}\n *Seri*, kamu Mendapatkan masing masing 450 Money`.trim(), m)
+       conn.reply(m.chat, `@${who.split("@")[1]} Dan @${who.split("@")[0]}\n *Seri*, kamu Mendapatkan masing masing 450 Money`.trim(), m)
      }
    }
    if (/dno/.test(command)) {
-    let kent = !who.includes(m.sender)
-    if(kent) throw 'maaf y gan btw Lu siapa?\nkok ikut kut mau duel'
     conn.reply( m.chat, `@${who.split("@")[0]} Membatalkan Ajakan Duel`, m)
    }
  } catch (e) {
