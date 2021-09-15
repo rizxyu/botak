@@ -142,6 +142,7 @@ module.exports = {
             if (!isNumber(user.antispamlastclaim)) user.antispamlastclaim = 0
 
             if (!isNumber(user.kayu)) user.kayu = 0
+            if (!isNumber(user.string)) user.string = 0
             if (!isNumber(user.batu)) user.batu = 0
             if (!isNumber(user.besi)) user.besi = 0
             if (!isNumber(user.emas)) user.emas = 0
@@ -177,7 +178,7 @@ module.exports = {
                 if (!user.role) user.role = 'Beginner'
             }
             if (!('autolevelup' in user)) user.autolevelup = true
-        } else global.DATABASE._data.users[m.sender] = {
+          } else global.DATABASE._data.users[m.sender] = {
             healt: 100,
             stamina: 100,
             level: 0,
@@ -272,6 +273,7 @@ module.exports = {
             antispam: 0,
             antispamlastclaim: 0,
             //SDA
+            string: 0,
             kayu: 0,
             batu: 0,
             besi: 0,
