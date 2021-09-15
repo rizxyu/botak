@@ -91,7 +91,7 @@ conn.send2Button( m.chat, ber, `Games Rpg`, 'Again', '.berburu', 'inventory', '.
 handler.help = ['berburu']
 handler.tags = ['rpg']
 handler.command = /^(berburu|buru)$/i 
-handler.register = true
+handler.register = false
 module.exports = handler
 //JANGAN DIUBAH YA YG DIBAWAH
 function pickRandom(list) {
