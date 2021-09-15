@@ -1,7 +1,7 @@
 let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
 	
-	let { lastberburu, lastadventure, lastfishing } = global.DATABASE._data.users[m.sender]
+	let { lastberburu, lastadventure, lastfishing, lastwar, lastduel } = global.DATABASE._data.users[m.sender]
 	
     let healt = global.DATABASE._data.users[m.sender].healt
     let stamina = global.DATABASE._data.users[m.sender].stamina
@@ -25,7 +25,10 @@ let handler = async (m, { conn, usedPrefix }) => {
     let ayamb = global.DATABASE._data.users[m.sender].ayamb
     let sapir = global.DATABASE._data.users[m.sender].sapir
     let ssapi = global.DATABASE._data.users[m.sender].ssapi
-
+    let kayu = global.DATABASE._data.users[m.sender].kayu
+    let string = global.DATABASE._data.users[m.sender].string
+    let emas = global.DATABASE._data.users[m.sender].emas
+    let besi = global.DATABASE._data.users[m.sender].iron
     let sapi = global.DATABASE._data.users[m.sender].sapi
     let ayam = global.DATABASE._data.users[m.sender].ayam
     let babi = global.DATABASE._data.users[m.sender].babi
@@ -102,25 +105,28 @@ Untuk Memakan /eat ayamb\n
 🐟ikan: ${ikan}
 🐟lele: ${lele}
 🐡bawal: ${bawal}
-🐟Nila: ${nila}
-
-*🎁Item cheast:*
-✉️Chest Weapons epick:${psepick} item
-✉️Chest Weapons: ${psenjata} item\n
+🐟Nila: ${nila}\n
 _🕸️Total Item:_
 ${nila + bawal + ikan + lele + psepick + psenjata }\n\n
-*Inventory*
+*🎒Inventory*
 💎Diamond: *${diamond}*
 💊Potion: *${potion}*
-Sampah/Trash: *${sampah}*
+🚮Sampah/Trash: *${sampah}*
 🍇MakananPet/FoodPet: *${makananpet}*
+🪵Kayu: ${kayu}
+🕸️String: ${string}
+🪙Gold: ${emas}
+⛓️Besi: ${besi}
+
 Total inv: *${diamond + potion + sampah + makananpet}* item\n
 *🎁Crate*
 🎁Common: *${common}*
 🎁Uncommon: *${uncommon}*
 🎁Mythic: *${mythic}*
 🎁Legendary: *${legendary}*
-🎁Pet: *${pet}*\n
+🎁Pet: *${pet}*
+✉️Chest Weapons epick:${psepick} item
+✉️Chest Weapons: ${psenjata} item\n
 *Pet*
 🐴Kuda/horse: *${kuda == 0 ? 'Tidak Punya' : '' || kuda == 1 ? 'Level 1' : '' || kuda == 2 ? 'Level 2' : '' || kuda == 3 ? 'Level 3' : '' || kuda == 4 ? 'Level 4' : '' || kuda == 5 ? 'Level MAX' : ''}*
 🦊Rubah/Fox: *${rubah == 0 ? 'Tidak Punya' : '' || rubah == 1 ? 'Level 1' : '' || rubah == 2 ? 'Level 2' : '' || rubah == 3 ? 'Level 3' : '' || rubah == 4 ? 'Level 4' : '' || rubah == 5 ? 'Level MAX' : ''}*
@@ -140,23 +146,23 @@ Total inv: *${diamond + potion + sampah + makananpet}* item\n
 │🐴Kuda/horse ${kuda == 0 ? 'Tidak Punya' : '' || kuda > 0 && kuda < 5 ? `Level *${kuda}* To level *${kuda + 1}*\n│Exp *${_kuda}* -> *${kuda *100}*` : '' || kuda == 5 ? '*Max Level*' : ''}
 ╰────────────────\n\n
 
-_🔄History Activity↓_
-Last Berburu : ${lastberburu > 0 ? '' + new Date(lastberburu) : ''}
-Last Memancing : ${lastfishing > 0 ? '' +  new Date(lastfishing) : ''}
-Last Adventure : ${lastadventure > 0 ? '' + new Date(lastadventure) : ''}
-Last Duel :
-Last War :
+_🔄Cooldown↓_
+Last Berburu : ${lastberburu > 0 ? '✅' + new Date(lastberburu) : ''}
+Last Memancing : ${lastfishing > 0 ? '✅' +  new Date(lastfishing) : ''}
+Last Adventure : ${lastadventure > 0 ? '✅' + new Date(lastadventure) : ''}
+Last Duel : ${lastduel > 0 ? '✅' + new Date(lastduel) : ''}
+Last War : ${lastwar > 0 ? '✅' + new Date(lastwar) : ''}
 
 *🎖️achievement*
-1.Top level *${userslevel.indexOf(m.sender) + 1}* dari *${userslevel.length}*
-2.Top Money *${usersmoney.indexOf(m.sender) + 1}* dari *${usersmoney.length}*
-3.Top Diamond *${usersdiamond.indexOf(m.sender) + 1}* dari *${usersdiamond.length}*
-4.Top Potion *${userspotion.indexOf(m.sender) + 1}* dari *${userspotion.length}*
-5.Top Common *${userscommon.indexOf(m.sender) + 1}* dari *${userscommon.length}*
-6.Top Uncommon *${usersuncommon.indexOf(m.sender) + 1}* dari *${usersuncommon.length}*
-7.Top Mythic *${usersmythic.indexOf(m.sender) + 1}* dari *${usersmythic.length}*
-8.Top Legendary *${userslegendary.indexOf(m.sender) + 1}* dari *${userslegendary.length}*
-9.Top Sampah *${userssampah.indexOf(m.sender) + 1}* dari *${userssampah.length}*
+1.Top 🏆level *${userslevel.indexOf(m.sender) + 1}* dari *${userslevel.length}*
+2.Top 💵Money *${usersmoney.indexOf(m.sender) + 1}* dari *${usersmoney.length}*
+3.Top 💎Diamond *${usersdiamond.indexOf(m.sender) + 1}* dari *${usersdiamond.length}*
+4.Top 💊Potion *${userspotion.indexOf(m.sender) + 1}* dari *${userspotion.length}*
+5.Top 📦Common *${userscommon.indexOf(m.sender) + 1}* dari *${userscommon.length}*
+6.Top 📦Uncommon *${usersuncommon.indexOf(m.sender) + 1}* dari *${usersuncommon.length}*
+7.Top 🎁Mythic *${usersmythic.indexOf(m.sender) + 1}* dari *${usersmythic.length}*
+8.Top 🎁Legendary *${userslegendary.indexOf(m.sender) + 1}* dari *${userslegendary.length}*
+9.Top 🚮Sampah *${userssampah.indexOf(m.sender) + 1}* dari *${userssampah.length}*
 \n${readMore}\n
 ⚠️Warn: *${warn}*
 ❎Banned: *No*
