@@ -29,6 +29,7 @@ let handler = async ( m, { conn, args, command}) => {
      if (/dya/.test(command)) {
      let kenal = !who.includes(m.sender)
      if(kenal) throw 'Lu siapa?\nkok ikut kut mau duel'
+     delete conn.duel
      if (Aku > Kamu) {
        user.money -= 900
        enemy.money += 900
@@ -45,6 +46,7 @@ let handler = async ( m, { conn, args, command}) => {
    }
    if (/dno/.test(command)) {
     conn.reply( m.chat, `@${who.split("@")[0]} Membatalkan Ajakan Duel`, m)
+    delete conn.duel
    }
  } catch (e) {
    //return conn.sendButton( m.chat, `Sepertinya ada bug`, `laporkan ke owner`, `Kanjut Badag`, `+bug duel ${e.stack}`, m)
