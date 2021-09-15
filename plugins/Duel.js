@@ -17,9 +17,15 @@ let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args
 
 let nama = conn.getName(m.sender)
 
+let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
+    let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
+    let Aku = (randomaku * 1)
+    let Kamu = (randomkamu * 1)
+
 conn.duel = conn.duel ? conn.duel : {}
 if (m.chat in conn.duel) throw 'kamu masih ada sesi duel'
 else conn.duel[m.chat] = true
+
 
 
    try {
@@ -31,10 +37,6 @@ else conn.duel[m.chat] = true
            }
 
    if (/dya/.test(command)) {
-    let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
-    let randomkamu = `${Math.floor(Math.random() * 81)}`.trim()
-    let Aku = (randomaku * 1)
-    let Kamu = (randomkamu * 1)
     if (Aku > Kamu) {
              user.money -= 900
              enemy.money += 900
