@@ -19,6 +19,8 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
             let exp = (Math.floor(Math.random() * 400) + (kuda * 70))
             let uang = `${Math.floor(Math.random() * 400)}`.trim() 
             let _potion = `${Math.floor(Math.random() * 2)}`.trim()
+            let string = `${Math.floor(Math.random() * 32)}`.trim()
+            let kayu = `${Math.floor(Math.random() * 69)}`.trim()
             let potion = (_potion * 1)
             let _diamond = (rubah == 0 ? pickRandom(['0', '1', '0', '1', '0', '1', '0']) : '' || rubah == 1 ? pickRandom(['0', '1', '0', '1']) : '' || rubah == 2 ? pickRandom(['0', '1', '0', '1', '2']) : '' || rubah == 3 ? pickRandom(['0', '1', '0', '2', '2', '0']) : '' || rubah == 4 ? pickRandom(['0', '1', '1', '2', '1', '1', '0']) : '' || rubah == 5 ? pickRandom(['0', '0', '1', '2', '2', '1', '1', '0']) : '' )
             let diamond = (_diamond * 1)
@@ -32,10 +34,12 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
             let sampah = `${Math.floor(Math.random() * 300)}`.trim()
             let legendary = (_legendary * 1)
             let str = `
-♥️Nyawa mu berkurang -${healt * 1} karena Kamu telah berpetualang sampai ${pickRandom(['Jepang', 'Korea', 'Bali', 'Amerika', 'Iraq', 'Arab', 'Pakistan', 'German', 'Finlandia', 'Ke bawa dunia mimpi', 'Ujung dunia', 'Mars', 'Bulan', 'Pluto', 'Matahari', 'Hatinya dia', '...'])} dan mendapatkan
+♥️Nyawa mu berkurang -${healt * 1} karena Kamu telah berpetualang sampai ${pickRandom(['🇯🇵Jepang', '🇰🇷Korea', '🇮🇩Bali', '🇺🇲Amerika', '🇮🇶Iraq', '🇦🇪Arab', '🇵🇰Pakistan', '🇩🇪German', '🇫🇮Finlandia', '💭Ke bawa dunia mimpi', '🔚Ujung dunia', 'Mars', '🌑Bulan', 'Pluto', '☀️Matahari', '❣️Hatinya dia', '...'])} dan mendapatkan
 *🎆exp:* ${exp} 
 *💰uang:* ${uang}
-*sampah:* ${sampah}${potion == 0 ? '' : '\n*Potion:* ' + potion + ''}${diamond == 0 ? '' : '\n*diamond:* ' + diamond + ''}${common == 0 ? '' : '\n*common crate:* ' + common + ''}${uncommon == 0 ? '' : '\n*uncommon crate:* ' + uncommon + ''}
+*🪵Kayu:* ${kayu}
+*🕸️ String:* ${string}
+*🚮sampah:* ${sampah}${potion == 0 ? '' : '\n*💊Potion:* ' + potion + ''}${diamond == 0 ? '' : '\n*💎diamond:* ' + diamond + ''}${common == 0 ? '' : '\n*📦common crate:* ' + common + ''}${uncommon == 0 ? '' : '\n*📦uncommon crate:* ' + uncommon + ''}
 `.trim()
             conn.reply(m.chat, str, m)
             if (mythic > 0) {
@@ -51,12 +55,14 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
             global.DATABASE._data.users[m.sender].money += uang * 1
             global.DATABASE._data.users[m.sender].potion += potion * 1
             global.DATABASE._data.users[m.sender].diamond += diamond * 1
+            global.DATABASE._data.users[m.sender].string += string * 1
+            global.DATABASE._data.users[m.sender].kayu += kayu * 1
             global.DATABASE._data.users[m.sender].common += common * 1 
             global.DATABASE._data.users[m.sender].uncommon += uncommon * 1
             global.DATABASE._data.users[m.sender].sampah += sampah * 1
             global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
             } else conn.reply(m.chat, `Anda sudah berpetualang dan kelelahan, silahkan coba *${timers}* lagi`, m)
-        } else conn.reply(m.chat, 'Minimal 80 health untuk bisa berpetualang, beli nyawa dulu dengan ketik *' + usedPrefix + 'shop buy potion <jumlah>*\ndan ketik *' + usedPrefix + 'use potion <jumlah>*\n\n_Untuk mendapat money dan potion gratis ketik_ *' + usedPrefix + 'claim*', m)
+        } else conn.send2Button(m.chat, 'Minimal 80 health♥️ untuk bisa berpetualang, beli nyawa dulu dengan ketik *' + usedPrefix + 'shop buy potion <jumlah>*\ndan ketik *' + usedPrefix + 'use potion <jumlah>*\n\n_Untuk mendapat 💵money dan 💊potion gratis ketik_ *' + usedPrefix + 'claim*', `Games-bot`, `Tambah nyawa`, `.use potion all`, `Kembali`, `.menu`, m)
     } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
