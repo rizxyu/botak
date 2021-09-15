@@ -34,7 +34,7 @@ let handler = async ( m, { conn, args, command}) => {
      let kenal = !who.includes(m.sender)
      if(kenal) throw 'Lu siapa?\nkok ikut kut mau duel'
      delete conn.duel
-     global.DATABASE._data.users[m.sender].lastduel = new Date * 1
+     user.lastduel = new Date * 1
      if (Aku > Kamu) {
        user.money -= 900
        enemy.money += 900
