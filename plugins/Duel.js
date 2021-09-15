@@ -22,13 +22,6 @@ let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
     let Aku = (randomaku * 1)
     let Kamu = (randomkamu * 1)
 
-conn.duel = conn.duel ? conn.duel : {}
-if (m.chat in conn.duel) throw 'kamu masih ada sesi duel'
-else conn.duel[m.chat] = true
-
-
-
-   try {
      try {
 
    if (/duel/.test(command)) {
@@ -57,9 +50,6 @@ else conn.duel[m.chat] = true
        } catch (e) {
         return throw e 
          }
-      } finally {
-         delete conn.duel[m.chat]
-     }
    }
 handler.help = ['Duel @tag <Fitur Baru>']
 handler.tags = ['rpg']
