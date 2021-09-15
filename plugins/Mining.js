@@ -15,6 +15,8 @@ let handler = async (m, { conn }) => {
       user.emas += minim * 1
       user.iron += minam * 1
       user.string += minkm * 1
+      user.lastmining = new Date * 1
+            
     m.reply(`Kamu Menambang Di ${pickRandom(['⛰️Lembah', '⛰️Goa mletre', '🏞️Sungai Selandia', '⛰️Goa di texas', '...'])}\n*⚒️Hasil Tambang:*\n🪙Emas: *${minim}*\n⛓️Besi: *${minam}*\n🕸️String: *${minkm}*`)
       } else conn.sendButton( m.chat, `Tunggu ${timers} lagi, untuk menambang`, `${botol}`, `Cek inv`, `.inv`, m)
     } else conn.sendButton( m.chat, `Kamu Tidak Mempunyai *⛏️Pickaxe* untuk menambang\nBuat Lah Pickaxe menggunakan string kayu dan batu!`, `${botol}`, `Craft Pickaxe`, `.craft pickaxe`,m )
