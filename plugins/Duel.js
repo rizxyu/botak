@@ -26,7 +26,7 @@ let handler = async ( m, { conn, args, command}) => {
    try {
      if (/duel/.test(command)) {
        if (!who) return m.reply('tag yg ingin di ajak duel!')
-       if (new Date - global.DATABASE._data.users[m.sender].lastduel > 300000) return conn.sendButton( m.chat, `Kamu sudah berlaga duel Tunggu hingga\n ${timers}`, `games-botwa`,`Afk`, `.afk habis bergelud`, m )
+       //if (new Date - global.DATABASE._data.users[m.sender].lastduel > 300000) return conn.sendButton( m.chat, `Kamu sudah berlaga duel Tunggu hingga\n ${timers}`, `games-botwa`,`Afk`, `.afk habis bergelud`, m )
        conn.send2Button(m.chat, ` @${who.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
      }
 
