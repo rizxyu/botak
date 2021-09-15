@@ -10,9 +10,6 @@ let handler = async ( m, { conn, args, command}) => {
 
 let who = m.mentionedJid ? m.mentionedJid[0] : (args[0].replace(/[@ .+-]/g, '').replace(' ', '') + '@s.whatsapp.net')
 
-let enemy = global.DATABASE.data.users[who]
-let user = global.DATABASE.data.users[m.sender]
-
 let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args[1]), 1)) : Math.min(1)
 
 let nama = conn.getName(m.sender)
@@ -30,17 +27,18 @@ let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
            }
 
    if (/dya/.test(command)) {
+   // if (!who || !args[2]) return m.reply('lu siapa')
     if (Aku > Kamu) {
-             user.money -= 900
-             enemy.money += 900
+             global.DATABASE.data.users[m.sender].money -= 900
+             global.DATABASE.data.users[who].money += 900
                 conn.reply(m.chat, `${nama} KALAH dan ${args[0]} Menang\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
             } else if (Aku < Kamu) {
-                user.money += 900
-                enemy.money -= 900
+                global.DATABASE.data.users[m.sender].money += 900
+                global.DATABASE.data.users[who].money -= 900
                 conn.reply(m.chat, `${nama} MENANG🎉 dan ${args[0]} kalah\n*Hadiah:*\n 900 money`.trim(), m)
             } else {
-                user.money += 450
-                enemy.money += 450
+                global.DATABASE.data.users[m.sender].money += 450
+                global.DATABASE.data.users[who].money += 450
                 conn.reply(m.chat, `${nama} Dan ${args[0]}\n *Seri* \n kamu Mendapatkan masing masing 450 Money`.trim(), m)
             }
    }
