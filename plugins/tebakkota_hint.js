@@ -3,7 +3,9 @@ let handler = async (m, { conn }) => {
     let id = m.chat
     if (!(id in conn.tebakkota)) throw false
     let json = conn.tebakkota[id][1]
-    m.reply('```' + json.name.replace(/[bcdfghjklmnpqrstvwxyz]/g, '_') + '```')
+    let ans = json.result.jawaban.trim()
+    let clue = ans.replace(/[AIUEOaiueo]/g, '_')
+    m.reply('```' + clue + '```')
 }
 handler.command = /^tekohint$/i
 handler.limit = true
