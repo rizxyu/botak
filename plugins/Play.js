@@ -40,7 +40,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 *💽Server y2mate:* ${usedServer}
 
 _jika eror laporkan owner_
-`.trim(), thumb,  `${botol}`, `🎵Audio ${filesizeF}`, `.yta ${vid.url}`, `🎥Video ${yt2.filesizeF}`, `.yt ${vid.url}`, {
+`.trim(), thumb,  `${botol}\nMade with Rizxyu\nDonate me for support`, `🎵Audio ${filesizeF}`, `.yta ${vid.url}`, `🎥Video ${yt2.filesizeF}`, `.yt ${vid.url}`, {
     quoted: m,
     contextInfo: {
         externalAdReply: {
