@@ -6,12 +6,14 @@ let handler = async (m, { conn }) => {
     let _timers = (86400000 - __timers)
     let timers = clockString(_timers) 
     if (new Date - user.lastclaim > 86400000) {
-        conn.reply(m.chat, `*EN:* You have claimed and got 1000 💵money and 1 potion\n\n*ID:* Anda sudah mengklaim dan mendapatkan 1000 💵money dan 1 potion`, m)
+        conn.reply(m.chat, ` Anda sudah mengklaim dan mendapatkan 1000 money💵 50 string🕸️ 1 potion💊 dan 50 iron⛓️`, m)
         global.DATABASE._data.users[m.sender].money += 1000
+        global.DATABASE._data.users[m.sender].string += 50
+        global.DATABASE._data.users[m.sender].iron += 50
         global.DATABASE._data.users[m.sender].potion += 1
         global.DATABASE._data.users[m.sender].lastclaim = new Date * 1
     } else {
-        let buttons = button(`*EN:* please wait *�'${timers}* again to be able to claim again\n\n*ID:* silahkan tunggu *🕒${timers}* lagi untuk bisa mengclaim lagi`, user)
+        let buttons = button(`silahkan tunggu *⏱️${timers}* lagi untuk bisa mengclaim lagi`, user)
         conn.sendMessage(m.chat, buttons, MessageType.buttonsMessage, { quoted: m })
     }
 }
@@ -58,7 +60,7 @@ function button(teks, user) {
     
     const buttonMessage = {
         contentText: teks,
-        footerText: '©games-wabot',
+        footerText: 'games-wabot',
         buttons: buttons,
         headerType: 1
     }
