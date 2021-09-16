@@ -10,7 +10,7 @@ handler.before = async function (m) {
     let json = JSON.parse(JSON.stringify(conn.tebakanime[id][1]))
     if (m.text.toLowerCase() == json.name.toLowerCase()) {
       global.DATABASE._data.users[m.sender].exp += conn.tebakanime[id][2]
-      conn.sendButton(m.chat, `*Jawaban Benar!*\n+${conn.tebakanime[id][2]} XP`,`Rain Bot`, `Tebak anime`, `.tebakanime`, m)
+      conn.sendButton(m.chat, `*Jawaban Benar!*\n+${conn.tebakanime[id][2]} XP`,`By Rain Bot`, `Tebak anime`, `.tebakanime`, m)
       clearTimeout(conn.tebakanime[id][3])
       delete conn.tebakanime[id]
     } else if (m.text.toLowerCase().endsWith(json.name.split` `[1])) m.reply(`*Dikit Lagi!*`)
