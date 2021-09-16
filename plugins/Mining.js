@@ -1,7 +1,7 @@
 
 let handler = async (m, { conn }) => {
     let user = global.DATABASE._data.users[m.sender]
-    let __timers = (new Date - user.lastclaim)
+    let __timers = (new Date - user.lastmining)
     let _timers = (86400000 - __timers)
     let timers = clockString(_timers) 
     let botol = global.botwm
@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
     let minkm = `${Math.floor(Math.random() * 383)}`.trim() 
 
    if ( user.pickaxe > 0 ) {
-    if (new Date - user.lastclaim > 3000000) {
+    if (new Date - user.lastmining > 3000000) {
 
       user.emas += minim * 1
       user.iron += minam * 1
