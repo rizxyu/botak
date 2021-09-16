@@ -7,15 +7,18 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
   let server = (args[1] || servers[0]).toLowerCase()
   let { dl_link, thumb, title, filesize, filesizeF} = await ytv(args[0], servers.includes(server) ? server : servers[0])
   let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-  conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
+  m.reply(`💠Sabar Gan lagi ngirim...`)
+  conn.sendButtonImg(m.chat, `📥Downloader`, thumb, `
 ╭────[ _*YT DOWNLOADER*_ ]
 │• *Title:* ${title}
 │• *Filesize:* ${filesizeF}
-│• *${isLimit ? 'Pakai ': ''}Link:* ${dl_link}
 │
 │ _sedang mengkonversi file..._
 ╰──────────────────<
-`.trim(), m)
+
+Made with Rixyu(rain) x Stikerin
+Support me with donate
+`, `AUDIO`, `.yta ${args[0]}`, m)
   let _thumb = {}
   try { _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
   catch (e) { }
