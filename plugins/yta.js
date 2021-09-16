@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
 │
 │ _sedang mengkonversi file..._
 ╰──────────────────<
-`.trim(), `Video`, `.yta ${args[0]}`, m)
+`, `Video`, `.yta ${args[0]}`, m)
   if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp3', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
