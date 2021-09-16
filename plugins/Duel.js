@@ -10,6 +10,7 @@ let handler = async ( m, { conn, args, command}) => {
   conn.duel = conn.duel ? conn.duel : []
   args.length != 0 ? conn.duel.push(m.mentionedJid ? m.mentionedJid[0] : (args[0].replace(/[@ .+-]/g, '').replace(' ', '') + '@s.whatsapp.net')) : ""
   let who = conn.duel[0]
+  let kita = conn.duel[m.sender]
   let enemy = global.DATABASE.data.users[who]
   let user = global.DATABASE.data.users[m.sender]
   let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args[1]), 1)) : Math.min(1)
@@ -28,7 +29,7 @@ let handler = async ( m, { conn, args, command}) => {
      if (/duel/.test(command)) {
        if (!who) return m.reply('tag yg ingin di ajak duel!')
        if (new Date - user.lastduel > 300000) {
-      conn.send2Button(m.chat, ` @${who.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
+      conn.send2Button(m.chat, ` @${kita.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
        user.lastduel = new Date * 1
       } else conn.reply( m.chat, `Kamu Sudah Berduel Tunggu hingga *${timers}*`, m)
      }
