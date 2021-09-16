@@ -14,9 +14,9 @@ let handler  = async (m, { conn, usedPrefix }) => {
     if (res.status !== 200) throw await res.text()
     let json = await res.json()
     if (!json.status) throw json
-    let caption = `「 TEBAK ANIME 」\n\nWaktu : ${(timeout / 1000).toFixed(2)} Detik\nBonus : ${poin} XP`
+    let caption = `「 TEBAK ANIME 」\n\nWaktu : ${(timeout / 1000).toFixed(2)} Detik\nBonus : ${poin} XP \n\nuntuk dapatkan clue ketik *${usedPrefix}tnime*\n\n BY RAIN BOT`
     conn.tebakanime[id] = [
-      await conn.sendFile(m.chat, json.image, 'tebakanime.jpg', caption, m),
+      await conn.sendButtonImg(m.chat, `TEBAK ANIME`, json.image, caption, `Bantuan`, `.tnime`, { quoted: m}),
       json, poin,
       setTimeout(() => {
         if (conn.tebakanime[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.name}*\n\nUrl : ${json.url}\nDesk :\n${json.desc}`, conn.tebakanime[id][0])
