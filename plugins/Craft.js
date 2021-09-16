@@ -52,23 +52,26 @@ Burning fire +
       const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
         switch (type) {
           case 'pickaxe':
-            if(user.kayu < 10 || user.besi < 5) return m.reply(`Barang tidak cukup!\nUntuk membuat pickaxe. Kamu memerlukan : 10 kayu & 5 besi`)
+            if(user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pickaxe. Kamu memerlukan : 10 kayu🪵 5 iron⛓️ dan 20 String🕸️`)
             global.DATABASE.data.users[m.sender].kayu -= 10
-            global.DATABASE.data.users[m.sender].besi -= 5
+            global.DATABASE.data.users[m.sender].iron -= 5
+            global.DATABASE.data.users[m.sender].string -= 20
             global.DATABASE.data.users[m.sender].pickaxe += 1
             m.reply("Sukses membuat 1 pickaxe")
             break
           case 'sword':
-            if(user.kayu < 10 || user.besi < 5) return m.reply(`Barang tidak cukup!\nUntuk membuat sword. Kamu memerlukan : 10 kayu & 10 besi`)
+            if(user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat sword. Kamu memerlukan : 10 kayu🪵 5 iron⛓️ dan 20 String🕸️`)
             global.DATABASE.data.users[m.sender].kayu -= 10
-            global.DATABASE.data.users[m.sender].besi -= 10
+            global.DATABASE.data.users[m.sender].iron -= 10
+            global.DATABASE.data.users[m.sender].string -= 20
             global.DATABASE.data.users[m.sender].pedang += 1
             m.reply("Sukses membuat 1 sword")
             break
           case 'pancing':
-            if(user.kayu < 10 || user.besi < 5) return m.reply(`Barang tidak cukup!\nUntuk membuat pancingan. Kamu memerlukan : 10 kayu & 2 besi`)
+            if(user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat pancingan. Kamu memerlukan : 10 kayu🪵 5 iron⛓️ dan 20 String🕸️`)
             global.DATABASE.data.users[m.sender].kayu -= 10
-            global.DATABASE.data.users[m.sender].besi -= 2
+            global.DATABASE.data.users[m.sender].iron -= 2
+            global.DATABASE.data.users[m.sender].string -= 20
             global.DATABASE.data.users[m.sender].pancing += 1
             m.reply("Sukses membuat 1 sword")
             break
