@@ -46,12 +46,12 @@ let handler = async ( m, { conn, args, command}) => {
        user.money += 450
        enemy.money -= 450
        delete conn.duel
-       conn.reply(m.chat, `@${who.split("@")[0]} Kalah Gelud🤼\n*Hadiah:*\n 450 money`.trim(), m)
+       conn.reply(m.chat, `@${who.split("@")[0]} Kalah Gelud🤼\n*Hadiah:*\n 450 money Mayan buat beli Limit`.trim(), m)
      } else {
-       user.money += 450
-       enemy.money += 450
+       user.money += 250
+       enemy.money += 250
        delete conn.duel
-       conn.reply(m.chat, `@${who.split("@")[0]}\n *Seri*, kamu Mendapatkan masing masing 450 Money`.trim(), m)
+       conn.reply(m.chat, `@${who.split("@")[0]}\n *Seri*\n masing masing 250 Money`.trim(), m)
      }
    }
    if (/dno/.test(command)) {
@@ -70,6 +70,7 @@ let handler = async ( m, { conn, args, command}) => {
 handler.help = ['Duel @tag <Fitur Baru>']
 handler.tags = ['rpg']
 handler.command = /^(duel|dya|dno)/i
+handler.group = true
 
 module.exports = handler
 
