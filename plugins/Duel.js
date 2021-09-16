@@ -10,7 +10,7 @@ let handler = async ( m, { conn, args, command}) => {
   conn.duel = conn.duel ? conn.duel : []
   args.length != 0 ? conn.duel.push(m.mentionedJid ? m.mentionedJid[0] : (args[0].replace(/[@ .+-]/g, '').replace(' ', '') + '@s.whatsapp.net')) : ""
   let who = conn.duel[0]
-  let kita = conn.duel[m.sender]
+  //let kita = conn.duel[m.sender]
   let enemy = global.DATABASE.data.users[who]
   let user = global.DATABASE.data.users[m.sender]
   let count = args[1] && args[1].length > 0 ? Math.min(100, Math.max(parseInt(args[1]), 1)) : Math.min(1)
@@ -29,7 +29,7 @@ let handler = async ( m, { conn, args, command}) => {
      if (/duel/.test(command)) {
        if (!who) return m.reply('tag yg ingin di ajak duel!')
        if (new Date - user.lastduel > 300000) {
-      conn.send2Button(m.chat, ` @${kita.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
+      conn.send2Button(m.chat, ` @${m.sender.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
        user.lastduel = new Date * 1
       } else conn.reply( m.chat, `Kamu Sudah Berduel Tunggu hingga *${timers}*`, m)
      }
@@ -37,18 +37,20 @@ let handler = async ( m, { conn, args, command}) => {
      if (/dya/.test(command)) {
      let kenal = !who.includes(m.sender)
      if(kenal) throw 'Lu siapa?\nkok ikut kut mau duel'
-     delete conn.duel
      if (Aku > Kamu) {
        user.money -= 900
        enemy.money += 900
+       delete conn.duel
        conn.reply(m.chat, `@${who.split("@")[0]} Menang Gelud🤼\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
      } else if (Aku < Kamu) {
        user.money += 450
        enemy.money -= 450
+       delete conn.duel
        conn.reply(m.chat, `@${who.split("@")[0]} Kalah Gelud🤼\n*Hadiah:*\n 450 money`.trim(), m)
      } else {
        user.money += 450
        enemy.money += 450
+       delete conn.duel
        conn.reply(m.chat, `@${who.split("@")[0]}\n *Seri*, kamu Mendapatkan masing masing 450 Money`.trim(), m)
      }
    }
