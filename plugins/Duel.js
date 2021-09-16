@@ -55,6 +55,7 @@ let handler = async ( m, { conn, args, command}) => {
      }
    }
    if (/dno/.test(command)) {
+   let kenal = !who.includes(m.sender)
    if(kenal) throw 'Lu siapa?\nkok ikut kut mau duel'
     //if (!who) return m.reply('tag yg ingin di ajak duel!')
     conn.reply( m.chat, `@${who.split("@")[0]} Membatalkan Ajakan Duel`, m)
