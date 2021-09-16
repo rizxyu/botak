@@ -321,14 +321,14 @@ module.exports = {
           if (!'antiJawa' in chat) chat.antiJawa = false
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
-          welcome: false,
+          welcome: true,
           detect: false,
           sWelcome: '',
           sBye: '',
           sPromote: '',
           sDemote: '',
           delete: false,
-          antiLink: false,
+          antiLink: true,
           antiToxic: false,
           antiJawa: false,
         }
