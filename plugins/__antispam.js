@@ -19,7 +19,7 @@ handler.all = async function (m) {
                 this.spam[m.sender].spam = 0
                 this.spam[m.sender].lastspam = new Date * 1
                // global.DATABASE._data.users[m.sender].banned = true
-                m.reply('*[ ANTI SPAM ]*\n*${name}* Kamu Telah Melakukan spam\n Jika melebihi 5 warn maka akan terbanned')
+                m.reply(`*[ ANTI SPAM ]*\n*${name}* Kamu Telah Melakukan spam\n Jika melebihi 5 warn maka akan terbanned`)
             } else {
                 this.spam[m.sender].spam = 0
                 this.spam[m.sender].lastspam = new Date * 1
