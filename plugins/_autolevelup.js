@@ -13,10 +13,10 @@ handler.before = m => {
 *${before}* --> *${user.level}*
 `.trim()
         conn.sendButton(m.chat, str, `RainBot`, `Profil`, `.inv`, m, false, {
-            contextInfo: {
-                mentionedJid: [m.sender]
-            }
-        })
+    contextInfo: {
+      mentionedJid: conn.parseMention(str)
+    }
+  })
     }
     return true
 }
