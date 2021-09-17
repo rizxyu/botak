@@ -224,7 +224,7 @@ if (teks == 'randomimage') tags = {
 ├ Tanggal Islam: *${dateIslamic}*
 ╰────────────★᭄ꦿ᭄ꦿ
 `.trim(),
-          "description": "",
+          "description": "_janganlah malu terlihat miskin, malulah kita ketika tidak sholat 5 waktu_",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
