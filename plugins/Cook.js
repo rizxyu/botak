@@ -90,6 +90,6 @@ break
 
 handler.help = ['masak <masakan> <args>', 'cook <Cook> <args>']
 handler.tags = ['rpg']
-handler.register = true
+
 handler.command = /^(masak|cook)$/i
 module.exports = handler
