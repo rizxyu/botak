@@ -221,7 +221,7 @@ if (teks == 'randomimage') tags = {
 ├ *(${muptime})*
 ├ Jam *${jam}* WIB
 │
-├ Tanggal Islam: *${dateislami}*
+├ Tanggal Islam: *${dateIslamic}*
 ╰────────────★᭄ꦿ᭄ꦿ
 `.trim(),
           "description": "",
