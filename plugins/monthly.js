@@ -5,9 +5,13 @@ let handler = async (m, { conn }) => {
     let _timers = (2592000000 - (new Date - user.lastmonthly))
     let timers = clockString(_timers) 
     if (new Date - user.lastmonthly > 2592000000) {
-        conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan 100000 💵money, 5 🎁Legendary crate dan 3 📦Pet crate`, m)
+        conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan 100000 💵money, 5 🎁Legendary crate, 3 📦Pet crate,150000 Iron⛓️, 200000 gold🪙, 100000 string🕸️, 100000 kayu🪵`, m)
         user.money += 100000
         user.legendary += 5
+        user.string += 100000
+        user.kayu += 100000
+        user.iron += 150000
+        user.gold += 200000
         user.pet += 3
         user.lastmonthly = new Date * 1
     } else {
