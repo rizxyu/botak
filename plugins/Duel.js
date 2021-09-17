@@ -28,8 +28,13 @@ let handler = async ( m, { conn, args, command}) => {
    try {
      if (/duel/.test(command)) {
        if (!who) return m.reply('tag yg ingin di ajak duel!')
+     let pler = `@${who.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`
        if (new Date - user.lastduel > 300000) {
-      conn.send2Button(m.chat, ` @${who.split("@")[0]} Mengajak duel ${args[0]}\n\nPilih Y Atau No`, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m)
+      conn.send2Button(m.chat, pler, `Games wabot`, `Ya`, `+dya`, `No`, `+dno`, m, false, {
+    contextInfo: {
+      mentionedJid: conn.parseMention(pler)
+    }
+  })
        user.lastduel = new Date * 1
       } else conn.reply( m.chat, `Kamu Sudah Berduel Tunggu hingga *${timers}*`, m)
      }
