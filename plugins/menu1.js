@@ -9,7 +9,7 @@ const defaultMenu = {
 ┌─〔 %me 〕
 ├ Hai, %name!
 │
-├ Tersisa *%limit Limit*
+├ Tersisa *%limit TIKET🎫*
 ├ Role *%role*
 ├ Level *%level (%exp / %maxexp)* [%xp4levelup]
 ├ %totalexp XP secara Total
@@ -20,9 +20,9 @@ const defaultMenu = {
 │
 ├ Uptime: *%uptime (%muptime)*
 ├ Database: %rtotalreg dari %totalreg
-╰┬──────────────★᭄ꦿ᭄ꦿ
- ├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
- └────────────────────
+│
+├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
+└────────────────────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
   body: '├ %cmd %islimit %isPremium',
@@ -211,19 +211,20 @@ if (teks == 'randomimage') tags = {
           "title": `
 ╭────⌠ 𝐲𝐨𝐮𝐫 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 ⌡
 │
-├ ${ucapan()}, ${name}👋🏻
+├ ${ucapan()}, ${name}
 *├ Tiket/Limit:* ${limit}
 *├ Role:* ${role}
 ├ Level: ${level}
 ├ Exp: ${exp}/${max}
-╰┬────────────★᭄ꦿ᭄ꦿ
- ├ Bot Uptime:* ${uptime} 
- ├ *(${muptime})*
- ╰───────────────★᭄ꦿ᭄ꦿ
-
-Is now ${jam} WIB
+│
+├ Bot Uptime:* ${uptime} 
+├ *(${muptime})*
+├ Jam *${jam}* WIB
+│
+├ Tanggal Islam: *${dateislami}*
+╰────────────★᭄ꦿ᭄ꦿ
 `.trim(),
-          "description": "Rain Xyz",
+          "description": "",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
