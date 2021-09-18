@@ -17,7 +17,7 @@ handler.all = async function (m) {
         let name = this.getName(m.sender)
         let Peler = global.DATABASE._data.chats[m.chat]
         if (new Date - this.spam[m.sender].lastspam > 4000) {
-            if (this.spam[m.sender].spam > 6) {
+            if (this.spam[m.sender].spam > 100) {
                 this.spam[m.sender].spam = 0
                 this.spam[m.sender].lastspam = new Date * 1
                  Peler.isBanned = true
