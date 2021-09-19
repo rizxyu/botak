@@ -45,6 +45,8 @@ kelemahan -
 Ketajaman ++
 Burning fire +
 
+
+Masih beta
 `
 
   try {
