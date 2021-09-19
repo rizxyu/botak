@@ -2,34 +2,38 @@ let { MessageType } = require('@adiwajshing/baileys')
 let fs = require('fs')
 
 let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
-
-   try {
-        let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
-        let randomkamu = `${Math.floor(Math.random() * 81)}`.trim() //hehe Biar Susah Menang :v
-        let Aku = (randomaku * 1)
-        let Kamu = (randomkamu * 1)
-        let kbansos = './lib/kbansos.jpg'
-        let mbansos = './lib/mbansos.jpg'
-        //let name = conn.getName[m.sender]
-        let __timers = (new Date - global.DATABASE._data.users[m.sender].lastbansos)
-        let _timers = (300000 - __timers) 
-        let timers = clockString(_timers)
-        let user = global.DATABASE.data.users[m.sender]
-            if (new Date - global.DATABASE._data.users[m.sender].lastbansos > 300000) {
-       if (Aku > Kamu) {
-       conn.sendFile( m.chat, kbansos, 'b.jpg', `Kamu Tertangkap Setelah Kamu korupsi dana bansos🕴️💰,  Dan kamu harus membayar denda 3 Juta rupiah💵`, m)
-       user.money -= 3000000
-       } else if (Aku < Kamu) {
-                user.money += 3000000
-                conn.sendFile( m.chat, mbansos, 'b.jpg', `Kamu berhasil  korupsi dana bansos🕴️💰,  Dan kamu mendapatkan 3 Juta rupiah💵`, m)
-            } else {
-                conn.sendButton( m.chat, `Sorry Gan Lu g Berhasil Korupsi bansos Dan Tidak masuk penjara karna kamu *melarikan diri🏃*`, `Rainbot`, `Kembali`, `.menu`, m)
-            }
-       } else conn.sendButton(m.chat, `Kamu sudah Melakukan Korupsi Bansos, dan kamu harus menunggu selama ${timers} agar bisa korupsi bansos kembali`, `Rain Bot`, `Menu`, `.menu`, m)
-       } catch (e) {
-       	return throw `${e}`
-       	}
+  try {
+    global.DATABASE.data.users[m.sender].lastbansos = global.DATABASE.data.users[m.sender].lastbansos || 0
+    let randomaku = `${Math.floor(Math.random() * 101)}`.trim()
+    let randomkamu = `${Math.floor(Math.random() * 81)}`.trim() //hehe Biar Susah Menang :v
+    let Aku = (randomaku * 1)
+    let Kamu = (randomkamu * 1)
+    let kbansos = './lib/kbansos.jpg'
+    let mbansos = './lib/mbansos.jpg'
+    //let name = conn.getName[m.sender]
+    let __timers = (new Date - global.DATABASE._data.users[m.sender].lastbansos)
+    let _timers = (300000 - __timers) 
+    let timers = clockString(_timers)
+    let user = global.DATABASE.data.users[m.sender]
+    if (new Date - global.DATABASE._data.users[m.sender].lastbansos > 300000) {
+      if (Aku > Kamu) {
+        conn.sendFile( m.chat, kbansos, 'b.jpg', `Kamu Tertangkap Setelah Kamu korupsi dana bansos🕴️💰,  Dan kamu harus membayar denda 3 Juta rupiah💵`, m)
+        user.money -= 3000000
+        global.DATABASE.data.users[m.sender].lastbansos = new Date * 1
+      } else if (Aku < Kamu) {
+        user.money += 3000000
+        conn.sendFile( m.chat, mbansos, 'b.jpg', `Kamu berhasil  korupsi dana bansos🕴️💰,  Dan kamu mendapatkan 3 Juta rupiah💵`, m)
+        global.DATABASE.data.users[m.sender].lastbansos = new Date * 1
+      } else {
+        conn.sendButton( m.chat, `Sorry Gan Lu g Berhasil Korupsi bansos Dan Tidak masuk penjara karna kamu *melarikan diri🏃*`, `Rainbot`, `Kembali`, `${usedPrefix}menu`, m)
+        global.DATABASE.data.users[m.sender].lastbansos = new Date * 1
+      }
+    } else conn.sendButton(m.chat, `Kamu sudah Melakukan Korupsi Bansos, dan kamu harus menunggu selama ${timers} agar bisa korupsi bansos kembali`, `Rain Bot`, `Menu`, `${usedPrefix}menu`, m)
+  } catch (e) {
+    throw `${e}`
   }
+}
+
 handler.help = ['bansos']
 handler.tags = ['game']
 handler.command = /^(bansos)$/i
