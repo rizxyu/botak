@@ -1,10 +1,12 @@
 //Males Bang
 //Udah susah susah nambahin fitur eh malah eror
+//BY RIZXYU
 
 let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType } = require('@adiwajshing/baileys')
 let { buttonsMessage, contactsArray, image, MimeType } = MessageType
+const uploadImage = require('./lib/uploadImage')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -315,6 +317,7 @@ module.exports = {
           if (!('sBye' in chat)) chat.sBye = ''
           if (!('sPromote' in chat)) chat.sPromote = ''
           if (!('sDemote' in chat)) chat.sDemote = ''
+          if (!isNumber(chat.expired)) chat.expired = 0
           if (!('delete' in chat)) chat.delete = false
           if (!('antiLink' in chat)) chat.antiLink = false
           if (!'antiToxic' in chat) chat.antiToxic = false
@@ -327,6 +330,7 @@ module.exports = {
           sBye: '',
           sPromote: '',
           sDemote: '',
+          expired: 0,
           delete: false,
           antiLink: true,
           antiToxic: false,
@@ -579,14 +583,19 @@ module.exports = {
         if (chat.welcome) {
           let groupMetadata = await this.groupMetadata(jid)
           for (let user of participants) {
-            let pp = './src/avatar_contact.png'
-            try {
-              pp = await this.getProfilePicture(user)
+          	let pp = 'https://i.ibb.co/jr9Nh6Q/Thumb.jpg'
+            let ppgc = 'https://i.ibb.co/jr9Nh6Q/Thumb.jpg'
+              try {
+              pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
+              ppgc = await uploadImage(await (await fetch(await this.getProfilePicture(jid))).buffer())
             } catch (e) {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
                    (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-              this.sendButtonImg(jid, text, pp, `notify`, `MENU`,`.menu`, null, false, {
+              let wel = `https://hardianto-chan.herokuapp.com/api/tools/welcomer2?name=${encodeURIComponent(this.getName(user))}&descriminator=${user.split(`@`)[0].substr(-5)}&totalmem=${encodeURIComponent(groupMetadata.participants.length)}&namegb=${encodeURIComponent(this.getName(jid))}&ppuser=${ppgc}&background=https://i.ibb.co/KhtRxwZ/dark.png&apikey=hardianto`
+              let lea = `https://hardianto-chan.herokuapp.com/api/tools/leave2?name=${encodeURIComponent(this.getName(user))}&descriminator=${user.split(`@`)[0].substr(-5)}&totalmem=${encodeURIComponent(groupMetadata.participants.length)}&namegb=${encodeURIComponent(this.getName(jid))}&ppuser=${ppgc}&background=https://i.ibb.co/KhtRxwZ/dark.png&apikey=hardianto`
+
+              this.sendFile(jid, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, {
                 contextInfo: {
                   mentionedJid: [user]
                 }
