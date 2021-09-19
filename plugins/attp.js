@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text }) => {
   let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
   conn.sendFile(m.chat, global.API('xteam', '/attp', { file: '', text: teks }), 'attp.webp', '', m, false, { asSticker: true })
-  m.reply(`lagi dikirim!\n*jangan lupa donasi Ya,Agar botnya online terus*`)
+  m.reply(`Tunggu Sebentar sedang di proses`)
 }
 handler.help = ['attp <teks>']
 handler.tags = ['sticker']
