@@ -171,9 +171,8 @@ module.exports = {
             if (!isNumber(user.lasthunt)) user.lasthunt = 0
             if (!isNumber(user.lastweekly)) user.lastweekly = 0
             if (!isNumber(user.lastmonthly)) user.lastmontly = 0
-            if (!isNumber(user.lastrampok)) user.lastrampok = 0
             if (!isNumber(user.lastbansos)) user.lastbansos = 0
-            if (!isNumber(user.lastsuap)) user.lastsuap = 0
+            if (!isNumber(user.lastrampok)) user.lastrampok = 0
             /////if (!('kingdom' in user)) user.kingdom = false
             if (!('registered' in user)) user.registered = false
             if (!user.registered) {
@@ -302,9 +301,8 @@ module.exports = {
             lastjb: 0,
             lastweekly: 0,
             lastmonthly: 0,
-            lastrampok: 0,
             lastbansos: 0,
-            lastsuap: 0,
+            lastrampok: 0,
             registered: false,
             name: this.getName(m.sender),
             age: -1,
@@ -326,7 +324,6 @@ module.exports = {
           if (!isNumber(chat.expired)) chat.expired = 0
           if (!('delete' in chat)) chat.delete = false
           if (!('antiLink' in chat)) chat.antiLink = false
-          if (!('stiker' in chat)) chat.stiker = false
           if (!'antiToxic' in chat) chat.antiToxic = false
           if (!'antiJawa' in chat) chat.antiJawa = false
         } else global.DATABASE._data.chats[m.chat] = {
@@ -340,11 +337,9 @@ module.exports = {
           expired: 0,
           delete: false,
           antiLink: true,
-           stiker: false,
           antiToxic: false,
           antiJawa: false,
         }
-        
       } catch (e) {
         console.error(e)
       }
@@ -376,7 +371,6 @@ module.exports = {
       let isOwner = isROwner || m.fromMe
       let isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-      if (!isPrems && !m.isGroup && global.DATABASE.data.settings.groupOnly) return
       let groupMetadata = m.isGroup ? this.chats.get(m.chat).metadata || await this.groupMetadata(m.chat) : {} || {}
       let participants = m.isGroup ? groupMetadata.participants : [] || []
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {} // User Data
