@@ -32,7 +32,7 @@ const defaultMenu = {
 ${'```%npmdesc```'}
 `,
 }
-let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
+let handler = async (m, { conn, usedPrefix: _p, args, text, command }) => {
   //let user = global.DATABASE.data.users[m.sender]
   //avtar = await conn.getProfilePicture(conn.user.jid)
   let tags
@@ -424,7 +424,8 @@ if (teks == 'randomimage') tags = {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.send2Button(m.chat, text.trim(), `•Rain Xyz•`, `Owner`,`.owner`, `Donasi`, `.donasi`, m)
+   //conn.send2Button(m.chat, text.trim(), `•Rain Xyz•`, `Owner`,`.owner`, `Donasi`, `.donasi`, m)
+    conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by Rizxyu', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
