@@ -171,6 +171,9 @@ module.exports = {
             if (!isNumber(user.lasthunt)) user.lasthunt = 0
             if (!isNumber(user.lastweekly)) user.lastweekly = 0
             if (!isNumber(user.lastmonthly)) user.lastmontly = 0
+            if (!isNumber(user.lastrampok)) user.lastrampok = 0
+            if (!isNumber(user.lastbansos)) user.lastbansos = 0
+            if (!isNumber(user.lastsuap)) user.lastsuap = 0
             /////if (!('kingdom' in user)) user.kingdom = false
             if (!('registered' in user)) user.registered = false
             if (!user.registered) {
@@ -299,6 +302,9 @@ module.exports = {
             lastjb: 0,
             lastweekly: 0,
             lastmonthly: 0,
+            lastrampok: 0,
+            lastbansos: 0,
+            lastsuap: 0,
             registered: false,
             name: this.getName(m.sender),
             age: -1,
