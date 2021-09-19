@@ -66,7 +66,7 @@ Masih beta
             global.DATABASE.data.users[m.sender].kayu -= 10
             global.DATABASE.data.users[m.sender].iron -= 10
             global.DATABASE.data.users[m.sender].string -= 20
-            global.DATABASE.data.users[m.sender].pedang += 1
+            global.DATABASE.data.users[m.sender].sword += 1
             m.reply("Sukses membuat 1 sword")
             break
           case 'pancing':
