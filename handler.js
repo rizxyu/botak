@@ -346,31 +346,7 @@ module.exports = {
           antiJawa: false,
          // viewonce: false,
         }
-        let settings = global.DATABASE.data.settings[this.user.jid]
-        if (typeof settings !== 'object') global.DATABASE.data.settings[this.user.jid] = {}
-        if (settings) {
-          if (!'anon' in settings) settings.anon = true
-          if (!'anticall' in settings) settings.anticall = true
-          if (!'antispam' in settings) settings.antispam = true
-          if (!'antitroli' in settings) settings.antitroli = true
-          if (!'backup' in settings) settings.backup = false
-          if (!isNumber(settings.backupDB)) settings.backupDB = 0
-          if (!'groupOnly' in settings) settings.groupOnly = false
-          if (!'jadibot' in settings) settings.groupOnly = false
-          if (!'nsfw' in settings) settings.nsfw = true
-          if (!isNumber(settings.status)) settings.status = 0
-        } else global.db.data.settings[this.user.jid] = {
-          anon: true,
-          anticall: true,
-          antispam: true,
-          antitroli: true,
-          backup: false,
-          backupDB: 0,
-          groupOnly: false,
-          jadibot: false,
-          nsfw: true,
-          status: 0,
-        }
+        
       } catch (e) {
         console.error(e)
       }
@@ -510,10 +486,6 @@ module.exports = {
             fail('unreg', m, this)
             continue
           }
-          if (plugin.nsfw && !global.DATABASE.data.settings.nsfw) { // Nsfw
-            fail('nsfw', m, this)
-            continue
-         }
 
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 15 // XP Earning per command
