@@ -320,8 +320,10 @@ module.exports = {
           if (!isNumber(chat.expired)) chat.expired = 0
           if (!('delete' in chat)) chat.delete = false
           if (!('antiLink' in chat)) chat.antiLink = false
+          if (!('stiker' in chat)) chat.stiker = false
           if (!'antiToxic' in chat) chat.antiToxic = false
           if (!'antiJawa' in chat) chat.antiJawa = false
+          if (!('viewonce' in chat)) chat.viewonce = false
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: true,
@@ -333,8 +335,35 @@ module.exports = {
           expired: 0,
           delete: false,
           antiLink: true,
+           stiker: false,
           antiToxic: false,
           antiJawa: false,
+          viewonce: false,
+        }
+        let settings = global.db.data.settings[this.user.jid]
+        if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
+        if (settings) {
+          if (!'anon' in settings) settings.anon = true
+          if (!'anticall' in settings) settings.anticall = true
+          if (!'antispam' in settings) settings.antispam = true
+          if (!'antitroli' in settings) settings.antitroli = true
+          if (!'backup' in settings) settings.backup = false
+          if (!isNumber(settings.backupDB)) settings.backupDB = 0
+          if (!'groupOnly' in settings) settings.groupOnly = false
+          if (!'jadibot' in settings) settings.groupOnly = false
+          if (!'nsfw' in settings) settings.nsfw = true
+          if (!isNumber(settings.status)) settings.status = 0
+        } else global.db.data.settings[this.user.jid] = {
+          anon: true,
+          anticall: true,
+          antispam: true,
+          antitroli: true,
+          backup: false,
+          backupDB: 0,
+          groupOnly: false,
+          jadibot: false,
+          nsfw: true,
+          status: 0,
         }
       } catch (e) {
         console.error(e)
@@ -367,6 +396,7 @@ module.exports = {
       let isOwner = isROwner || m.fromMe
       let isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
       let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      if (!isPrems && !m.isGroup && global.DATABASE.data.settings.groupOnly) return
       let groupMetadata = m.isGroup ? this.chats.get(m.chat).metadata || await this.groupMetadata(m.chat) : {} || {}
       let participants = m.isGroup ? groupMetadata.participants : [] || []
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {} // User Data
@@ -474,6 +504,10 @@ module.exports = {
             fail('unreg', m, this)
             continue
           }
+          if (plugin.nsfw && !global.db.data.settings.nsfw) { // Nsfw
+            fail('nsfw', m, this)
+            continue
+         }
 
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 15 // XP Earning per command
