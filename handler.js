@@ -329,7 +329,6 @@ module.exports = {
           if (!('stiker' in chat)) chat.stiker = false
           if (!'antiToxic' in chat) chat.antiToxic = false
           if (!'antiJawa' in chat) chat.antiJawa = false
-          //if (!('viewonce' in chat)) chat.viewonce = false
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: true,
@@ -344,7 +343,6 @@ module.exports = {
            stiker: false,
           antiToxic: false,
           antiJawa: false,
-         // viewonce: false,
         }
         
       } catch (e) {
