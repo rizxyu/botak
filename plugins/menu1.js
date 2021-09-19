@@ -425,7 +425,7 @@ if (teks == 'randomimage') tags = {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
    //conn.send2Button(m.chat, text.trim(), `•Rain Xyz•`, `Owner`,`.owner`, `Donasi`, `.donasi`, m)
-    conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by Rizxyu', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', { quoted: m})
+    conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by Rizxyu', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
