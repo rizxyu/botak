@@ -329,7 +329,7 @@ module.exports = {
           if (!('stiker' in chat)) chat.stiker = false
           if (!'antiToxic' in chat) chat.antiToxic = false
           if (!'antiJawa' in chat) chat.antiJawa = false
-          if (!('viewonce' in chat)) chat.viewonce = false
+          //if (!('viewonce' in chat)) chat.viewonce = false
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: true,
@@ -344,10 +344,10 @@ module.exports = {
            stiker: false,
           antiToxic: false,
           antiJawa: false,
-          viewonce: false,
+         // viewonce: false,
         }
-        let settings = global.db.data.settings[this.user.jid]
-        if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
+        let settings = global.DATABASE.data.settings[this.user.jid]
+        if (typeof settings !== 'object') global.DATABASE.data.settings[this.user.jid] = {}
         if (settings) {
           if (!'anon' in settings) settings.anon = true
           if (!'anticall' in settings) settings.anticall = true
@@ -510,7 +510,7 @@ module.exports = {
             fail('unreg', m, this)
             continue
           }
-          if (plugin.nsfw && !global.db.data.settings.nsfw) { // Nsfw
+          if (plugin.nsfw && !global.DATABASE.data.settings.nsfw) { // Nsfw
             fail('nsfw', m, this)
             continue
          }
