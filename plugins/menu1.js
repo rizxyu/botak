@@ -33,6 +33,7 @@ ${'```%npmdesc```'}
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
+  let user = global.DATABASE.data.users[m.sender]
   avtar = await conn.getProfilePicture(conn.user.jid)
   let tags
   let teks = `${args[0]}`.toLowerCase()
