@@ -10,7 +10,7 @@ async function handler(m, { conn, usedPrefix, command, text }) {
 
         console.log({SWORD, ARMOR, HEALT})
         if (SWORD) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/craft sword'}, type: 1})
-        if (ARMOR) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/buy armor'}, type: 1})
+        if (ARMOR) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/beli armor'}, type: 1})
         if (HEALT) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/heal'}, type: 1})
         
         let lmao = item(user.sword * 1, user.armor * 1, user.healt * 1, usedPrefix)
