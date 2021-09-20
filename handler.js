@@ -2,6 +2,7 @@
 //Udah susah susah nambahin fitur eh malah eror
 //BY RIZXYU
 
+let fetch = require('node-fetch')
 let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType } = require('@adiwajshing/baileys')
