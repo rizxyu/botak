@@ -36,6 +36,7 @@ module.exports = {
             if (!isNumber(user.stamina)) user.stamina = 0
             if (!isNumber(user.level)) user.level = 0
             if (!isNumber(user.exp)) user.exp = 0
+            if (!isNumber(user.pc)) user.pc = 0
             if (!isNumber(user.limit)) user.limit = 10
             if (!isNumber(user.lastclaim)) user.lastclaim = 0
             if (!isNumber(user.money)) user.money = 0
@@ -186,6 +187,7 @@ module.exports = {
             healt: 100,
             stamina: 100,
             level: 0,
+            pc: 0,
             //
             rumahsakit: 0,
             troopcamp: 0,
