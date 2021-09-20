@@ -9,7 +9,7 @@ const defaultMenu = {
 ┌─〔 %me 〕
 ├ Hai, %name!
 │
-├ Tersisa *%limit TIKET🎫*
+├ Tersisa *%limit Limit*
 ├ Role *%role*
 ├ Level *%level (%exp / %maxexp)* [%xp4levelup]
 ├ %totalexp XP secara Total
@@ -21,7 +21,15 @@ const defaultMenu = {
 ├ Uptime: *%uptime (%muptime)*
 ├ Database: %rtotalreg dari %totalreg
 │
+└────────────────────
+
+┌─〔 GRUP OFFICIAL 〕
+https://chat.whatsapp.com/F2rJu7MJyjC2Tzzc9Jx3MI
+└────────────────────
+
+┌─〔 NOTE 〕
 ├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
+├JIKA INGIN SEWA BOT ATAU DONASI TEKAN TOMBOL PEMILIK BOT
 └────────────────────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
@@ -225,6 +233,10 @@ if (teks == 'randomimage') tags = {
 │
 ├ Tanggal Islam: *${dateIslamic}*
 ╰────────────★᭄ꦿ᭄ꦿ
+
+┌─〔 NOTE 〕
+├ JIKA BOT DELAY JANGAN SPAM
+└────────────────────
 `.trim(),
           "description": "_janganlah malu terlihat miskin, malulah kita ketika tidak sholat 5 waktu_",
           "buttonText": "Klik Disini",
@@ -459,18 +471,18 @@ function clockString(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat dinihari"
+  res = "Selamat dinihari🌌"
   if (time >= 4) {
-    res = "Selamat pagi"
+    res = "Selamat pagi🌄"
   }
   if (time > 10) {
-    res = "Selamat siang"
+    res = "Selamat siang☀️"
   }
   if (time >= 15) {
-    res = "Selamat sore"
+    res = "Selamat sore🌅"
   }
   if (time >= 18) {
-    res = "Selamat malam"
+    res = "Selamat malam🌆"
   }
   return res
 }
