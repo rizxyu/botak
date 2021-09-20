@@ -1,6 +1,7 @@
 let ft = require('node-fetch')
 
 let handler = async ( m, { conn }) => {
+let dan = 'Donasi'
 let caption = `
 ╭─「 Donasi • Pulsa 」
 │ • Telkomsel [ 082328303332 ]
