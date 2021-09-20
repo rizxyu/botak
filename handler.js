@@ -671,7 +671,7 @@ global.dfail = (type, m, conn) => {
     botAdmin: '*[❗] Bot Admin Only*',
     unreg: '── 「 NOT REGISTERED 」 ──\nSilakan Register Terlebih Dahulu Sebelum Menggunakan Bot. Cara Register Cukup Dengan Command *#verify*\n\nNote:\nHarap Save Serial Number Mu Agar Bisa Melakukan Unreg Database Bot'
   }[type]
-  if (msg) return conn.sendButtonLoc(m.chat, await ( await fetch(fla + msg)).buffer(), msg, botwm, `Donasi`, `.donasi`, m)
+  if (msg) return m.reply(msg)
 }
 
 let fs = require('fs')
