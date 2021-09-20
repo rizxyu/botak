@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, text }) => {
 
-let res = await fetch(`https://api-zeeoneofc.herokuapp.com/api/muslim/doaharian?apikey=Alphabot)
+let res = await fetch(`https://api-zeeoneofc.herokuapp.com/api/muslim/doaharian?apikey=Alphabot`)
 json = await res.json()
 
 if (!json.result) throw 'eror keknya!'
