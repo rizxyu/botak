@@ -45,17 +45,17 @@ let handler = async ( m, { conn, args, command}) => {
      if (Aku > Kamu) {
        user.money -= 900
        enemy.money += 900
-       delete conn.duel
+       delete conn.duel[m.sender]
        conn.reply(m.chat, `@${who.split("@")[0]} Menang Gelud🤼\n*Hadiah:*\n900 Money buat beli gorengan`.trim(), m)
      } else if (Aku < Kamu) {
        user.money += 450
        enemy.money -= 450
-       delete conn.duel
+       delete conn.duel[m.sender]
        conn.reply(m.chat, `@${who.split("@")[0]} Kalah Gelud🤼\n*Hadiah:*\n 450 money Mayan buat beli Limit`.trim(), m)
      } else {
        user.money += 250
        enemy.money += 250
-       delete conn.duel
+       delete conn.duel[m.sender]
        conn.reply(m.chat, `@${who.split("@")[0]}\n *Seri*\n masing masing 250 Money`.trim(), m)
      }
    }
@@ -64,7 +64,7 @@ let handler = async ( m, { conn, args, command}) => {
    if(kenal) return conn.sendButton(m.chat, `Lu siapa?\nkok ikut kut mau duel`, `Sesion`, `NO`, `.dno`, m)
     //if (!who) return m.reply('tag yg ingin di ajak duel!')
     conn.reply( m.chat, `@${who.split("@")[0]} Membatalkan Ajakan Duel`, m)
-    delete conn.duel
+    delete conn.duel[m.sender]
    }
  } catch (e) {
    //return conn.sendButton( m.chat, `Sepertinya ada bug`, `laporkan ke owner`, `Kanjut Badag`, `+bug duel ${e.stack}`, m)
