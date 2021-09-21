@@ -42,6 +42,8 @@ module.exports = {
             if (!isNumber(user.lastclaim)) user.lastclaim = 0
             if (!isNumber(user.money)) user.money = 0
             
+            if (!isNumber(user.trofi)) user.trofi= 0
+            if (!user.rtrofi) user.rtrofi = 'Perunggu'
             if (!isNumber(user.rumahsakit)) user.rumahsakit= 0
             if (!isNumber(user.fortress)) user.fortress = 0
             if (!isNumber(user.troopcamp)) user.troopcamp = 0
@@ -106,21 +108,21 @@ module.exports = {
             if (!isNumber(user.bawal)) user.bawal = 0
             if (!isNumber(user.lele)) user.lele = 0
             if (!isNumber(user.paus)) user.paus = 0
-     if (!isNumber(user.kepiting)) user.kepiting = 0
-     if (!isNumber(user.gurita)) user.gurita = 0
-     if (!isNumber(user.cumi)) user.cumi= 0
-     if (!isNumber(user.buntal)) user.buntal = 0
-     if (!isNumber(user.dory)) user.dory = 0
-     if (!isNumber(user.lumba)) user.lumba = 0
-     if (!isNumber(user.lobster)) user.lobster = 0
-     if (!isNumber(user.hiu)) user.hiu = 0
-     if (!isNumber(user.udang)) user.udang = 0
-     if (!isNumber(user.ikan)) user.ikan = 0
-     if (!isNumber(user.orca)) user.orca = 0
+            if (!isNumber(user.kepiting)) user.kepiting = 0
+            if (!isNumber(user.gurita)) user.gurita = 0
+            if (!isNumber(user.cumi)) user.cumi= 0
+            if (!isNumber(user.buntal)) user.buntal = 0
+            if (!isNumber(user.dory)) user.dory = 0
+            if (!isNumber(user.lumba)) user.lumba = 0
+            if (!isNumber(user.lobster)) user.lobster = 0
+            if (!isNumber(user.hiu)) user.hiu = 0
+           if (!isNumber(user.udang)) user.udang = 0
+            if (!isNumber(user.ikan)) user.ikan = 0
+            if (!isNumber(user.orca)) user.orca = 0
         
-     if (!isNumber(user.banteng)) user.banteng = 0
-     if (!isNumber(user.harimau)) user.harimau = 0
-     if (!isNumber(user.gajah)) user.gajah = 0
+            if (!isNumber(user.banteng)) user.banteng = 0
+            if (!isNumber(user.harimau)) user.harimau = 0
+            if (!isNumber(user.gajah)) user.gajah = 0
      if (!isNumber(user.kambing)) user.kambing = 0
      if (!isNumber(user.panda)) user.panda = 0
      if (!isNumber(user.buaya)) user.buaya = 0
@@ -191,6 +193,7 @@ module.exports = {
             pc: 0,
             //
             trofi: 0,
+            rtrofi: 'perunggu',
             rumahsakit: 0,
             troopcamp: 0,
             fortress: 0,
@@ -672,7 +675,7 @@ global.dfail = (type, m, conn) => {
     botAdmin: '*[❗] Bot Admin Only*',
     unreg: '── 「 NOT REGISTERED 」 ──\nSilakan Register Terlebih Dahulu Sebelum Menggunakan Bot. Cara Register Cukup Dengan Command *#verify*\n\nNote:\nHarap Save Serial Number Mu Agar Bisa Melakukan Unreg Database Bot'
   }[type]
-  if (msg) return m.reply(msg)
+  if (msg) return conn.sendButtonLoc( m.chat, await ( await fetch( fla + 'NOTIFIKASI' )).buffer(), msg, botwm, `MENU`, `/menu`, m)
 }
 
 let fs = require('fs')
