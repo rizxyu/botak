@@ -328,7 +328,7 @@ module.exports = {
           if (!('sBye' in chat)) chat.sBye = ''
           if (!('sPromote' in chat)) chat.sPromote = ''
           if (!('sDemote' in chat)) chat.sDemote = ''
-          if (!isNumber(chat.expired)) chat.expired = 0
+         // if (!isNumber(chat.expired)) chat.expired = 0
           if (!('delete' in chat)) chat.delete = false
           if (!('antiLink' in chat)) chat.antiLink = false
           if (!'antiToxic' in chat) chat.antiToxic = false
@@ -341,7 +341,7 @@ module.exports = {
           sBye: '',
           sPromote: '',
           sDemote: '',
-          expired: 0,
+         // expired: 0,
           delete: false,
           antiLink: false,
           antiToxic: false,
