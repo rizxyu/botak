@@ -29,9 +29,9 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let caption = `
 💠Crafting : 
 
-⛏️pickaxe = ${pickaxe}
-🗡️Sword = ${sword}
-🎣pancing = ${pancing}
+⛏️pickaxe = 20
+🗡️Sword = 20
+🎣pancing = 20
 
 🔮Enchant 
 
@@ -63,7 +63,7 @@ Masih beta
             break
           case 'sword':
             if(user.kayu < 10 || user.iron < 5 || user.string < 20) return m.reply(`Barang tidak cukup!\nUntuk membuat sword. Kamu memerlukan : 10 kayu🪵 5 iron⛓️ dan 20 String🕸️`)
-            global.DATABASE.data.users[m.sender].kayu -= 10
+            global.DATABASE.data.users[m.sender].kayu -= 
             global.DATABASE.data.users[m.sender].iron -= 10
             global.DATABASE.data.users[m.sender].string -= 20
             global.DATABASE.data.users[m.sender].sword += 1
