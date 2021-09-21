@@ -58,11 +58,6 @@ _Profil Kerajaanmu_
 🏯Benteng level:
 ${ benteng == 0 ? 'Tidak punya benteng' : '' || benteng == 1 ? 'benteng kayu' : '' || benteng == 2 ? 'benteng beton' : '' }
 
-⚔️Last war: 
-🏮Last Find Sda:
-
-🏳️teman Aliansi:
-${aliance}
 
 ⚔️To war typing:
 ${usedPrefix}attack @mention <jumlah peleton>
@@ -74,7 +69,9 @@ ${usedPrefix}build <type>
 ${usedPrefix}getsda
 
 CEK LIGA🎯 KERAJAAN MU! KETIK
-*${usedPrefix}rankliga*`.trim()
+*${usedPrefix}rankliga*
+
+*[ FITUR INI MASIH DALAM PENGERJAAN]*`.trim()
 
 
 conn.sendFile( m.chat, imgk, 'kerajaa.jpg', caption, m, false, {
