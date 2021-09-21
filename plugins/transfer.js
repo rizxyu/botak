@@ -25,14 +25,14 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                             }
                         }
                     }
-                } else conn.reply(m.chat, `Uang kamu tidak mencukupi untuk mentransfer Money sebesar ${count}`.trim(), m)
+                } else conn.reply(m.chat, `Uang kamu tidak mencukupi untuk mentransfer 💵Money sebesar ${count}`.trim(), m)
                 break
             case 'potion':
                 if (global.DATABASE._data.users[m.sender].potion >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].potion -= count * 1
                         global.DATABASE._data.users[who].potion += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Potion`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 🥤Potion`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].potion += count * 1
                         m.reply('Gagal Menstransfer')
@@ -50,7 +50,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].sampah -= count * 1
                         global.DATABASE._data.users[who].sampah += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Sampah`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 💎Sampah`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].sampah += count * 1
                         m.reply('Gagal Menstransfer')
@@ -68,7 +68,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].diamond -= count * 1
                         global.DATABASE._data.users[who].diamond += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Diamond`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 💎Diamond`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].diamond += count * 1
                         m.reply('Gagal Menstransfer')
@@ -86,7 +86,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].common -= count * 1
                         global.DATABASE._data.users[who].common += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Common Crate`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 📦Common Crate`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].common += count * 1
                         m.reply('Gagal Menstransfer')
@@ -104,7 +104,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].uncommon -= count * 1
                         global.DATABASE._data.users[who].uncommon += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Uncommon Crate`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 📦Uncommon Crate`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].uncommon += count * 1
                         m.reply('Gagal Menstransfer')
@@ -122,7 +122,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].mythic -= count * 1
                         global.DATABASE._data.users[who].mythic += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Mythic crate`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 🎁Mythic crate`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].mythic += count * 1
                         m.reply('Gagal Menstransfer')
@@ -140,7 +140,7 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].legendary -= count * 1
                         global.DATABASE._data.users[who].legendary += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Legendary crate`.trim(), m)
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 🎁Legendary crate`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].legendary += count * 1
                         m.reply('Gagal Menstransfer')
@@ -153,8 +153,80 @@ let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
                     }
                 } else conn.reply(m.chat, `Legendary crate kamu kamu tidak cukup`.trim(), m)
                 break
+              case 'string':
+                if (global.DATABASE._data.users[m.sender].string >= count * 1) {
+                    try {
+                        global.DATABASE._data.users[m.sender].string -= count * 1
+                        global.DATABASE._data.users[who].string += count * 1
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 🕸️string`.trim(), m)
+                    } catch (e) {
+                        global.DATABASE._data.users[m.sender].string += count * 1
+                        m.reply('Gagal Menstransfer')
+                        console.log(e)
+                        if (DevMode) {
+                            for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
+                                conn.sendMessage(jid, 'Transfer.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
+                            }
+                        }
+                    }
+                } else conn.reply(m.chat, `Legendary crate kamu kamu tidak cukup`.trim(), m)
+                break
+               case 'kayu':
+                if (global.DATABASE._data.users[m.sender].kayu >= count * 1) {
+                    try {
+                        global.DATABASE._data.users[m.sender].kayu -= count * 1
+                        global.DATABASE._data.users[who].kayu += count * 1
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} 🪵kayu`.trim(), m)
+                    } catch (e) {
+                        global.DATABASE._data.users[m.sender].kayu += count * 1
+                        m.reply('Gagal Menstransfer')
+                        console.log(e)
+                        if (DevMode) {
+                            for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
+                                conn.sendMessage(jid, 'Transfer.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
+                            }
+                        }
+                    }
+                } else conn.reply(m.chat, `Legendary crate kamu kamu tidak cukup`.trim(), m)
+                break
+                case 'batu':
+                if (global.DATABASE._data.users[m.sender].batu >= count * 1) {
+                    try {
+                        global.DATABASE._data.users[m.sender].batu -= count * 1
+                        global.DATABASE._data.users[who].batu += count * 1
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} batu🪨`.trim(), m)
+                    } catch (e) {
+                        global.DATABASE._data.users[m.sender].batu += count * 1
+                        m.reply('Gagal Menstransfer')
+                        console.log(e)
+                        if (DevMode) {
+                            for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
+                                conn.sendMessage(jid, 'Transfer.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
+                            }
+                        }
+                    }
+                } else conn.reply(m.chat, `Legendary crate kamu kamu tidak cukup`.trim(), m)
+                break
+                 case 'besi':
+                if (global.DATABASE._data.users[m.sender].besi >= count * 1) {
+                    try {
+                        global.DATABASE._data.users[m.sender].besi -= count * 1
+                        global.DATABASE._data.users[who].besi += count * 1
+                        conn.reply(m.chat, `Berhasil mentransfer ${count} besi⛓️`.trim(), m)
+                    } catch (e) {
+                        global.DATABASE._data.users[m.sender].besi += count * 1
+                        m.reply('Gagal Menstransfer')
+                        console.log(e)
+                        if (DevMode) {
+                            for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
+                                conn.sendMessage(jid, 'Transfer.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
+                            }
+                        }
+                    }
+                } else conn.reply(m.chat, `Legendary crate kamu kamu tidak cukup`.trim(), m)
+                break
             default:
-                return conn.reply(m.chat, `Gunakan format ${usedPrefix}transfer <type> <jumlah> <@tag>\ncontoh penggunaan: *${usedPrefix}transfer money 100 @tag*\n\n*List yang bisa di transfer*\nMoney\nPotion\nSampah\nDiamond\nCommon\nUncommon\nMythic\nLegendary`.trim(), m)
+                return conn.reply(m.chat, `Gunakan format ${usedPrefix}transfer <type> <jumlah> <@tag>\n📍contoh penggunaan: *${usedPrefix}transfer money 100 @tag*\n\n*List yang bisa di transfer*\n💵Money\n🥤Potion\n🗑️Sampah\n💎Diamond\n📦Common\n📦Uncommon\n🎁Mythic\n🎁Legendary\n🕸️string\n🪵kayu\n🪨batu\n⛓️besi`.trim(), m)
         }
     } catch (e) {
         conn.reply(m.chat, `Format yang anda gunakan salah\n\nGunakan format ${usedPrefix}transfer <type> <jumlah> <@tag>\ncontoh penggunaan: *${usedPrefix}transfer money 100 @tag*`.trim(), m)
