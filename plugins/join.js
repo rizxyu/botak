@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, isMods, isOwner }) => {
         let __timers = (new Date - global.DATABASE.data.chats[m.chat].expired)
         let _timers = (86400 - __timers)
         let timers = clockString(_timers) 
-        let cek = global.DATABASE.data.chats[res.gid].expired
+        let cek = global.DATABASE.data.chats[m.chat].expired
         m.reply(`Berhasil join grup ${res.gid}\n\nBot akan Didalam grup itu selama ${cek}`)
        global.DATABASE.data.chats[res.gid].expired = new Date * 1
     } else {
