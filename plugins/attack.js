@@ -61,6 +61,7 @@ global.DATABASE.data.users[who].troops -= count * 1
 
 m.reply(`${m.sender.replace(/@.+/, '')} menyerang dan kalah dalam peperangan, 
 semua troops mati dalam peperangan`)
+    }
 }, 20000)
 
 setTimeout(() => {
