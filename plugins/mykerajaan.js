@@ -19,6 +19,8 @@ let name = global.DATABASE._data.users[m.sender].namk
 let aliance = global.DATABASE._data.users[m.sender].aliance
 let koin = global.DATABASE.data.users[m.sender].koin
 let makanan = global.DATABASE.data.users[m.sender].makanan
+let trofi = global.DATABASE.data.users[m.sender].trofi
+let rtrofi = global.DATABASE.data.users[m.sender].rtrofi
 
 let benteng = global.DATABASE.data.users[m.sender].fortress
 let rs = global.DATABASE.data.users[m.sender].rumahsakit
@@ -36,6 +38,8 @@ _Profil Kerajaanmu_
 
 🏰Name Kerajaan: ${kerajaan}
 👑Name King: ${name}
+🏆TROFI: ${trofi}
+🎯LIGA: ${rtrofi}
 👥populasi: ${populasi}
 👮pasukan: ${trops}
 🎋level kerajaan: ${lvl}
@@ -69,9 +73,8 @@ ${usedPrefix}build <type>
 ♨️Untuk Mengambil Sumber daya:
 ${usedPrefix}getsda
 
-Rank:
-*${userslvl.indexOf(m.sender) + 1}* dari *${userslvl.length}*
-`.trim()
+CEK LIGA🎯 KERAJAAN MU! KETIK
+*${usedPrefix}rankliga*`.trim()
 
 
 conn.sendFile( m.chat, imgk, 'kerajaa.jpg', caption, m, false, {
