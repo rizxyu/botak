@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, isMods, isOwner }) => {
     let e = 'JOIN GC'
     if (isMods || isOwner || m.fromMe) {
         let res = await conn.acceptInvite(code)
-        let __timers = (new Date - global.DATABASE.data.chats[res.gid].expired)
+        let __timers = (new Date - global.DATABASE.data.chats[m.chat].expired)
         let _timers = (86400 - __timers)
         let timers = clockString(_timers) 
         let cek = global.DATABASE.data.chats[res.gid].expired
