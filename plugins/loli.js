@@ -6,6 +6,6 @@ let handler = async (m, { conn }) => {
 handler.help = ['loli'].map(v => v + ' ')
 handler.tags = ['weebs']
 handler.command = /^(loli)$/i
-handler.register = true
+handler.register = false
 handler.limit = true
 module.exports = handler
