@@ -15,7 +15,7 @@ ${sortedLiga.slice(0, len).map(([user, data], i) => (i + 1) + '. @' + user.split
 `.trim()
   conn.reply(m.chat, text, m, {
     contextInfo: {
-      mentionedJid: [...userstrofi.slice(0, len), ...usersLiga.slice(0, len)]
+      mentionedJid: [...usersTrofi.slice(0, len), ...usersLiga.slice(0, len)]
     }
   })
 }
