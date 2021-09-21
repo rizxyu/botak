@@ -106,6 +106,6 @@ _@Rifaden_
 
 handler.help = ['build <args>', 'upgrade <sell|buy> <args>']
 handler.tags = ['rpg']
-    handler.owner = true
+handler.owner = false
 handler.command = /^(build|bangun|upgrade|upgd)$/i
 module.exports = handler
