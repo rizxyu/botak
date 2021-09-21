@@ -12,15 +12,13 @@ const uploadImage = require('./lib/uploadImage')
 let handler = async function (m, { text, conn, usedPrefix }) {
  let user = global.DATABASE.data.users[m.sender]
  if (user.registered === true) throw 'lu kan udah daftar'
-
-     let name = conn.getName(m.sender)
-     let age = `${Math.floor(Math.random() * 70)}`.trim()
+   let name = conn.getName(m.sender)
+   let age = `${Math.floor(Math.random() * 70)}`.trim()
   user.name = name
   user.age = age
   user.regTime = + new Date
   user.registered = true
   let sn = createHash('md5').update(m.sender).digest('hex')
-  
 
   let pp = './src/avatar_contact.png'
   try {
