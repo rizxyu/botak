@@ -22,7 +22,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
                     let ce = (_ce * 1)
                     let cu = (_cu * 1)
                     let Hcom = `
-Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\nMoney: ${cm}` : ''}${ce > 0 ? `\nExp: ${ce} *exp*` : ''}${cp > 0 ? `\nPotion: ${cp} *potion*` : ''}${cc > 0 ? `\ncommon crate: ${cc} *crate*` : ''}${cu > 0 ? `\nUncommon crate: ${cu} *crate*` : ''}
+Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\n💵Money: ${cm}` : ''}${ce > 0 ? `\nExp: ${ce} *🧬exp*` : ''}${cp > 0 ? `\n🥤Potion: ${cp} *potion*` : ''}${cc > 0 ? `\n📦common crate: ${cc} *crate*` : ''}${cu > 0 ? `\n📦Uncommon crate: ${cu} *crate*` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1) {
                         global.DATABASE._data.users[m.sender].common -= 1
@@ -32,7 +32,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\nMoney: ${cm}` : 
                         global.DATABASE._data.users[m.sender].uncommon += cu * 1
                         global.DATABASE._data.users[m.sender].common += cc * 1
                         conn.reply(m.chat, Hcom, m)
-                    } else conn.reply(m.chat, 'Common crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, '📦Common crate anda tidak cukup', m)
                     break
                 case '10':
                     let _cm1 = `${Math.floor(Math.random() * 500)}`.trim()
@@ -46,7 +46,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\nMoney: ${cm}` : 
                     let ce1 = (_ce1 * 1)
                     let cu1 = (_cu1 * 1)
                     let Hcom1 = `
-Anda telah membuka *Common crate* dan mendapatkan:${cm1 > 0 ? `\nMoney: ${cm1}` : ''}${ce1 > 0 ? `\nExp: ${ce1} *exp*` : ''}${cp1 > 0 ? `\nPotion: ${cp1} *potion*` : ''}${cc1 > 0 ? `\ncommon crate: ${cc1} *crate*` : ''}${cu1 > 0 ? `\nUncommon crate: ${cu1} *crate*` : ''}
+Anda telah membuka *📦Common crate* dan mendapatkan:${cm1 > 0 ? `\n💵Money: ${cm1}` : ''}${ce1 > 0 ? `\n🧬Exp: ${ce1} *exp*` : ''}${cp1 > 0 ? `\n🥤Potion: ${cp1} *potion*` : ''}${cc1 > 0 ? `\n📦common crate: ${cc1} *crate*` : ''}${cu1 > 0 ? `\n📦Uncommon crate: ${cu1} *crate*` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 10) {
                         global.DATABASE._data.users[m.sender].common -= 10
@@ -56,7 +56,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm1 > 0 ? `\nMoney: ${cm1}` 
                         global.DATABASE._data.users[m.sender].uncommon += cu1 * 1
                         global.DATABASE._data.users[m.sender].common += cc1 * 1
                         conn.reply(m.chat, Hcom1, m)
-                    } else conn.reply(m.chat, 'Common crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, '📦Common crate anda tidak cukup', m)
                     break
                 case '100':
                     let _cm2 = `${Math.floor(Math.random() * 5000)}`.trim()
@@ -129,7 +129,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm3 > 0 ? `\nMoney: ${cm3}` 
                     let uu = (_uu * 1)
                     let uc = (_uc * 1)
                     let Hun = `
-Anda telah membuka *Uncommon crate* dan mendapatkan:${um > 0 ? `\nMoney: ${um}` : ''}${ue > 0 ? `\nExp: ${ue} *exp*` : ''}${ud > 0 ? `\nDiamond: ${ud} *diamond*` : ''}${up > 0 ? `\nPotion: ${up} *potion*` : ''}${uc > 0 ? `\nCommon crate: ${uc} *crate*` : ''}${uu > 0 ? `\nUncommon crate: ${uu} *crate*` : ''}
+Anda telah membuka *📦Uncommon crate* dan mendapatkan:${um > 0 ? `\n💵Money: ${um}` : ''}${ue > 0 ? `\n🧬Exp: ${ue} *exp*` : ''}${ud > 0 ? `\n💎Diamond: ${ud} *diamond*` : ''}${up > 0 ? `\n🥤Potion: ${up} *potion*` : ''}${uc > 0 ? `\n📦Common crate: ${uc} *crate*` : ''}${uu > 0 ? `\n📦Uncommon crate: ${uu} *crate*` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].uncommon >= 1) {
                         global.DATABASE._data.users[m.sender].uncommon -= 1
