@@ -15,6 +15,8 @@ let enemy = global.DATABASE.data.users[who]
 
 if (!('created' in enemy)) return m.reply('yang anda tag tidak memiliki kerajaan')
 
+let trof = '60'
+
 let userTroops = user.troops
 
 let enemyTroops = enemy.troops
@@ -36,9 +38,11 @@ global.DATABASE.data.users[who].troops -= count * 1
 
 if (enemy.troops < 0) global.DATABASE.data.users[who].troops = 0
 
-m.reply(`${m.sender.replace(/@.+/, '')} berhasil menyerang dan memenangkan peperangan, tersisa ${count - global.DATABASE.data.users[who].troops} yang berhasil survive dan kembali ke kerajaan, serta mendapatkan seluruh SDA dari user yang diserang`)
+m.reply(`${m.sender.replace(/@.+/, '')} berhasil menyerang dan memenangkan peperangan, tersisa ${count - global.DATABASE.data.users[who].troops} yang berhasil survive dan kembali ke kerajaan, serta mendapatkan seluruh SDA dari user yang diserang\n\n🏆Trofi: ${trof}`)
 
 global.DATABASE.data.users[m.sender].emas += enemyGold
+
+global.DATABASE.data.users[m.sender].trofi += trof
 
 global.DATABASE.data.users[m.sender].kayu += enemyWood
 
@@ -58,9 +62,11 @@ global.DATABASE.data.users[m.sender].troops -= global.DATABASE.data.users[who].t
 
 global.DATABASE.data.users[who].troops -= count * 1
 
+global.DATABASE.data.users[who].trofi -= trof
+global.DATABASE.data.users[m.sender].trofi += trof
 
 m.reply(`${m.sender.replace(/@.+/, '')} menyerang dan kalah dalam peperangan, 
-semua troops mati dalam peperangan`)
+semua troops mati dalam peperangan\nDan anda tidak mendapatkan Trofi🏆`)
     }
 }, 20000)
 
