@@ -36,7 +36,7 @@ global.DATABASE.data.users[who].troops -= count * 1
 
 if (enemy.troops < 0) global.DATABASE.data.users[who].troops = 0
 
-m.reply(`berhasil menyerang dan memenangkan peperangan, tersisa ${count - global.DATABASE.data.users[who].troops} yang berhasil survive dan kembali ke kerajaan, serta mendapatkan seluruh SDA dari user yang diserang`)
+m.reply(`${m.sender.replace(/@.+/, '')} berhasil menyerang dan memenangkan peperangan, tersisa ${count - global.DATABASE.data.users[who].troops} yang berhasil survive dan kembali ke kerajaan, serta mendapatkan seluruh SDA dari user yang diserang`)
 
 global.DATABASE.data.users[m.sender].emas += enemyGold
 
@@ -58,12 +58,9 @@ global.DATABASE.data.users[m.sender].troops -= global.DATABASE.data.users[who].t
 
 global.DATABASE.data.users[who].troops -= count * 1
 
-m.reply(`
-Kamu menyerang dan kalah dalam peperangan, 
+setTimeout(() => {
+m.reply(`${m.sender.replace(/@.+/, '')} menyerang dan kalah dalam peperangan, 
 semua troops mati dalam peperangan`)
-
-}
-
 }, 20000)
 
 setTimeout(() => {
@@ -78,7 +75,7 @@ Memulai Peperangan⚔️
 setTimeout(() => {
 	m.reply(`${m.sender.replace(/@.+/, '')}  mulai akan menyerang kerajaan @${who.split("@")[0]} dengan pasukan ${count}`)
 	}, 0)
-
+ }
 } else m.reply('troops kamu tidak cukup untuk menyerang target')
 
 
