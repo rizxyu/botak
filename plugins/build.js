@@ -20,21 +20,19 @@ let user = global.DATABASE._data.users[m.sender]
 let caption = `
 *🚜 List Contruction For kingdoms facility*
 
-*List facility*   |  *🛒Harga pembangunan*
-🏥Hospital :           ${rumahsakit}
-🌾Pertanian:          ${pertanian}
-🏕️camptroop:        ${camptroops}
+*List facility | 🛒Harga pembangunan*
+🏥Hospital :    ${rumahsakit}
+🌾Pertanian:    ${pertanian}
+🏕️camptroop:    ${camptroops}
 ⚒️Pertambangan: ${pertambangan}
 
 🏯Benteng: ${benteng}
-
-
 
 ⌨️Typing to build
 ${usedPrefix}build <type>
 
 ⌨️Typing to upgrade:
-${usedPrefix}upgrade <type>
+${usedPrefix}upgrade <type> [ FITUR TIDAK TERSEDIA ]
 
 
 _🎮Created By:_
@@ -57,48 +55,38 @@ _@Rifaden_
                           break
                            case 'pertanian':
                            if ( user.batu > pertanian * count ) {
-                if ( user.pertanian == 7 ) {
-                	user.batu > pertanian * count
+                	user.batu >= pertanian * count
                 	user.pertanian += count * 1
                     user.kayu -= pertanian * count
                     user.batu -= pertanian * count
-                       } else m.reply(`Level pertanian Sudah mencapai batas`)
                        } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${pertanian * count }Kayu ${pertanian * count}batu`)
                       break
-                           case 'camptroops':
- case 'camptroop':
- if ( user.batu > camptroops * count ) {
-                           if ( user.camptroops == 7 ) {
-                	
-                	user.camptroops += count * 1
+                        case 'camptroops':
+                        case 'camptroop':
+                   if ( user.batu > camptroops * count ) {
+                    user.batu >= camptroops * count
+                    user.camptroops += count * 1
                     user.kayu -= camptroops * count
                     user.batu -= camptroops * count
-                       } else m.reply(`Level camp troop Sudah mencapai batas`)
-                       } else m.reply(`Sda Kamu tidak cukup untuk membangun kamp pasukan yg senilai ${camptroops * count }Kayu ${camptroops * count}batu`)
+                    } else m.reply(`Sda Kamu tidak cukup untuk membangun kamp pasukan yg senilai ${camptroops * count }Kayu ${camptroops * count}batu`)
                       
                       break
-                           case 'pertambangan':
-                           if ( user.tambang > pertambangan * count ) {
-                           if ( user.tambang == 5 ) {
-                	
-                	user.tambang += count * 1
+                    case 'pertambangan':
+                    if ( user.tambang > pertambangan * count ) {
+                   user.batu >= pertambangan * count
+                    user.tambang += count * 1
                     user.kayu -= pertambangan * count
-                    user.batu -= pertambangan * count
-                       } else m.reply(`Level pertanian Sudah mencapai batas`)
-                       } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${pertambangan * count }Kayu ${pertambangan * count}batu`)
+                    user.batu -= pertambangan * count 
+                    } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${pertambangan * count }Kayu ${pertambangan * count}batu`)
                       
                        break
-                            case 'rumahsakit': 
-  case 'hospital':
-  if ( user.rumahsakit > rumahsakit * count ) {
-  if ( user.rumahsakit == 7 ) {
-                	
-                	user.rumahsakit += count * 1
+                    case 'rumahsakit': 
+                    case 'hospital':
+                    if ( user.rumahsakit > rumahsakit * count ) {
+                    user.rumahsakit += count * 1
                     user.kayu -= rumahsakit * count
                     user.batu -= rumahsakit * count
-                       } else m.reply(`Level pertanian Sudah mencapai batas`)
-                       } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${rumahsakit * count }Kayu ${rumahsakit * count}batu`)
-                      
+                    } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${rumahsakit * count }Kayu ${rumahsakit * count}batu`)
                        break
 
                        default:
