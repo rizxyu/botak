@@ -58,7 +58,7 @@ global.DATABASE.data.users[m.sender].troops -= global.DATABASE.data.users[who].t
 
 global.DATABASE.data.users[who].troops -= count * 1
 
-setTimeout(() => {
+
 m.reply(`${m.sender.replace(/@.+/, '')} menyerang dan kalah dalam peperangan, 
 semua troops mati dalam peperangan`)
 }, 20000)
@@ -75,7 +75,7 @@ Memulai Peperangan⚔️
 setTimeout(() => {
 	m.reply(`${m.sender.replace(/@.+/, '')}  mulai akan menyerang kerajaan @${who.split("@")[0]} dengan pasukan ${count}`)
 	}, 0)
- }
+
 } else m.reply('troops kamu tidak cukup untuk menyerang target')
 
 
