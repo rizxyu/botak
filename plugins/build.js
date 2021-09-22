@@ -66,7 +66,7 @@ _@Rifaden_
                         case 'camptroop':
                    if ( user.batu > camptroops * count ) {
                     user.batu >= camptroops * count
-                    user.camptroops += count * 1
+                    user.troopcamp += count * 1
                     user.kayu -= camptroops * count
                     user.batu -= camptroops * count
                     m.reply(`Berhasil membangun camptropp`)
