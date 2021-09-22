@@ -25,6 +25,7 @@ let rtrofi = global.DATABASE.data.users[m.sender].rtrofi
 let benteng = global.DATABASE.data.users[m.sender].fortress
 let rs = global.DATABASE.data.users[m.sender].rumahsakit
 let kamp = global.DATABASE.data.users[m.sender].troopcamp
+let kebun = global.DATABASE.data.users[m.sender].pertanian
 
 let besi = global.DATABASE.data.users[m.sender].besi
 let kayu = global.DATABASE.data.users[m.sender].kayu
@@ -53,8 +54,8 @@ _Profil Kerajaanmu_
 
 🏗️Fasilitas:
 🏕️kamp pasukan: ${kamp == 0 ? 'tidak punya kamp pasukan' : '' || kamp == 1 ? 'kamp pasukan mini' : '' || kamp == 2 ? 'kamp pasukan sedang' : ''}
-🏥rumah sakit: ${ rs == 0 ? 'tidak punya rumah sakit' : '' }
-
+🏥rumah sakit: ${ rs == 0 ? 'tidak punya rumah sakit' : '' || rs == 1 ? 'rumah sakit kecil' : '' }
+🚜Pertanian: ${ kebun == 0 ? 'tidak punya pertanian' : '' || kebun == 1 ? 'pertanian kecil' : '' }
 🏯Benteng level:
 ${ benteng == 0 ? 'Tidak punya benteng' : '' || benteng == 1 ? 'benteng kayu' : '' || benteng == 2 ? 'benteng beton' : '' }
 
@@ -82,7 +83,7 @@ conn.sendFile( m.chat, imgk, 'kerajaa.jpg', caption, m, false, {
 }
 
 handler.help = ['mykingdom','mykrjn','kerajaanku']
-handler.tags = ['rpg']
+handler.tags = ['kingdom']
 handler.command = /^(mykingdom|kerajaanku)/i
 
 handler.owner = false
