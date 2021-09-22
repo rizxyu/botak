@@ -59,6 +59,7 @@ _@Rifaden_
                 	user.pertanian += count * 1
                     user.kayu -= pertanian * count
                     user.batu -= pertanian * count
+                       m.reply(`Berhasil membangun pertanian`)
                        } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${pertanian * count }Kayu ${pertanian * count}batu`)
                       break
                         case 'camptroops':
@@ -68,21 +69,23 @@ _@Rifaden_
                     user.camptroops += count * 1
                     user.kayu -= camptroops * count
                     user.batu -= camptroops * count
+                    m.reply(`Berhasil membangun camptropp`)
                     } else m.reply(`Sda Kamu tidak cukup untuk membangun kamp pasukan yg senilai ${camptroops * count }Kayu ${camptroops * count}batu`)
                       
                       break
                     case 'pertambangan':
-                    if ( user.tambang > pertambangan * count ) {
+                    if ( user.batu > pertambangan * count ) {
                    user.batu >= pertambangan * count
                     user.tambang += count * 1
                     user.kayu -= pertambangan * count
                     user.batu -= pertambangan * count 
+                    m.reply(`Berhasil membangun pertambangan`)
                     } else m.reply(`Sda Kamu tidak cukup untuk membangun pertanian yg senilai ${pertambangan * count }Kayu ${pertambangan * count}batu`)
                       
                        break
                     case 'rumahsakit': 
                     case 'hospital':
-                    if ( user.rumahsakit > rumahsakit * count ) {
+                    if ( user.batu > rumahsakit * count ) {
                     user.rumahsakit += count * 1
                     user.kayu -= rumahsakit * count
                     user.batu -= rumahsakit * count
@@ -105,7 +108,7 @@ _@Rifaden_
 }
 
 handler.help = ['build <args>', 'upgrade <sell|buy> <args>']
-handler.tags = ['rpg']
+handler.tags = ['kingdom']
 handler.owner = false
 handler.command = /^(build|bangun|upgrade|upgd)$/i
 module.exports = handler
