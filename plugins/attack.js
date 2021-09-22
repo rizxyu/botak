@@ -32,7 +32,7 @@ if (user.troops >= count * 1) {
 setTimeout(() => {
 if (count * 1 > enemy.troops) {
 
-global.DATABASE.data.users[m.sender].troops -= global.DATABASE.data.users[who].troops
+global.DATABASE.data.users[m.sender].troops += global.DATABASE.data.users[who].troops
 
 global.DATABASE.data.users[who].troops -= count * 1
 
@@ -55,7 +55,9 @@ global.DATABASE.data.users[who].kayu = 0
 global.DATABASE.data.users[who].batu = 0
 
 }
+}, 20000)
 
+setTimeout(() => {
 if (count * 1 < enemy.troops) {
 
 global.DATABASE.data.users[m.sender].troops -= global.DATABASE.data.users[who].troops
@@ -88,6 +90,7 @@ setTimeout(() => {
 
 }
 handler.help = ['attack']
+handler.tags = ['kingdom']
 module.exports = handler
 
 handler.command = /^(attack|war)/i
