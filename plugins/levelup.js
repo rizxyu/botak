@@ -35,7 +35,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         .setDiscriminator(discriminator)
       rank.build()
         .then(async data => {
-          await conn.sendFile(m.chat, data, 'd.jpg', `Level *${user.level} (${user.exp}/${max})*\nKurang *${max - user.exp}* lagi!`.trim(), m)
+          await conn.sendButImg(m.chat, data, `Level *${user.level} (${user.exp}/${max})*\nKurang *${max - user.exp}* lagi!`.trim(), botwm, `Claim`, `.daily`, m)
         })
     }
     let before = user.level * 1
@@ -52,7 +52,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         .setDiscriminator(discriminator)
       rank.build()
         .then(async data => {
-          await conn.sendFile(m.chat, data, 'pp.jpg', `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), m)
+          await conn.sendButImg(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), botwm, `AutoLevelUp`, `/enable autolevelup`, m)
         })
     }
   }

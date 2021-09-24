@@ -44,7 +44,7 @@ handler.before = async function (m) {
                                 .setDiscriminator(discriminator);
                         rank.build()
                                 .then(async data => {
-                                        await this.sendFile(m.chat, data, 'data.jpg', `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), m)
+                                        await this.sendButImg(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), botwm, `Claim`, `.daily`, m)
                                 })
                 }
         }
