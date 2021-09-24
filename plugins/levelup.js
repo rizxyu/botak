@@ -35,7 +35,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         .setDiscriminator(discriminator)
       rank.build()
         .then(async data => {
-          await conn.sendButtonImg(m.chat, `Level *${user.level} (${user.exp}/${max})*\nKurang *${max - user.exp}* lagi!`.trim(), data,  '© stikerin', 'Auto Level Up', `${usedPrefix}on autolevelup`, m, { thumbnail: data, height: 282, width: 934 })
+          await conn.sendFile(m.chat, data, 'd.jpg', `Level *${user.level} (${user.exp}/${max})*\nKurang *${max - user.exp}* lagi!`.trim(), m)
         })
     }
     let before = user.level * 1
@@ -52,7 +52,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         .setDiscriminator(discriminator)
       rank.build()
         .then(async data => {
-          await conn.sendButtonImg(m.chat, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), data,  '© stikerin', 'Auto Level Up', `${usedPrefix}on autolevelup`, m, { thumbnail: data, height: 282, width: 934 })
+          await conn.sendFile(m.chat, data, 'pp.jpg', `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), m)
         })
     }
   }
