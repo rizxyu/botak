@@ -11,6 +11,8 @@ global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
   xteam: 'https://api.xteam.xyz',
+  jonaz: 'https://jonaz-api-v2.herokuapp.com',
+  neoxr: 'https://neoxr-api.herokuapp.com',
   nzcha: 'http://nzcha-apii.herokuapp.com',
   bg: 'http://bochil.ddns.net',
   dhnjing: 'https://dhnjing.xyz',
@@ -18,6 +20,7 @@ global.APIs = { // API Prefix
   dzx: 'https://api.dhamzxploit.my.id',
   bsbt: 'https://bsbt-api-rest.herokuapp.com',
   zahir: 'https://zahirr-web.herokuapp.com',
+  zekais: 'http://zekais-api.herokuapp.com',
   zeks: 'https://api.zeks.xyz',
   LeysCoder: 'https://leyscoders-api.herokuapp.com',
   pencarikode: 'https://pencarikode.xyz'
@@ -26,6 +29,7 @@ global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'c2c200ae76c1c557',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
+  'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://bsbt-api-rest.herokuapp.com': 'benniismael',
   'https://api.zeks.xyz': 'apivinz',
   'https://pencarikode.xyz': 'pais',
