@@ -86,22 +86,6 @@ let handler = async (m, { conn, usedPrefix }) => {
 ❇️Exp: *${exp}*
 🎟️Limit: ${limit}
 
-*🏹hewan dikandang:*
-🐔 ayam: ${ayam}
-🐄Sapi: ${sapi}
-🐖Babi: ${babi}
-🐂Banteng: ${banteng}
-🔫Total ada: ${ ayam + sapi + babi + banteng } tangkapan
-Bisa kamu masak /masak ayamb
-
-*🎣Tangkapan Memancing/Fishing catch:*
-🐟ikan: ${ikan}
-🐟lele: ${lele}
-🐡bawal: ${bawal}
-🐟Nila: ${nila}\n
-_🕸️Total Item:_
-${nila + bawal + ikan + lele + psepick + psenjata }
-
 *🎒Inventory*
 💎Diamond: *${diamond}*
 💊Potion: *${potion}*
@@ -111,11 +95,6 @@ ${nila + bawal + ikan + lele + psepick + psenjata }
 🕸️String: ${string}
 🪙Gold: ${emas}
 ⛓️Besi: ${besi}
-🍎 apel : ${apel}
-🍗ayam bakar: ${ayamb}
-🍖ayam goreng: ${ayamg}
-🍖Rendang Sapi : ${sapir}
-🍢steak sapi: ${ssapi}
 
 Total inv: *${diamond + potion + sampah + makananpet + apel + ayamb + ayamg + sapir + ssapi }* item\n
 *🎁Crate*
