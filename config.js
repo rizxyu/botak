@@ -38,9 +38,9 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Rain Bot By Rizxyu\nDonate Me plis'
-global.author = ''
-global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&doScale=true&scaleWidth=400&scaleHeight=200&fontsize=90&fillTextType=1&text='
+global.packname = 'Rain Bot'
+global.author = '©Rizxyu'
+global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&doScale=true&scaleWidth=800&scaleHeight=400&fontsize=90&fillTextType=1&text='
 
 global.multiplier = 39 // The higher, The harder levelup
 
