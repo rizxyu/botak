@@ -1,7 +1,7 @@
 {
-  "name": "games-wabot",
-  "version": "0.9.8",
-  "description": "Customizable WhatsApp Bot",
+  "name": "Rain Bot",
+  "version": "5.0.8",
+  "description": "WhatsApp Bot Stable",
   "main": "index.js",
   "directories": {
     "lib": "lib",
