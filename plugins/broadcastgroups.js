@@ -8,7 +8,7 @@ let handler  = async (m, { conn, text }) => {
   await delay(1500)
  await conn.send2ButtonLoc(id, await ( await fetch( fla + 'broadcast')).buffer(), content, botwm, `Menu`, `/menu`, `Donasi`, `/donasi`, m)
    }
-  m.reply(m.chat, `_Berhasil broadcast ke ${groups.length} grup_`, m)
+  m.reply(`_Berhasil broadcast ke ${groups.length} grup_`)
 }
 handler.help = ['broadcastgroup','bcgc'].map(v => v + ' <teks>')
 handler.tags = ['owner']
