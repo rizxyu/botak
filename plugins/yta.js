@@ -2,7 +2,7 @@ let limit = 30
 const { servers, yta } = require('../lib/y2mate')
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
   if (!args || !args[0]) throw `contoh:\n${usedPrefix + command} https://www.youtube.com/watch?v=yxDdj_G9uRY`
-  let chat = global.db.data.chats[m.chat]
+  let chat = global.DATABASE.data.chats[m.chat]
   let server = (args[1] || servers[0]).toLowerCase()
   let { dl_link, thumb, title, filesize, filesizeF } = await yta(args[0], servers.includes(server) ? server : servers[0])
   let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
@@ -28,6 +28,6 @@ handler.botAdmin = false
 
 handler.fail = null
 handler.exp = 0
-handler.limit = true
+handler.limit = false
 
 module.exports = handler
