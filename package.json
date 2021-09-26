@@ -1,7 +1,7 @@
 {
   "name": "Rain-Bot",
   "version": "5.0.7",
-  "description": "WhatsApp Bot Stable",
+  "description": "WhatsApp-Bot-Stable",
   "main": "index.js",
   "directories": {
     "lib": "lib",
