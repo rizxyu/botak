@@ -41,14 +41,14 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
 *🕸️ String:* ${string}
 *🚮sampah:* ${sampah}${potion == 0 ? '' : '\n*💊Potion:* ' + potion + ''}${diamond == 0 ? '' : '\n*💎diamond:* ' + diamond + ''}${common == 0 ? '' : '\n*📦common crate:* ' + common + ''}${uncommon == 0 ? '' : '\n*📦uncommon crate:* ' + uncommon + ''}
 `.trim()
-            conn.reply(m.chat, str, m)
+            conn.sendButton(m.chat, str, botwm, `Berburu`, `.berburu`, m)
             if (mythic > 0) {
                    global.DATABASE._data.users[m.sender].mythic += mythic * 1
-                   conn.reply(m.chat, '*Selamat anda mendapatkan item Rare yaitu*\n' + mythic + ' Mythic Crate', m)
+                   conn.reply(m.chat, '*Selamat anda mendapatkan item Rare yaitu*\n' + mythic + ' Mythic Crate🎁', m)
             }
             if (legendary > 0) {
                 global.DATABASE._data.users[m.sender].legendary += legendary * 1
-                conn.reply(m.chat, '*Selamat anda mendapatkan item Epic yaitu*\n' + legendary + ' Legendary Crate', m)
+                conn.reply(m.chat, '*Selamat anda mendapatkan item Epic yaitu*\n' + legendary + ' Legendary Crate🎁', m)
             }
             global.DATABASE._data.users[m.sender].healt -= healt * 1
             global.DATABASE._data.users[m.sender].exp += exp * 1
