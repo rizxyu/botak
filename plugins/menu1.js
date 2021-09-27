@@ -55,7 +55,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, text, command }) => {
     'rpg': 'Rpg',
     'kingdom': 'Kingdom',
     'sticker': 'Stiker',
-    'jadian': 'Jadian',
+    'jadian': 'Jadian (EROR)',
     'randomimage': 'Random image',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
