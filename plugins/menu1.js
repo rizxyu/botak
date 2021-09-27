@@ -12,16 +12,16 @@ const defaultMenu = {
 │├ Role *%role*
 │├ Level *%level (%exp / %maxexp)* [%xp4levelup]
 │├ %totalexp XP secara Total
-│└───────────────────᯽
+│└──────────────────᯽
 ├────⌊ Tanggal dan waktu ⌉
 ├ Tanggal: *%week %weton, %date*
 ├ Tanggal Islam: *%dateIslamic*
 ├ Waktu: *%jam* WIB
-│┌────⌊ uptime dan database ⌉
+│┌───⌊ uptime dan database ⌉
 │├ Uptime: *%uptime (%muptime)*
-│├ Database: %rtotalreg dari %totalreg
-│└────────────────────᯽
-└───────────────────╌┈⳼⚘
+│├ Pengguna: *%totalreg*
+│└──────────────────᯽
+└────────────────╌┈⳼⚘
 
 ┌─〔 GRUP OFFICIAL 〕
 https://chat.whatsapp.com/F2rJu7MJyjC2Tzzc9Jx3MI
@@ -29,6 +29,7 @@ https://chat.whatsapp.com/F2rJu7MJyjC2Tzzc9Jx3MI
 
 ┌─〔 NOTE 〕
 ├DATA KAMU TIDAK AKAN TERSIMPAN DI DATABASE BOT
+│
 ├JIKA INGIN SEWA BOT ATAU DONASI TEKAN TOMBOL PEMILIK BOT
 └────────────────────
 %readmore`.trimStart(),
@@ -223,11 +224,9 @@ if (teks == 'randomimage') tags = {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `
-${ucapan} ${name}
-
-List menu ada dibawah
+Halo ${name}
 `.trim(),
-          "description": "_janganlah malu terlihat miskin, malulah kita ketika tidak sholat 5 waktu_",
+          "description": "tekan menu di bawah",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
