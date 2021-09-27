@@ -87,50 +87,25 @@ module.exports = {
 
              if (!isNumber(user.leleg)) user.leleg = 0
 
-             
-
             if (!'Banneduser' in user) user.Banneduser = false
-
             if (!'BannedReason' in user) user.BannedReason = ''
-
             if (!isNumber(user.warn)) user.warn = 0
-
-
-
             if (!isNumber(user.afk)) user.afk = -1
-
-            if (!'afkReason' in user) user.afkReason = ''
-
-            
+            if (!'afkReason' in user) user.afkReason = ''           
 
             if (!isNumber(user.pedagang)) user.pedagang = false
-
             if (!isNumber(user.polisi)) user.polisi = false
-
             if (!isNumber(user.dokter)) user.dokter = false
-
             if (!isNumber(user.ojek)) user.ojek = false
-
             if (!isNumber(user.petani)) user.petani = false
-
             if (!isNumber(user.kuli)) user.kuli = false
-
             if (!isNumber(user.montir)) user.montir = false
-
             if (!isNumber(user.job)) user.job = false
-
-            //last Job
-
-            if (!isNumber(user.lastjb)) user.lastjb = 0
-
-            
-
+       
+            if (!isNumber(user.lastjb)) user.lastjb = 0           
             if (!isNumber(user.nila)) user.nila = 0
-
             if (!isNumber(user.bawal)) user.bawal = 0
-
             if (!isNumber(user.lele)) user.lele = 0
-
             if (!isNumber(user.paus)) user.paus = 0
 
             if (!isNumber(user.kepiting)) user.kepiting = 0
@@ -235,120 +210,61 @@ module.exports = {
 
             if (!isNumber(user.fishingrod)) user.fishingrod = 0
 
-            if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0
-
-           //KERAJAAN
-
-           //
-
-            
-
+            if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0           
             if (!isNumber(user.lastadventure)) user.lastadventure = 0
-
             if (!isNumber(user.lastfishing)) user.lastfishing = 0
-
-            if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
-
-            
-
+            if (!isNumber(user.lastdungeon)) user.lastdungeon = 0           
             if (!isNumber(user.lastsda)) user.lastsda = 0
-
-            if (!isNumber(user.lastsda)) user.lastwar = 0
-
-            
-
+            if (!isNumber(user.lastsda)) user.lastwar = 0           
             if (!isNumber(user.lastduel)) user.lastduel = 0
-
             if (!isNumber(user.lastmining)) user.lastmining = 0
-
             if (!isNumber(user.lasthunt)) user.lasthunt = 0
-
             if (!isNumber(user.lastweekly)) user.lastweekly = 0
-
             if (!isNumber(user.lastmonthly)) user.lastmontly = 0
-
             if (!isNumber(user.lastbansos)) user.lastbansos = 0
-
             if (!isNumber(user.lastrampok)) user.lastrampok = 0
+            if (!isNumber(user.lastseen)) user.lastseen = 0
 
+            if (!'pasangan' in user) user.pasangan = ''
             /////if (!('kingdom' in user)) user.kingdom = false
-
             if (!('registered' in user)) user.registered = false
-
             if (!user.registered) {
-
                 if (!('name' in user)) user.name = this.getName(m.sender)
-
                 if (!isNumber(user.age)) user.age = -1
-
                 if (!isNumber(user.regTime)) user.regTime = -1
-
                 if (!user.role) user.role = 'Beginner'
-
             }
-
             if (!('autolevelup' in user)) user.autolevelup = false
-
           } else global.DATABASE._data.users[m.sender] = {
-
             healt: 100,
-
             stamina: 100,
-
-            level: 0,
-
+           level: 0,
             pc: 0,
-
-            //
-
+            
             trofi: 0,
-
             rtrofi: 'perunggu',
-
             rumahsakit: 0,
-
             troopcamp: 0,
-
             fortress: 0,
-
             makanan: 0,
-
             shield: false,
-
-            //
-
+            
             exp: 0,
-
             limit: 10,
-
             lastclaim: 0,
-
             money: 0,
-
             diamond: 0,
-
             iron: 0,
-
             common: 0,
-
             uncommon: 0,
-
             mythic: 0,
-
             legendary: 0,
-
             pet: 0,
-
             psepick: 0,
-
             psenjata: 0,
-
             potion: 0,
-
             pancing: 0,
-
             sampah: 0,
-
             armor: 0,
 
             kucing: 0,
@@ -536,7 +452,8 @@ module.exports = {
             lastbansos: 0,
 
             lastrampok: 0,
-
+            lastseen: 0,
+            pasangan: '',
             registered: false,
 
             name: this.getName(m.sender),
@@ -560,55 +477,31 @@ module.exports = {
         if (chat) {
 
           if (!('isBanned' in chat)) chat.isBanned = false
-
           if (!('welcome' in chat)) chat.welcome = false
-
           if (!('detect' in chat)) chat.detect = false
-
           if (!('sWelcome' in chat)) chat.sWelcome = ''
-
           if (!('sBye' in chat)) chat.sBye = ''
-
           if (!('sPromote' in chat)) chat.sPromote = ''
-
           if (!('sDemote' in chat)) chat.sDemote = ''
-
-         // if (!isNumber(chat.expired)) chat.expired = 0
-
           if (!('delete' in chat)) chat.delete = false
-
           if (!('antiLink' in chat)) chat.antiLink = false
-
           if (!'antiToxic' in chat) chat.antiToxic = false
-
           if (!'antiJawa' in chat) chat.antiJawa = false
-
+          if (!isNumber(chat.lastseen)) chat.lastseen = 0
         } else global.DATABASE._data.chats[m.chat] = {
-
           isBanned: false,
-
           welcome: false,
-
-          detect: false,
-
-          sWelcome: '',
-
-          sBye: '',
-
-          sPromote: '',
-
-          sDemote: '',
-
-         // expired: 0,
-
           delete: false,
-
+          detect: false,
+          sWelcome: '',
+          sBye: '',
+          sPromote: '',
+          sDemote: '',
+          delete: false,
           antiLink: false,
-
           antiToxic: false,
-
           antiJawa: false,
-
+          lastseen: 0
         }
 
       } catch (e) {
