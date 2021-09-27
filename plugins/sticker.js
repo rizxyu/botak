@@ -1,38 +1,63 @@
 const { MessageType } = require('@adiwajshing/baileys')
 const { sticker } = require('../lib/sticker')
+const WSF = require('wa-sticker-formatter')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
+  let wsf = false
   try {
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
-    if (/image/.test(mime)) {
+    if (/webp/.test(mime)) {
       let img = await q.download()
-      m.reply(`Await....`)
-      if (!img) throw `balas gambar dengan caption *${usedPrefix + command}*`
-      stiker = await sticker(img, false, global.packname, global.author)
+      m.reply(wait)
+      if (!img) throw `balas stiker dengan perintah ${usedPrefix + command}`
+      wsf = new WSF.Sticker(img, {
+        pack: global.packname,
+        author: global.author,
+        crop: false,
+      })
+    } else if (/image/.test(mime)) {
+      let img = await q.download()
+      m.reply(wait)
+      if (!img) throw `balas gambar dengan perintah ${usedPrefix + command}`
+      wsf = new WSF.Sticker(img, {
+        pack: global.packname,
+        author: global.author,
+        crop: false,
+      })
     } else if (/video/.test(mime)) {
-      if ((q.msg || q).seconds > 11) return m.reply('Maksimal 10 detik!')
+      if ((q.msg || q).seconds > 11) throw 'Maksimal 10 detik!'
       let img = await q.download()
-      m.reply(`Await....`)
-      if (!img) throw `balas video/gif dengan caption *${usedPrefix + command}*`
-      stiker = await sticker(img, false, global.packname, global.author)
-    } else if (/webp/.test(mime)) {
-      let img = await q.download()
-      m.reply(`Await....`)
-      if (!img) throw `balas sticker dengan caption *${usedPrefix + command}*`
-      stiker = await sticker(img, false, global.packname, global.author)
+      m.reply(wait)
+      if (!img) throw `balas video dengan perintah ${usedPrefix + command}`
+      wsf = new WSF.Sticker(img, {
+        pack: global.packname,
+        author: global.author,
+        crop: true,
+      })
     } else if (args[0]) {
       if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
-      else return m.reply('URL tidak valid!')
+      else throw 'URL tidak valid!'
     }
-  } finally {
-    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+  } catch (e) {
+    throw e
+  }
+  finally {
+    if (wsf) {
+      await wsf.build()
+      const sticBuffer = await wsf.get()
+      if (sticBuffer) await conn.sendMessage(m.chat, sticBuffer, MessageType.sticker, {
+        quoted: m,
+        mimetype: 'image/webp'
+      })
+    }
+    if (stiker) await conn.sendMessage(m.chat, stiker, MessageType.sticker, {
       quoted: m
     })
-    else throw '*IND:* Gagal membuat sticker, Sepertinya ada yg salah!\n\n*EN:* failed to make a sticker, something seems wrong!'
+    // else throw `Gagal${m.isGroup ? ', balas gambarnya!' : ''}`
   }
 }
-handler.help = ['stiker (caption|reply media)', 'stiker <url>', 'stikergif (caption|reply media)', 'stikergif <url>']
+handler.help = ['stiker ', 'stiker <url>']
 handler.tags = ['sticker']
 handler.command = /^s(tic?ker)?(gif)?(wm)?$/i
 
