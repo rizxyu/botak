@@ -1,4 +1,6 @@
-
+/*
+* HEROKU KONTOL
+*/
 let fetch = require('node-fetch')
 let util = require('util')
 let simple = require('./lib/simple')
