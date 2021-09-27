@@ -1,4 +1,6 @@
-
+/*
+* Demi meng updete handler gw belajar memahami ini
+*/
 let fetch = require('node-fetch')
 let util = require('util')
 let simple = require('./lib/simple')
@@ -418,7 +420,7 @@ module.exports = {
           if (!'jadibot' in settings) settings.groupOnly = false
           if (!'nsfw' in settings) settings.nsfw = false
           if (!isNumber(settings.status)) settings.status = 0
-        } else global.db.data.settings[this.user.jid] = {
+        } else global.DATABASE._data.settings[this.user.jid] = {
           anon: true,
           anticall: true,
           antispam: true,
@@ -889,7 +891,21 @@ Klik tombol dibawah↓
         }
         await this.sendMessage(from, 'kamu melanggar aturan', MessageType.extendedText)
         //await this.blockUser(from, 'add')
-    }
+        }
+     },
+     async GroupUpdate({ jid, desc, descId, descTime, descOwner, announce }) {
+    if (!db.data.chats[jid].descUpdate) return
+    if (!desc) return
+    let caption = `
+    @${descOwner.split`@`[0]} telah mengubah deskripsi grup.
+
+    ${desc}
+
+    ketik *.off desc* untuk mematikan pesan ini
+        `.trim()
+    this.sendButton(jid, caption, botwm, 'Matikan Deskripsi', ',off desc', { contextInfo: { mentionedJid: this.parseMention(caption) } })
+
+  }
 }
 
 global.dfail = (type, m, conn) => {
