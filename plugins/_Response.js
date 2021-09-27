@@ -1,6 +1,3 @@
-/*
-* REKODE BY RIZKY
-*/
 let fs = require('fs')
 let handler = m => m
 
@@ -13,60 +10,11 @@ handler.all = async function (m, { isBlocked }) {
     let { isBanned } = DATABASE._data.chats[m.chat]
     let { banned } = DATABASE._data.users[m.sender]
 
-    // ketika ditag
-    try {
-        if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
-            await this.send2Button(m.chat,
-                isBanned ? 'stikerin tidak aktif' : banned ? 'kamu dibanned' : 'stikerin disini',
-                botwm,
-                isBanned ? 'Unban' : banned ? 'Pemilik Bot' : 'Menu',
-                isBanned ? '.unban' : banned ? '.owner' : '.?',
-                m.isGroup ? 'Ban' : isBanned ? 'Unban' : 'Donasi',
-                m.isGroup ? '.ban' : isBanned ? '.unban' : '.donasi', m)
-        }
-    } catch (e) {
-        return
-    }
-
-    // ketika ada yang invite/kirim link grup di chat pribadi
-    if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-        this.sendButton(m.chat, `┌〔 Undang Bot ke Grup 〕
-├ 7 Hari / Rp 5,000
-├ 30 Hari / Rp 10,000
-└────
-
-https://github.com/ariffb25/stikerinbot
-`.trim(), botwm, 'Pemilik Bot', ',owner', m)
-    }
-
-    // salam
-    let reg = /(ass?alam|اَلسَّلاَمُ عَلَيْكُمْ|السلام عليکم)/i
-    let isSalam = reg.exec(m.text)
-    if (isSalam && !m.fromMe) {
-        m.reply(`وَعَلَيْكُمْ السَّلاَمُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ\n_wa\'alaikumussalam wr.wb._`)
-    }
-
-    // backup db
-    if (setting.backup) {
-        if (new Date() * 1 - setting.backupDB > 1000 * 60 * 60) {
-            let d = new Date
-            let date = d.toLocaleDateString('id', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            })
-            await global.db.write()
-            this.reply(global.owner[0] + '@s.whatsapp.net', `Database: ${date}`, null)
-            this.sendFile(global.owner[0] + '@s.whatsapp.net', fs.readFileSync('./database.json'), 'database.json', '', 0, 0, { mimetype: 'application/json' })
-            setting.backupDB = new Date() * 1
-        }
-    }
-
-    // update status
+ //MALESIN
     if (new Date() * 1 - setting.status > 1000) {
         let _uptime = process.uptime() * 1000
         let uptime = clockString(_uptime)
-        await this.setStatus(`Aktif selama ${uptime} | Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Hanya Grup' : 'Publik'} | Powered By RainBot | creator: Rizxyu`).catch(_ => _)
+        await this.setStatus(`Aktif selama ${uptime} | Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Hanya Grup' : 'Publik'} | Powered By RainBot`).catch(_ => _)
         setting.status = new Date() * 1
     }
 
