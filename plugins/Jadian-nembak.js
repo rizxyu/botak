@@ -44,8 +44,8 @@ let handler = async (m, { conn, text }) => {
       conn.reply(m.chat,`*Kamu sudah berpacaran dengan @${global.DATABASE.data.users[m.sender].pasangan.split('@')[0]}*\n\nSilahkan putus dulu (.putus) untuk menembak @${user.split('@')[0]}\n\nBtw yang setia dikit bangsat !\nDenda : Rp. ${format(denda)} (20% saldo)`,m,{contextInfo: {
         mentionedJid: [user,global.DATABASE.data.users[m.sender].pasangan]
       }})
-    }else if(global.DATABASE.data.users[user].pasangan != ""){
-      var pacar = global.DATABASE.data.users[user].pasangan
+    }else if(global.DATABASE.data.users[m.sender].pasangan != ""){
+      var pacar = global.DATABASE.data.users[m.sender].pasangan
       if (global.DATABASE.data.users[pacar].pasangan == user){
         var denda = Math.ceil(global.DATABASE.data.users[m.sender].money/100*20)
         global.DATABASE.data.users[m.sender].money -= denda
