@@ -1,164 +1,85 @@
 let fetch = require('node-fetch')
-
 let util = require('util')
-
 let simple = require('./lib/simple')
-
 let { MessageType } = require('@adiwajshing/baileys')
-
 let { buttonsMessage, contactsArray, image, MimeType } = MessageType
-
 const knights = require('knights-canvas')
-
 const uploadImage = require('./lib/uploadImage')
 
-
-
 const isNumber = x => typeof x === 'number' && !isNaN(x)
-
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
 
 module.exports = {
-
   async handler(chatUpdate) {
-
     // console.log(chatUpdate)
-
     if (!chatUpdate.hasNewMessage) return
-
     if (!chatUpdate.messages && !chatUpdate.count) return
-
     let m = chatUpdate.messages.all()[0]
-
     try {
-
       simple.smsg(this, m)
-
       switch (m.mtype) {
-
         case MessageType.image:
-
         case MessageType.video:
-
         case MessageType.audio:
-
           if (!m.key.fromMe) await delay(1000)
-
           if (!m.msg.url) await this.updateMediaMessage(m)
-
           break
-
       }
-
       m.exp = 0
-
       m.limit = false
-
       try {
-
         let user = global.DATABASE._data.users[m.sender]
-
         if (typeof user !== 'object') global.DATABASE._data.users[m.sender] = {}
-
         if (user) {
-
             if (!isNumber(user.healt)) user.healt = 0
-
             if (!isNumber(user.stamina)) user.stamina = 0
-
             if (!isNumber(user.level)) user.level = 0
-
             if (!isNumber(user.exp)) user.exp = 0
-
             if (!isNumber(user.pc)) user.pc = 0
-
             if (!isNumber(user.limit)) user.limit = 10
-
             if (!isNumber(user.lastclaim)) user.lastclaim = 0
-
-            if (!isNumber(user.money)) user.money = 0
-
-            
+            if (!isNumber(user.money)) user.money = 0           
 
             if (!isNumber(user.trofi)) user.trofi= 0
-
             if (!user.rtrofi) user.rtrofi = 'Perunggu'
-
             if (!isNumber(user.rumahsakit)) user.rumahsakit= 0
-
             if (!isNumber(user.fortress)) user.fortress = 0
 
             if (!isNumber(user.troopcamp)) user.troopcamp = 0
-
             if (!isNumber(user.shield)) user.shield = false
-
             if (!isNumber(user.pertanian)) user.pertanian = 0
-
-            if (!isNumber(user.tambang)) user.tambang = 0
-
-            
-
-            //
+            if (!isNumber(user.tambang)) user.tambang = 0            
 
             if (!isNumber(user.diamond)) user.diamond = 0
-
             if (!isNumber(user.iron)) user.iron = 0
 
-
-
             if (!isNumber(user.common)) user.common = 0
-
             if (!isNumber(user.uncommon)) user.uncommon = 0
-
             if (!isNumber(user.mythic)) user.mythic = 0
-
             if (!isNumber(user.legendary)) user.legendary = 0
-
             if (!isNumber(user.pet)) user.pet = 0
-
             if (!isNumber(user.psepick)) user.psepick = 0
-
             if (!isNumber(user.psenjata)) user.psenjata = 0
 
-        
-
             if (!isNumber(user.potion)) user.potion = 0
-
             if (!isNumber(user.sampah)) user.sampah = 0
-
             if (!isNumber(user.armor)) user.armor = 0
-
-            if (!isNumber(user.pancing)) user.pancing = 0
-
-            
+            if (!isNumber(user.pancing)) user.pancing = 0           
 
             if (!isNumber(user.kucing)) user.kucing = 0
-
             if (!isNumber(user.kucinglastclaim)) user.kucinglastclaim = 0
-
             if (!isNumber(user.kuda)) user.kuda = 0
-
             if (!isNumber(user.kudalastclaim)) user.kudalastclaim = 0
-
             if (!isNumber(user.rubah)) user.rubah = 0
-
             if (!isNumber(user.rubahlastclaim)) user.rubahlastclaim = 0
-
             if (!isNumber(user.anjing)) user.anjing = 0
-
             if (!isNumber(user.anjinglastclaim)) user.anjinglastclaim = 0
-
             //Penambah STAMINA
-
-             if (!isNumber(user.apel)) user.apel = 0
-
-             if (!isNumber(user.ayamb)) user.ayamb = 0
-
-             if (!isNumber(user.ayamg)) user.ayamg = 0
-
-             if (!isNumber(user.sapir)) user.sapir = 0
-
-             if (!isNumber(user.ssapi)) user.ssapi = 0
+            if (!isNumber(user.apel)) user.apel = 0
+            if (!isNumber(user.ayamb)) user.ayamb = 0
+            if (!isNumber(user.ayamg)) user.ayamg = 0
+            if (!isNumber(user.sapir)) user.sapir = 0
+            if (!isNumber(user.ssapi)) user.ssapi = 0
 
              if (!isNumber(user.esteh)) user.esteh = 0
 
@@ -1265,93 +1186,51 @@ module.exports = {
     if (chat.delete) return
 
     await this.send2Button(m.key.remoteJid, `
-
 Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
 
-
-
 Untuk mematikan anti delete 
-
 Klik tombol dibawah↓
-
 `,`©Grup setting`, 'Enable', 
-
 '.enable antidelete', 
-
  'Disable', 
-
  '.disable antidelete', m.message, {
-
       contextInfo: {
-
         mentionedJid: [m.participant]
-
       }
-
     })
-
     this.copyNForward(m.key.remoteJid, m.message).catch(e => console.log(e, m))
-
   },
 
     async onCall(json) {
-
         let { from } = json[2][0][1]
-
         let users = global.DATABASE.data.users
-
         let user = users[from] || {}
-
         if (user.whitelist) return
-
         switch (this.callWhitelistMode) {
-
             case 'mycontact':
-
                 if (from in this.contacts && 'short' in this.contacts[from])
-
                     return
-
                 break
-
         }
-
         await this.sendMessage(from, 'kamu melanggar aturan', MessageType.extendedText)
-
         //await this.blockUser(from, 'add')
-
     }
-
 }
-
-
 
 global.dfail = (type, m, conn) => {
 
   let msg = {
-
     rowner: '*[❗] Creator Only*', 
-
     owner: '*[❗] Owner Only*',
-
     mods: '*[❗] Moderator Only*',
-
     premium: '*[❗] Premium User Only*',
-
     group: '*[❗] Group Only*',
-
     private: '*[❗] Private Only*',
-
     admin: '*[❗] Admin Group Only*',
-
     botAdmin: '*[❗] Bot Admin Only*',
-
     unreg: '── 「 NOT REGISTERED 」 ──\nSilakan Register Terlebih Dahulu Sebelum Menggunakan Bot. Cara Register Cukup Dengan Command *#verify*\n\nNote:\nHarap Save Serial Number Mu Agar Bisa Melakukan Unreg Database Bot'
-
   }[type]
-
   if (msg) return m.reply(msg)
-
 }
 
 
