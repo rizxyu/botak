@@ -7,21 +7,21 @@ let moment = require('moment-timezone')
 const defaultMenu = {
   before: `
 ┌─〔 %me 〕
-├ Hai, %name!
-│
-├ Tersisa *%limit Limit*
-├ Role *%role*
-├ Level *%level (%exp / %maxexp)* [%xp4levelup]
-├ %totalexp XP secara Total
-│ 
+│┌─⌈ Profile %nameꦿ ⌋
+│├ Limit: *%limit*
+│├ Role *%role*
+│├ Level *%level (%exp / %maxexp)* [%xp4levelup]
+│├ %totalexp XP secara Total
+│└───────────────────᯽
+├────⌊ Tanggal dan waktu ⌉
 ├ Tanggal: *%week %weton, %date*
 ├ Tanggal Islam: *%dateIslamic*
 ├ Waktu: *%jam* WIB
-│
-├ Uptime: *%uptime (%muptime)*
-├ Database: %rtotalreg dari %totalreg
-│
-└────────────────────
+│┌────⌊ uptime dan database ⌉
+│├ Uptime: *%uptime (%muptime)*
+│├ Database: %rtotalreg dari %totalreg
+│└────────────────────᯽
+└───────────────────╌┈⳼⚘
 
 ┌─〔 GRUP OFFICIAL 〕
 https://chat.whatsapp.com/F2rJu7MJyjC2Tzzc9Jx3MI
@@ -45,7 +45,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, text, command }) => {
   //avtar = await conn.getProfilePicture(conn.user.jid)
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'rpg', 'randomimage', 'kingdom', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'photooxy', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'rpg', 'jadian', 'randomimage', 'kingdom', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'photooxy', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
@@ -54,6 +54,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, text, command }) => {
     'rpg': 'Rpg',
     'kingdom': 'Kingdom',
     'sticker': 'Stiker',
+    'jadian': 'Jadian',
     'randomimage': 'Random image',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
@@ -87,6 +88,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, text, command }) => {
   }
   if (teks == 'kingdom') tags = {
   	'kingdom': 'Kingdom'
+  }
+  if (teks == 'jadian') tags = {
+  	'jadian': 'Jadian'
   }
 if (teks == 'randomimage') tags = {
   	'randomimage': 'Random image'
@@ -219,24 +223,9 @@ if (teks == 'randomimage') tags = {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `
-╭────⌠ 𝐲𝐨𝐮𝐫 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 ⌡
-│
-├ ${ucapan()}, ${name}
-*├ Tiket/Limit:* ${limit}
-*├ Role:* ${role}
-├ Level: ${level}
-├ Exp: ${exp}/${max}
-│
-├ Bot Uptime:* ${uptime} 
-├ *(${muptime})*
-├ Jam *${jam}* WIB
-│
-├ Tanggal Islam: *${dateIslamic}*
-╰────────────★᭄ꦿ᭄ꦿ
+${ucapan} ${name}
 
-┌─〔 NOTE 〕
-├ JIKA BOT DELAY JANGAN SPAM
-└────────────────────
+List menu ada dibawah
 `.trim(),
           "description": "_janganlah malu terlihat miskin, malulah kita ketika tidak sholat 5 waktu_",
           "buttonText": "Klik Disini",
@@ -246,39 +235,47 @@ if (teks == 'randomimage') tags = {
               "rows": [
                 {
                   "title": `Semua Perintah`,
-                  "description": "",
+                  "description": "Semua perintah ada disini",
                   "rowId": ".? all"
                 }, {
                   "title": "Game",
-                  "description": "",
+                  "description": "Fitur Game",
                   "rowId": ".? game"
                }, {
                   "title": "Rpg",
-                  "description": "",
+                  "description": "Fitur game rpg",
                   "rowId": ".? rpg"
-                  }, {
+               }, {
                   "title": "Kingdom",
-                  "description": "",
+                  "description": "fitur game kingdom",
                   "rowId": ".? kingdom"
-                }, {
+               }, {
+                  "title": "Jadian",
+                  "description": "Fitur jadian",
+                  "rowId": ".? jadian"
+               }, {
                   "title": "XP",
-                  "description": "",
+                  "description": "Fitur xp",
                   "rowId": ".? xp"
                }, {
                   "title": "photooxy",
-                  "description": "",
+                  "description": "Maker menu",
                   "rowId": ".? photooxy"
                 }, {
+                  "title": "Random image",
+                  "description": "Random menu",
+                  "rowId": ".? randomimage"
+                }, {
                   "title": "Stiker",
-                  "description": "",
+                  "description": "stiker fitur",
                   "rowId": ".? stiker"
                 }, {
                   "title": "Kerang Ajaib",
-                  "description": "",
+                  "description": "Spongebob fitur",
                   "rowId": ".? kerangajaib"
                 }, {
                   "title": "Quotes",
-                  "description": "",
+                  "description": "Awokwok",
                   "rowId": ".? quotes"
                 }, {
                   "title": "Admin",
@@ -437,7 +434,7 @@ if (teks == 'randomimage') tags = {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
    //conn.send2Button(m.chat, text.trim(), `•Rain Xyz•`, `Owner`,`.owner`, `Donasi`, `.donasi`, m)
-    conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by Rizxyu', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
+    conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), botwm, 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
