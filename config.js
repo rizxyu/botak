@@ -5,7 +5,7 @@ global.mods = ['6282328303332', '6285783417029'] // moderator
 global.prems = ['6282328303332']  //premium
 global.wait = '[ ⚠️ ] SEDANG DIPROSES...'
 
-global.botwm = '· Rain Xyz ·'
+global.botwm = 'ʀᴀɪɴ ʙᴏᴛ'
 
 global.APIs = { // API Prefix
   // name: 'https://website'
