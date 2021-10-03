@@ -1,23 +1,10 @@
 let fs = require('fs')
 let handler = m => m
 
-handler.all = async function (m, { isBlocked }) {
-
-    if (isBlocked) return
-    if (m.isBaileys) return
-    if (m.chat.endsWith('broadcast')) return
-    let setting = DATABASE._data.settings[this.user.jid]
-    let { isBanned } = DATABASE._data.chats[m.chat]
-    let { banned } = DATABASE._data.users[m.sender]
-
- //MALESIN
-    if (new Date() * 1 - setting.status > 1000) {
+handler.all = async function (m, { conn, isOwner }) {
         let _uptime = process.uptime() * 1000
         let uptime = clockString(_uptime)
-        await this.setStatus(`Aktif selama ${uptime} | Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Hanya Grup' : 'Publik'} | Powered By RainBot`).catch(_ => _)
-        setting.status = new Date() * 1
-    }
-
+        conn.setStatus(`Aktif selama ${uptime} | Powered By RainBot`).catch(_ => _)
 }
 
 module.exports = handler
