@@ -852,14 +852,14 @@ Klik tombol dibawah↓
         let users = global.DATABASE.data.users
         let user = users[from] || {}
         if (user.whitelist) return
-        if (!DATABASE.data.settings.anticall) return
+        //if (!DATABASE.data.settings.anticall) return
         switch (this.callWhitelistMode) {
             case 'mycontact':
                 if (from in this.contacts && 'short' in this.contacts[from])
                     return
                 break
         }
-        await this.sendMessage(from, 'kamu melanggar aturan', MessageType.extendedText)
+        await this.sendMessage(from, 'JANGAN TELPON WEEE!!', MessageType.extendedText)
         //await this.blockUser(from, 'add')
         }
      
