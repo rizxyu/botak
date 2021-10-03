@@ -406,32 +406,6 @@ module.exports = {
           antiJawa: false,
           lastseen: 0
         }
-           
-        let settings = global.DATABASE._data.settings[this.user.jid]
-        if (typeof settings !== 'object') global.DATABASE._data.settings[this.user.jid] = {}
-        if (settings) {
-          if (!'anon' in settings) settings.anon = false
-          if (!'anticall' in settings) settings.anticall = false
-          if (!'antispam' in settings) settings.antispam = false
-          if (!'antitroli' in settings) settings.antitroli = false
-          if (!'backup' in settings) settings.backup = false
-          if (!isNumber(settings.backupDB)) settings.backupDB = 0
-          if (!'groupOnly' in settings) settings.groupOnly = false
-          if (!'jadibot' in settings) settings.groupOnly = false
-          if (!'nsfw' in settings) settings.nsfw = false
-          if (!isNumber(settings.status)) settings.status = 0
-        } else global.DATABASE._data.settings[this.user.jid] = {
-          anon: true,
-          anticall: true,
-          antispam: true,
-          antitroli: true,
-          backup: false,
-          backupDB: 0,
-          groupOnly: false,
-          jadibot: false,
-          nsfw: true,
-          status: 0,
-        }
       } catch (e) {
         console.error(e)
       }
@@ -622,10 +596,6 @@ module.exports = {
 
           }
 
-           if (plugin.nsfw && !global.DATABASE._data.settings.nsfw) { // Nsfw
-            fail('nsfw', m, this)
-            continue
-          }
 
           m.isCommand = true
 
@@ -892,20 +862,7 @@ Klik tombol dibawah↓
         await this.sendMessage(from, 'kamu melanggar aturan', MessageType.extendedText)
         //await this.blockUser(from, 'add')
         }
-     },
-     async GroupUpdate({ jid, desc, descId, descTime, descOwner, announce }) {
-    if (!db.data.chats[jid].descUpdate) return
-    if (!desc) return
-    let caption = `
-    @${descOwner.split`@`[0]} telah mengubah deskripsi grup.
-
-    ${desc}
-
-    ketik *.off desc* untuk mematikan pesan ini
-        `.trim()
-    this.sendButton(jid, caption, botwm, 'Matikan Deskripsi', ',off desc', { contextInfo: { mentionedJid: this.parseMention(caption) } })
-
-  }
+     
 }
 
 global.dfail = (type, m, conn) => {
